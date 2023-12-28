@@ -1,0 +1,13 @@
+{
+    "content" :{
+        "version": "1.0",
+        "home": {
+            "heading": "Home screen heading",
+            "paragraph_1": "content"
+        },
+        "about": {
+            "heading": "About us screen heading",
+            "paragraph_1": "content"
+        }
+    }
+  }

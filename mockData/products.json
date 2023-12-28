@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Prasada",
+      "price": 10,
+      "discount": 0,
+      "image": ["laddu.jpeg"],
+      "shortDescription": "quis nostrum exercitationem ullam corporis suscipit",
+      "fullDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt",
+      "categories": ["Prasadam", "Books"],
+      "stock": 4,
+      "deleted": false
+    },
+    {
+        "name": "Ramayana book",
+        "price": 12,
+        "discount": 0,
+        "image": ["ram.jpeg"],
+        "shortDescription": "quis nostrum exercitationem ullam corporis suscipit",
+        "fullDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt",
+        "categories": ["Prasadam", "Books"],
+        "stock": 2,
+        "deleted": false
+      }
+]

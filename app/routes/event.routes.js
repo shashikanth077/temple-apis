@@ -1,0 +1,31 @@
+const { authJwt } = require("../middlewares");
+const controller = require("../controllers/event.controller");
+
+module.exports = function (app) {
+  app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
+    next();
+  });
+
+  app.get("/api/events", controller.getAllEventsController);
+
+  app.post(
+    "/api/events",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.addEventsController
+  );
+
+  app.post("/api/events/filter", controller.getEventsByFilterController);
+
+  app.put(
+    "/api/event/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.updateEventController
+  );
+
+  app.post(
+    "/api/event/delete/:id",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.deleteEventController
+  );
+};
