@@ -1,7 +1,7 @@
 const God = require("../models/god.model");
 const Service = require("../models/service.model");
 const { logger } = require("../../app/middlewares");
-const { allowedWorshipDays }  = require("../utils/constants");
+const { allowedWorshipDays,PUBLIC_URL }  = require("../utils/constants");
 const { isNullOrUndefined } = require("../utils/index")
 
 const getAllGodsList  = async () => {
@@ -13,20 +13,25 @@ const getAllGodsList  = async () => {
 
 const addGodDetails = async (req) => {
 
-    const isValid = req && req.worshipDay && req.worshipDay.length > 0 && req.worshipDay.every(value => allowedWorshipDays.includes(value));
+    let workDays = JSON.parse(req.body.worshipDay);
+    const isValid = req && workDays && workDays.length > 0 && workDays.every(value => allowedWorshipDays.includes(value));
 
-    if (isNullOrUndefined(req) || isNullOrUndefined(req.name) || !isValid) {
+    if (isNullOrUndefined(req) || isNullOrUndefined(req.body.name) || !isValid) {
         const data = { success: false, message: "invalid request"};
         return {data, status: 400 };
     }
 
+    const imagePath = PUBLIC_URL+'uploads/gods/'+req.file.filename;
+    req.body.image = imagePath;
+
     await new God({
-            name: req.name,
-            image: req.image,
-            worshipDay: req.worshipDay,
+            name: req.body.name,
+            image: req.body.image,
+            worshipDay: workDays,
             createdAt: Date.now(),
             modifiedAt: Date.now()
     }).save();
+
     const data = { success: true, message: 'God details added successfully' };
     return { data, status: 200 };
   };

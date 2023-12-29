@@ -18,13 +18,10 @@ const {
 
   exports.addGodDetailsController = async (req, res, next) => {
     try {
-        const serviceResult = await addGodDetails(
-            req.body,
-          );
-
-          return res.status(serviceResult.status).json(serviceResult.data);
-
+        const serviceResult = await addGodDetails(req);
+        return res.status(serviceResult.status).json(serviceResult.data);
     } catch (error) {
+      console.log(error);
         //logger.error('addGodDetailsController Error:', error);
         res.status(500).json({ success: false, error: 'Internal server error (addGodDetails)' });
     }
@@ -45,6 +42,7 @@ const {
         return res.status(serviceResult.status).json(serviceResult.data);
     } catch (error) {
         //logger.error('updateGodDetails Error:', error);
+        console.log(error);
         res.status(500).json({ success: false, error: 'Something went wrong please try again (updateGodDetails)' });
     }
   };

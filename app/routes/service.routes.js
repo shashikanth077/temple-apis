@@ -3,7 +3,6 @@ const controller = require("../controllers/service.controller");
 const { upload } = require('../utils/fileUpload');
 
 const serviceFolder = upload('uploads/services'); //services folder path
-const godFolder = upload('uploads/gods'); //services gods path
 
 module.exports = function (app) {
   app.use(function (req, res, next) {

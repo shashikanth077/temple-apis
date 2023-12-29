@@ -17,6 +17,11 @@ const getStorage = (imageFolder) => {
         let serviceName = req.body.serviceName.replace(/\s/g, '');
         const filename = `${req.body.godId}_${serviceName}${extension}`;
         cb(null, filename); 
+      } else if("uploads/gods") {
+        const extension = path.extname(file.originalname);
+        let godName = req.body.name.replace(/\s/g, '');
+        const filename = `${godName}${extension}`;
+        cb(null, filename); 
       } else {
         cb(null, file.originalname); 
       }
