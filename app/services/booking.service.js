@@ -1,7 +1,7 @@
 const Service = require("../models/service.model");
 const God = require("../models/god.model");
 const { logger } = require("../../app/middlewares");
-const { allowedBookingTypes, allowedServiceTypes } = require("../utils/constants");
+const { allowedBookingTypes, allowedServiceTypes,PUBLIC_URL } = require("../utils/constants");
 const { isNullOrUndefined } = require("../utils/index")
 
 const getAllServices = async () => {
@@ -67,6 +67,8 @@ const addServiceDetails = async (req) => {
     return { data, status: 404 };
   }
 
+  const imagePath = PUBLIC_URL+'uploads/services/'+req.file.filename;
+  req.body.image = imagePath;
   const serviceData = {
     godId: god._id,
     godName: god.name,

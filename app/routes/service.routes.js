@@ -1,5 +1,9 @@
 const { authJwt } = require("../middlewares");
 const controller = require("../controllers/service.controller");
+const { upload } = require('../utils/fileUpload');
+
+const serviceFolder = upload('uploads/services'); //services folder path
+const godFolder = upload('uploads/gods'); //services gods path
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -24,12 +28,14 @@ module.exports = function (app) {
   app.post(
     "/api/service/:godId",
     [authJwt.verifyToken, authJwt.isAdmin],
+    serviceFolder.single('image'),
     controller.addServiceDetailsController
   );
 
   app.put(
     "/api/service/:godId/:serviceId",
     [authJwt.verifyToken, authJwt.isAdmin],
+    serviceFolder.single('image'),
     controller.updateServiceDetailsController
   );
 

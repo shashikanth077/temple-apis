@@ -1,7 +1,9 @@
 require("express-async-errors");
 require("dotenv").config();
 const express = require("express");
+var bodyParser = require('body-parser');
 const cors = require("cors");
+const path = require("path");
 const cookieSession = require("cookie-session");
 const { logger } = require("./app/middlewares");
 
@@ -9,14 +11,14 @@ const dbConfig = require("./app/config/db.config");
 
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //white listed only respective origin
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
-// parse requests of content-type - application/json
-app.use(express.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+//Make image folder public
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //Basic Auth
 app.use(authenticate);
