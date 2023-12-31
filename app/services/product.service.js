@@ -1,27 +1,33 @@
 const Product = require("../models/product.model");
 const { logger } = require("../../app/middlewares");
+const { PUBLIC_URL } = require("../utils/constants")
 
 const getAllProducts  = async () => {
-    
     const products = await Product.find({deleted: false});
- 
     return { products, count: products.length };
 };
 
 const createProduct = async (req) => {
+
+    const imagePath = PUBLIC_URL+'uploads/products/'+req.file.filename;
+    req.body.image = imagePath;
+
     await new Product({
-            name: req.name,
-            price: req.price,
-            discount: req.discount,
-            image: req.image,
-            shortDescription: req.shortDescription,
-            fullDescription: req.fullDescription,
-            categories: req.categories,
-            stock: req.stock,
-            createdAt: Date.now(),
-            modifiedAt: Date.now()
+        name: req.body.name,
+        price: req.body.price,
+        discount: req.body.discount,
+        image: req.body.image,
+        shortDescription: req.body.shortDescription,
+        fullDescription: req.body.fullDescription,
+        categories: req.body.categories,
+        stock: req.body.stock,
+        createdAt: Date.now(),
+        modifiedAt: Date.now()
     }).save();
-    return { success: true, message: 'New Product Created successfully' };
+
+    const data = { success: true, message: 'Product details added successfully' };
+    return { data, status: 200 };
+
   };
 
   const getProductById = async (req) => {

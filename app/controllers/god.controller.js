@@ -2,14 +2,12 @@ const { logger } = require("../middlewares");
 
 const {
     getAllGodsList, getGodDetailsById, addGodDetails, updateGodDetails, deleteGodDetails
-  } = require("../services/god.service");
+} = require("../services/god.service");
 
   exports.getAllGodsListController = async (req, res, next) => {
     try {
         const gods = await getAllGodsList();
-
         return res.status(200).json(gods);
-
     } catch (error) {
         logger.error('getAllGodsList Error:', error);
         res.status(500).json({ success: false, error: 'Internal server error (getAllGodsList)' });
@@ -21,7 +19,6 @@ const {
         const serviceResult = await addGodDetails(req);
         return res.status(serviceResult.status).json(serviceResult.data);
     } catch (error) {
-      console.log(error);
         //logger.error('addGodDetailsController Error:', error);
         res.status(500).json({ success: false, error: 'Internal server error (addGodDetails)' });
     }

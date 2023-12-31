@@ -7,7 +7,6 @@ const {
   exports.getAllProductsController = async (req, res, next) => {
     try {
         const getAllProductsService = await getAllProducts();
-
         return res.status(200).json(getAllProductsService);
 
     } catch (error) {
@@ -18,12 +17,8 @@ const {
 
   exports.createProductController = async (req, res, next) => {
     try {
-        const newProductService  = await createProduct(
-            req.body,
-          );
-
-        return res.status(200).json(newProductService);
-
+        const newProductService  = await createProduct(req);
+        return res.status(newProductService.status).json(newProductService.data);
     } catch (error) {
         //logger.error('createProductController Error:', error);
         res.status(500).json({ error: 'Internal server error (createProduct)' });

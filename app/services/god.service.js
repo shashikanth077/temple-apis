@@ -5,9 +5,7 @@ const { allowedWorshipDays,PUBLIC_URL }  = require("../utils/constants");
 const { isNullOrUndefined } = require("../utils/index")
 
 const getAllGodsList  = async () => {
-
     const gods = await God.find({deleted: false});
-
     return { success: true, gods, count: gods.length };
 };
 

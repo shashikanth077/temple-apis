@@ -28,7 +28,6 @@ const enquirySchema = new Schema({
     type: Date,
     required: true,
     default: Date.now,
-   // expires: 900,
   }
 });
 

@@ -47,7 +47,6 @@ const FamilyDetailsSchema = new Schema(
       type: Date,
       required: true,
       default: Date.now,
-      //expires: 900,
     },
   },
   { timestamps: true }
