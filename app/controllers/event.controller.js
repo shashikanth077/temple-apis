@@ -51,9 +51,9 @@ exports.getEventsByFilterController = async (req, res, next) => {
 exports.addEventsController = async (req, res, next) => {
   try {
     const events = await addEvents(req.body);
-
     return res.status(200).json(events);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Internal server error (addEvents)" });
   }
 };

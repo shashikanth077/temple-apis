@@ -20,7 +20,6 @@ const {
         const newProductService  = await createProduct(req);
         return res.status(newProductService.status).json(newProductService.data);
     } catch (error) {
-        console.log(error);
         //logger.error('createProductController Error:', error);
         res.status(500).json({ error: 'Internal server error (createProduct)' });
     }

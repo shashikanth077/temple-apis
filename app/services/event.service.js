@@ -12,7 +12,7 @@ const addEvents = async (req) => {
   const eventsArray = req.events;
 
   if (eventsArray.length < 1) {
-    return { success: false, message: "No Events found" };
+    return { success: false, message: "No event found" };
   }
 
   const hasInvalidEvent = eventsArray.some(
