@@ -11,7 +11,6 @@ module.exports = function (app) {
   });
 
   app.get("/api/gods", controller.getAllGodsListController);
-
   app.get("/api/god/:id", controller.getGodDetailsByIdController);
 
   app.post(
