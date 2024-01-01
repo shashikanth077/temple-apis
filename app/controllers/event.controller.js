@@ -50,7 +50,7 @@ exports.getEventsByFilterController = async (req, res, next) => {
 
 exports.addEventsController = async (req, res, next) => {
   try {
-    const events = await addEvents(req.body);
+    const events = await addEvents(req);
     return res.status(200).json(events);
   } catch (error) {
     console.log(error);
