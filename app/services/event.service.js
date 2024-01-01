@@ -2,39 +2,49 @@ const validator = require("validator");
 const Event = require("../models/event.model");
 const { logger } = require("../../app/middlewares");
 const { isValidDateDDMMYYYYFormat } = require("../utils/index");
+const { PUBLIC_URL } = require("../utils/constants")
+
 const getAllEvents = async () => {
   const events = await Event.find({ deleted: false });
-
-  return { events, count: events.length };
+  return {success: true,  events, count: events.length };
 };
 
 const addEvents = async (req) => {
-  const eventsArray = req.events;
+  const event = req.body;
 
-  if (eventsArray.length < 1) {
+  if (event.length < 1) {
     return { success: false, message: "No event found" };
   }
 
-  const hasInvalidEvent = eventsArray.some(
-    (event) =>
-      !validator.isEmail(event.organizerEmail) ||
-      !event.name ||
-      !event.bookingPrice ||
-      !event.organizer ||
-      !event.organizerPhone ||
-      !isValidDateDDMMYYYYFormat(event.startDate) ||
-      !isValidDateDDMMYYYYFormat(event.endDate) ||
-      !event.venue ||
-      !event.image ||
-      !event.description
-  );
+  // const hasInvalidEvent = eventsArray.some(
+  //   (event) => {
 
-  if (hasInvalidEvent) {
-    return { success: false, message: "Bad Request" };
-  }
+  //     console.log(event);
+  //       const imagePath = PUBLIC_URL+'uploads/products/'+req.file.filename;
+  //       req.body.image = imagePath;
+  
+  //       !validator.isEmail(event.organizerEmail) ||
+  //       !event.name ||
+  //       !event.bookingPrice ||
+  //       !event.organizer ||
+  //       !event.organizerPhone ||
+  //       !isValidDateDDMMYYYYFormat(event.startDate) ||
+  //       !isValidDateDDMMYYYYFormat(event.endDate) ||
+  //       !event.venue ||
+  //       !event.image ||
+  //       !event.description
+  //   }
+  // );
 
-  await Promise.all(
-    eventsArray.map(async (event, index) => {
+  // if (hasInvalidEvent) {
+  //   return { success: false, message: "Bad Request" };
+  // }
+
+  const imagePath = PUBLIC_URL+'uploads/events/'+req.file.filename;
+  req.body.image = imagePath;
+
+  // await Promise.all(
+    // eventsArray.map(async (event, index) => {
       await new Event({
         name: event.name,
         bookingPrice: event.bookingPrice,
@@ -49,8 +59,8 @@ const addEvents = async (req) => {
         createdAt: Date.now(),
         modifiedAt: Date.now(),
       }).save();
-    })
-  );
+    // })
+  // );
 
   return { success: true, message: "Events added successfully" };
 };
