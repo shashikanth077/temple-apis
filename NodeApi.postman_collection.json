@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "2482f953-2e67-40a3-9169-e23b15e8297a",
+        "_postman_id": "d662f318-ac76-4d06-9090-d8dd443a947a",
         "name": "NodeApi",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "_exporter_id": "31100246"
@@ -537,14 +537,13 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "http://localhost:8080//api/test/admin",
+                            "raw": "http://localhost:8080/api/test/admin",
                             "protocol": "http",
                             "host": [
                                 "localhost"
                             ],
                             "port": "8080",
                             "path": [
-                                "",
                                 "api",
                                 "test",
                                 "admin"
@@ -953,7 +952,7 @@
                         "header": [],
                         "body": {
                             "mode": "raw",
-                            "raw": "    {\r\n      \"name\": \"God_4\",\r\n      \"image\": [\"sai.jpeg\"],\r\n      \"worshipDay\": [\"Thursday\"]\r\n    }",
+                            "raw": "    {\r\n      \"name\": \"God_4\",\r\n      \"image\": [\"sai.jpeg\"],\r\n      \"worshipDay\": [\"\"]\r\n    }",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -1358,6 +1357,343 @@
                                 "api",
                                 "profile",
                                 "657479ac96712a38f60770ce"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "item": [
+                {
+                    "name": "update user role by userId",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"roles\": [\"user\", \"admin\"]\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/657b9ce763746a61696100ce/roles",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "657b9ce763746a61696100ce",
+                                "roles"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "inactivate/activate user by userId",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"activated\": false\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/657b9ce763746a61696100ce/activate",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "657b9ce763746a61696100ce",
+                                "activate"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get user by userId",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/657b9ce763746a61696100ce/user",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "657b9ce763746a61696100ce",
+                                "user"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get all users",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/users",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "users"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "DonationDetails",
+            "item": [
+                {
+                    "name": "add donation details by userId",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"donationType\": \"Grocery\",\r\n    \"donatedItems\": [\r\n\t{\r\n        \"name\": \"LCD\",\r\n\t\t\"description\": \"Lorem ipsum dolor sit amet.\",\r\n\t\t\"quantity\": 1,\r\n\t\t\"price\": 200\r\n\t},\r\n\t{\r\n        \"name\": \"item_2\",\r\n\t\t\"description\": \"Lorem ipsum dolor sit amet.\",\r\n\t\t\"quantity\": 2,\r\n\t\t\"price\": 830\r\n\t}\r\n   ],\r\n   \"address\": {\r\n\t\t\"address1\": \"45 Burlington road\",\r\n\t\t\"address2\": \"\",\r\n\t\t\"city\": \"Toronto\",\r\n\t\t\"postalCode\": \"2040\",\r\n\t\t\"province\": \"CA\",\r\n\t\t\"phone\": \"09876456\"\r\n   },\r\n   \"isSameAsHomeAddress\": false\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "donation",
+                                "657b9ce763746a61696100ce"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get donation details by userId",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "donation",
+                                "657b9ce763746a61696100ce"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get donation details by userId & donationId",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce/658ebee5bb360045a45b0085",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "donation",
+                                "657b9ce763746a61696100ce",
+                                "658ebee5bb360045a45b0085"
                             ]
                         }
                     },

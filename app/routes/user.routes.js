@@ -19,4 +19,28 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+
+  app.get(
+    "/api/users",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.getAllUsers
+  );
+
+  app.get(
+    "/api/:userId/user",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.getUserByUserId
+  );
+
+  app.put(
+    "/api/:userId/roles",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.updateUserRole
+  );
+
+  app.put(
+    "/api/:userId/activate",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.activateOrDeActivateUserByUserId
+  );
 };
