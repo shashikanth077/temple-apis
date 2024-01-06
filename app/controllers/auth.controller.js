@@ -18,6 +18,8 @@ exports.signup = async (req, res) => {
   const activationToken = crypto.randomBytes(20).toString("hex");
   const clientURL = process.env.CLIENT_URL;
   const activationLink = `${clientURL}/activate/${activationToken}`;
+  const activationTokenExpiry = new Date();
+  activationTokenExpiry.setHours(activationTokenExpiry.getHours() + 24); // Set expiration to 24 hour from now
 
   const user = new User({
     firstName: req.body.firstName,
@@ -25,6 +27,7 @@ exports.signup = async (req, res) => {
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
     activationToken: activationToken,
+    activationTokenExpiry: activationTokenExpiry,
     activated: false,
   });
 
@@ -61,7 +64,7 @@ exports.signup = async (req, res) => {
             res.send({
               success: true,
               message:
-                "User was registered successfully! Activation email sent. Please check your email.",
+                "User was registered successfully! Activation email sent to your registered email and it expires in 24 hours",
             });
           });
         }
@@ -95,12 +98,12 @@ exports.activateEmail = async (req, res) => {
   try {
     const { token } = req.params;
     // Find the user by activation token
-    const user = await User.findOne({ activationToken: token });
+    const user = await User.findOne({ activationToken: token, activationTokenExpiry: { $gt: new Date() } });
 
     if (!user) {
       return res
         .status(404)
-        .send({ success: false, message: "User not found" });
+        .send({ success: false, message: "Invalid or expired activation token" });
     }
 
     // Activate the user

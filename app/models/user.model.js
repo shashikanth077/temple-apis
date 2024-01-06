@@ -19,6 +19,9 @@ const User = mongoose.model(
       required: true,
     },
     activationToken: String,
+    activationTokenExpiry: {
+      type: Date
+    },
     createdDate: {
       type: Date,
       default: Date.now,
@@ -39,6 +42,9 @@ const User = mongoose.model(
         ref: "Role",
       },
     ],
+    viewRoles: {
+      type: Array
+    }
   })
 );
 
