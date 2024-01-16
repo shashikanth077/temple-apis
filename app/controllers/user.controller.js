@@ -47,6 +47,7 @@ exports.updateUserRole = async (req, res) => {
 
     return res.status(result.status).json(result.data);
   } catch (error) {
+    console.log(error);
     //logger.error('updateUserRole Error:', error);
     res.status(500).json({
       error: "Something went wrong please try again (updateUserRole)",

@@ -6,7 +6,7 @@ const { logger } = require("../../app/middlewares");
 const userProfileRoutes = require("../routes/userProfile.routes");
 
 const getAllUsers = async () => {
-  const users = await User.find({ activated: true, deleted: false });
+  const users = await User.find({  deleted: false });
   if (!users || users.length === 0) {
     const data = { success: false, message: "Users details not found" };
     return { data, status: 404 };
@@ -94,12 +94,10 @@ const updateUserRole = async (req, res) => {
     return { data, status: 400 };
   }
 
-  const isValidUserRoles =
-    req & req.body &&
-    req.body.roles &&
-    req.body.roles.length > 0 &&
-    allowedUserRoles.includes(req.body.roles);
+  console.log("roles", req.body.roles);
+  const isValidUserRoles = (req.body && req.body.roles.length > 0 );
 
+    console.log(isValidUserRoles);
   if (!isValidUserRoles) {
     const data = { success: false, message: "invalid user roles in request" };
     return { data, status: 400 };
@@ -125,7 +123,7 @@ const updateUserRole = async (req, res) => {
   if (roleIds && roleIds.length > 0) {
     await User.findByIdAndUpdate(
       req.params.userId,
-      { $set: { roles: ids }, modifiedAt: Date.now() },
+      { $set: { roles: roleIds }, modifiedAt: Date.now() },
       { runValidators: true, new: true }
     );
   }
