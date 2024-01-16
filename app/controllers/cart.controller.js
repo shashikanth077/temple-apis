@@ -120,11 +120,11 @@ exports.addCart = async (req, res) => {
 };
 
 exports.deleteCart = async (req, res) => {
-  const userId = req.body["userid"];
+  const userId = req.params.userid;
   const user = await User.findOne({ _id: userId });
-  const sessionId = req.headers["session"]; //req.session;
+  const sessionId = req.headers["session"]; 
   const owner = user != null ? user._id : null;
-  const productId = req.body.productId;
+  const productId = req.params.productId;
   console.log(productId);
 
   try {
@@ -135,11 +135,14 @@ exports.deleteCart = async (req, res) => {
     );
 
     if (itemIndex > -1) {
-      cart.items.splice(itemIndex, 1);
-      console.log(cart);
-      console.log(cart.items);
+      cart.items = cart.items.filter((item) => item.productId != productId)
+
       cart.totalPrice = cart.items.reduce((acc, curr) => {
         return acc + curr.quantity * curr.price;
+      }, 0);
+
+      cart.totalQuantity = cart.items.reduce((acc, curr) => {
+        return acc + curr.quantity ;
       }, 0);
 
       cart = await cart.save();
