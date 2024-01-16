@@ -6,7 +6,7 @@ module.exports = function (app) {
     next();
   });
 
-  app.get("/api/cart", controller.getCart);
+  app.get("/api/cart/:id", controller.getCart);
 
   app.post("/api/cart", controller.addCart);
 

@@ -5,13 +5,13 @@ const Product = require("../models/product.model");
 
 //get cart
 exports.getCart = async (req, res) => {
-  const userId = req.headers["userid"];
 
+  const userId = req.params.id;
   const user = await User.findOne({ _id: userId });
-  const sessionId = req.headers["session"]; //req.session;
+  const sessionId = req.headers["session"]; 
 
   const owner = user != null ? user._id : null;
-  console.log(owner);
+  
   try {
     let cart;
     if (owner != null) {
@@ -32,9 +32,9 @@ exports.getCart = async (req, res) => {
 
 //add item to cart (and create cart [in db] if it's the first item)
 exports.addCart = async (req, res) => {
-  const userId = req.headers["userid"];
+  const userId = req.body["userid"];
   const user = await User.findOne({ _id: userId });
-  const sessionId = req.headers["session"]; //req.session;
+  const sessionId = req.headers["session"]; 
   const owner = user != null ? user._id : null;
 
   const { productId, quantity } = req.body;
@@ -49,9 +49,10 @@ exports.addCart = async (req, res) => {
     const price = product.price;
     const name = product.name;
     const stock = product.stock;
+    const image = product.image;
 
     let cart = await setHeaderQuery(owner, sessionId);
-
+  
     if (quantity > stock) {
       res.status(400).send({ message: `Only ${stock} quantity available` });
       return;
@@ -62,21 +63,38 @@ exports.addCart = async (req, res) => {
       const itemIndex = cart.items.findIndex(
         (item) => item.productId == productId
       );
+
       //check if product exists or not
-      if (itemIndex > -1) {
+      if (itemIndex != -1) {
         let item = cart.items[itemIndex];
-        item.quantity += quantity;
+       
+        if(req.body.type){
+          console.log("minus");
+          item.quantity -= quantity;
+        } else {
+          item.quantity += quantity;
+        }
 
         cart.totalPrice = cart.items.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
         }, 0);
 
+        cart.totalQuantity = cart.items.reduce((acc, curr) => {
+          return acc + curr.quantity ;
+        }, 0);
+
+        console.log("item",cart);
         cart.sessionId = sessionId;
         cart.items[itemIndex] = item;
         await cart.save();
         res.status(200).send(cart);
       } else {
-        cart.items.push({ productId, name, quantity, price });
+        cart.items.push({ productId, name, quantity, price,image });
+
+        cart.totalQuantity = cart.items.reduce((acc, curr) => {
+          return acc + curr.quantity ;
+        }, 0);
+
         cart.totalPrice = cart.items.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
         }, 0);
@@ -90,7 +108,7 @@ exports.addCart = async (req, res) => {
       const newCart = await Cart.create({
         owner,
         sessionId: sessionId,
-        items: [{ productId, name, quantity, price }],
+        items: [{ productId, name, quantity, price,image }],
         totalPrice: quantity * price,
       });
       return res.status(201).send(newCart);
@@ -102,7 +120,7 @@ exports.addCart = async (req, res) => {
 };
 
 exports.deleteCart = async (req, res) => {
-  const userId = req.headers["userid"];
+  const userId = req.body["userid"];
   const user = await User.findOne({ _id: userId });
   const sessionId = req.headers["session"]; //req.session;
   const owner = user != null ? user._id : null;
@@ -115,7 +133,7 @@ exports.deleteCart = async (req, res) => {
     const itemIndex = cart.items.findIndex(
       (item) => item.productId == productId
     );
-    console.log(itemIndex);
+
     if (itemIndex > -1) {
       cart.items.splice(itemIndex, 1);
       console.log(cart);

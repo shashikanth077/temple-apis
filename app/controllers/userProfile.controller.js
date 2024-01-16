@@ -40,6 +40,7 @@ exports.updateUserProfileController = async (req, res) => {
     return res.status(result.status).json(result.data);
   } catch (error) {
     //logger.error('updateProduct Error:', error);
+    console.log(error);
     res
       .status(500)
       .json({
