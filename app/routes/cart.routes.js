@@ -10,5 +10,5 @@ module.exports = function (app) {
 
   app.post("/api/cart", controller.addCart);
 
-  app.delete("/api/cart/delete", controller.deleteCart);
+  app.get("/api/cart/delete/:productId/:userid", controller.deleteCart);
 };
