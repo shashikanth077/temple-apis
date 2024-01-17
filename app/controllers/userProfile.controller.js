@@ -10,7 +10,6 @@ const {
 exports.getUserProfileByUserId = async (req, res) => {
   try {
     const profile = await getUserProfileByUserId(req.params.userId);
-
     return res.status(profile.status).json(profile.data);
   } catch (error) {
     logger.error("getUserProfilesService Error:", error);
@@ -23,7 +22,6 @@ exports.getUserProfileByUserId = async (req, res) => {
 exports.createUserProfileController = async (req, res) => {
   try {
     const result = await createUserProfile(req);
-
     return res.status(result.status).json(result.data);
   } catch (message) {
     //logger.error('createUserProfileController Error:', error);

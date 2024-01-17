@@ -130,26 +130,36 @@ exports.deleteCart = async (req, res) => {
   try {
     let cart = await setHeaderQuery(owner, sessionId);
 
-    const itemIndex = cart.items.findIndex(
-      (item) => item.productId == productId
-    );
-
-    if (itemIndex > -1) {
-      cart.items = cart.items.filter((item) => item.productId != productId)
-
-      cart.totalPrice = cart.items.reduce((acc, curr) => {
-        return acc + curr.quantity * curr.price;
-      }, 0);
-
-      cart.totalQuantity = cart.items.reduce((acc, curr) => {
-        return acc + curr.quantity ;
-      }, 0);
+    if(req.params.productId ==0) {
+      cart.items = [];
+      cart.totalPrice = 0;
+      cart.totalQuantity = 0;
 
       cart = await cart.save();
       res.status(200).send(cart);
     } else {
-      res.status(404).send("item not found");
+      const itemIndex = cart.items.findIndex(
+        (item) => item.productId == productId
+      );
+  
+      if (itemIndex > -1) {
+        cart.items = cart.items.filter((item) => item.productId != productId)
+  
+        cart.totalPrice = cart.items.reduce((acc, curr) => {
+          return acc + curr.quantity * curr.price;
+        }, 0);
+  
+        cart.totalQuantity = cart.items.reduce((acc, curr) => {
+          return acc + curr.quantity ;
+        }, 0);
+  
+        cart = await cart.save();
+        res.status(200).send(cart);
+      } else {
+        res.status(404).send("item not found");
+      }
     }
+    
   } catch (error) {
     console.log(error);
     res.status(400).send();
