@@ -24,6 +24,15 @@ const ServiceSchema = new Schema(
     image: {
       type: String
     },
+    daysahead: {
+      type: String
+    },
+    occurmonth: {
+      type: String
+    },
+    frequency: {
+      type: String
+    },
     bookingType: {
       type: String,
       required: true,
