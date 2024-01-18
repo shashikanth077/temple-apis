@@ -6,7 +6,12 @@ const { PUBLIC_URL } = require("../utils/constants")
 
 const getAllEvents = async () => {
   const events = await Event.find({ deleted: false });
-  return {success: true,  events, count: events.length };
+  return {success:true, events,count: events.length };
+};
+
+const getEventById = async (req) => {
+  const event = await Event.findOne({ _id: req.params.id });
+  return {success:true,event };
 };
 
 const addEvents = async (req) => {
@@ -128,6 +133,7 @@ const deleteEvent = async (req) => {
 
 module.exports = {
   getAllEvents,
+  getEventById,
   addEvents,
   getEventsByDateFilter,
   updateEvent,

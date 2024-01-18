@@ -11,6 +11,7 @@ module.exports = function (app) {
   });
 
   app.get("/api/events", controller.getAllEventsController);
+  app.get("/api/event/:id", controller.getEventByIdController);
 
   app.post(
     "/api/events",

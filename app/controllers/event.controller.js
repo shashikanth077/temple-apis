@@ -4,6 +4,7 @@ const { eventNames } = require("../models/enquiry.model");
 const {
   getAllEvents,
   addEvents,
+  getEventById,
   getEventsByDateFilter,
   updateEvent,
   deleteEvent,
@@ -22,16 +23,16 @@ exports.getAllEventsController = async (req, res, next) => {
   }
 };
 
-exports.getAllEventsController = async (req, res, next) => {
+exports.getEventByIdController = async (req, res, next) => {
   try {
-    const getAllEventService = await getAllEvents();
-
-    return res.status(200).json(getAllEventService);
+    const event = await getEventById(req);
+    return res.status(200).json(event);
   } catch (error) {
-    logger.error("getAllEventService Error:", error);
+    logger.error("getEventById Error:", error);
+    console.log(error);
     res
       .status(500)
-      .json({ error: "Internal server error (getAllEventService)" });
+      .json({ error: "Internal server error (getEventById)" });
   }
 };
 
