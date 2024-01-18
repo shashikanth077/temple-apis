@@ -68,8 +68,7 @@ exports.addCart = async (req, res) => {
       if (itemIndex != -1) {
         let item = cart.items[itemIndex];
        
-        if(req.body.type){
-          console.log("minus");
+        if(req.body.type === 'decrease'){
           item.quantity -= quantity;
         } else {
           item.quantity += quantity;

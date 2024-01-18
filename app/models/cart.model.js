@@ -38,8 +38,8 @@ const cartSchema = new Schema(
         quantity: {
           type: Number,
           required: true,
-          min: 1,
-          default: 1,
+          // min: 1,
+          default: 0,
         },
         price: {
           type: Number,
