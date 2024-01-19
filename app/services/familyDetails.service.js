@@ -2,18 +2,42 @@ const FamilyDetails = require("../models/familyDetails.model");
 const User = require("../models/user.model");
 const { logger } = require("../../app/middlewares");
 
-const getFamilyDetailsByUserId = async (userId) => {
-  const user = await User.findOne({ _id: userId, activated: true });
+const getFamilyDetailsByUserId = async (req) => {
+
+  const user = await User.findOne({ _id: req.params.userId, activated: true });
   if (!user) {
     const data = { success: false, message: "User not found" };
     return { data, status: 404 };
   }
 
-  const familyDetails = await FamilyDetails.find({ userId: userId });
+  const familyDetails = await FamilyDetails.findOne({ userId: req.params.userId,_id:req.params.id });
   if (!familyDetails) {
     const data = {
       success: true,
       family,
+      message: "User family not available",
+    };
+    return { data, status: 200 };
+  }
+
+  const data = { success: true, familyDetails };
+
+  return { data, status: 200 };
+};
+
+const getFamilyListByUserId = async (req) => {
+
+  const user = await User.findOne({ _id: req.params.userId, activated: true });
+  if (!user) {
+    const data = { success: false, message: "User not found" };
+    return { data, status: 404 };
+  }
+
+  const familyDetails = await FamilyDetails.find({ userId: req.params.userId });
+  if (!familyDetails) {
+    const data = {
+      success: true,
+      families:familyDetails,
       message: "User family not available",
     };
     return { data, status: 200 };
@@ -31,6 +55,7 @@ const createFamilyDetails = async (req, res) => {
     const data = { success: false, message: "User not found" };
     return { data, status: 404 };
   }
+
   const familyData = {
     userId: user._id,
     ...req.body,
@@ -87,7 +112,6 @@ const updateFamilyDetails = async (req, res) => {
   const data = {
     success: true,
     message: "FamilyDetails updated successfully",
-    familyDetails,
   };
   return { data, status: 200 };
 };
@@ -143,4 +167,5 @@ module.exports = {
   createFamilyDetails,
   updateFamilyDetails,
   deleteFamilyDetails,
+  getFamilyListByUserId
 };
