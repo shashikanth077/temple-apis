@@ -8,9 +8,15 @@ module.exports = function (app) {
   });
 
   app.get(
-    "/api/family/:userId",
+    "/api/family/:userId/:id",
     [authJwt.verifyToken],
     controller.getFamilyDetailsByUserId
+  );
+
+  app.get(
+    "/api/families/:userId",
+    [authJwt.verifyToken],
+    controller.getFamilyListByUserId
   );
 
   app.post(

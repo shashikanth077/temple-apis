@@ -48,14 +48,13 @@ const createUserProfile = async (req, res) => {
   };
 
   await new UserProfile(profileData).save();
-
   const data = { success: true, message: "User Profile Created successfully" };
-
   return { data, status: 200 };
 };
 
 const updateUserProfile = async (req, res) => {
   const user = await User.findOne({ _id: req.params.userId, activated: true });
+  
   if (!user) {
     const data = { success: false, message: "User not found" };
     return { data, status: 404 };

@@ -5,18 +5,32 @@ const {
   createFamilyDetails,
   updateFamilyDetails,
   deleteFamilyDetails,
+  getFamilyListByUserId
 } = require("../services/familyDetails.service");
 
 exports.getFamilyDetailsByUserId = async (req, res) => {
   try {
-    const family = await getFamilyDetailsByUserId(req.params.userId);
-
+    const family = await getFamilyDetailsByUserId(req);
     return res.status(family.status).json(family.data);
   } catch (error) {
     logger.error("getFamilyDetailsService Error:", error);
+    console.log(error);
     res
       .status(500)
       .json({ error: "Internal server error (getFamilyDetailsService)" });
+  }
+};
+
+exports.getFamilyListByUserId = async (req, res) => {
+  try {
+    const family = await getFamilyListByUserId(req);
+    return res.status(family.status).json(family.data);
+  } catch (error) {
+    logger.error("getFamilyListByUserId Error:", error);
+    console.log(error);
+    res
+      .status(500)
+      .json({ error: "Internal server error (getFamilyListByUserId)" });
   }
 };
 

@@ -5,14 +5,9 @@ const familySchema = new Schema({
   relationship: String,
   firstName: String,
   lastName: String,
-  email: String,
-  mobileNumber: String,
-  homeNumber: String,
   dateOfBirth: String,
-  nationality: String,
   star: String,
-  gotram: String,
-  language: String,
+  gotram: String
 });
 
 const deceasedAncestorsSchema = new Schema({
@@ -41,11 +36,31 @@ const FamilyDetailsSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "UserProfile",
     },
-    family: familySchema,
-    deceasedAncestors: deceasedAncestorsSchema,
+    relationship:{
+      type:String,
+    },
+    firstName:{
+      type:String,
+    },
+    lastName:{
+      type:String,
+    },
+    dateOfBirth:{
+      type:String,
+    },
+    star:{
+      type:String,
+    },
+    gotram:{
+      type:String,
+    },
     createdAt: {
       type: Date,
       required: true,
+      default: Date.now,
+    },
+    modifiedAt: {
+      type: Date,
       default: Date.now,
     },
   },
