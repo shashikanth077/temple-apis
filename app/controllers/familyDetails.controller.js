@@ -37,10 +37,9 @@ exports.getFamilyListByUserId = async (req, res) => {
 exports.createFamilyDetailsController = async (req, res) => {
   try {
     const result = await createFamilyDetails(req);
-
     return res.status(result.status).json(result.data);
   } catch (message) {
-    //logger.error('FamilyDetailsController Error:', error);
+    logger.error('FamilyDetailsController Error:', error);
     res
       .status(500)
       .json({ message: "Internal server error (createFamilyDetails)" });
@@ -53,7 +52,7 @@ exports.updateFamilyDetailsController = async (req, res) => {
 
     return res.status(result.status).json(result.data);
   } catch (error) {
-    //logger.error('updateFamilyDetails Error:', error);
+    logger.error('updateFamilyDetails Error:', error);
     res.status(500).json({
       error: "Something went wrong please try again (updateFamilyDetails)",
     });
@@ -63,10 +62,9 @@ exports.updateFamilyDetailsController = async (req, res) => {
 exports.deleteFamilyDetailsController = async (req, res) => {
   try {
     const result = await deleteFamilyDetails(req);
-
     return res.status(result.status).json(result.data);
   } catch (error) {
-    //logger.error('deleteFamilyDetails Error:', error);
+    logger.error('deleteFamilyDetails Error:', error);
     res.status(500).json({
       error: "Something went wrong please try again (deleteFamilyDetails)",
     });
