@@ -77,6 +77,9 @@ require("./app/routes/userProfile.routes")(app);
 // family details
 require("./app/routes/familyDetails.routes")(app);
 
+//deceased persons details
+require("./app/routes/deceasedDetails.routes")(app);
+
 // god details
 require("./app/routes/god.routes")(app);
 

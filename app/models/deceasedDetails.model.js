@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const FamilyDetailsSchema = new Schema(
+const DeceasedPersonDetails = new Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -15,14 +15,26 @@ const FamilyDetailsSchema = new Schema(
     relationship:{
       type:String,
     },
-    firstName:{
+    personName:{
       type:String,
     },
-    lastName:{
+    masam:{
+        type:String
+    },
+    deathDate:{
       type:String,
     },
-    dateOfBirth:{
-      type:String,
+    tithi:{
+        type:String
+    },
+    deathPlace:{
+        type:String
+    },
+    paksha:{
+        type:String
+    },
+    deathTime:{
+        type:String
     },
     star:{
       type:String,
@@ -43,4 +55,4 @@ const FamilyDetailsSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("familyDetails", FamilyDetailsSchema);
+module.exports = mongoose.model("deceasedPersonDetails", DeceasedPersonDetails);

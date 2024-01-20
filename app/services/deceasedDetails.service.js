@@ -1,8 +1,8 @@
-const FamilyDetails = require("../models/familyDetails.model");
+const DeceasedDetails = require("../models/deceasedDetails.model");
 const User = require("../models/user.model");
 const { logger } = require("../../app/middlewares");
 
-const getFamilyDetailsByUserId = async (req) => {
+const getDeceasedDetailsByUserId = async (req) => {
 
   const user = await User.findOne({ _id: req.params.userId, activated: true });
   if (!user) {
@@ -10,22 +10,22 @@ const getFamilyDetailsByUserId = async (req) => {
     return { data, status: 404 };
   }
 
-  const familyDetails = await FamilyDetails.findOne({ userId: req.params.userId,_id:req.params.id });
-  if (!familyDetails) {
+  const deceased = await DeceasedDetails.findOne({ userId: req.params.userId,_id:req.params.id });
+  if (!deceased) {
     const data = {
       success: true,
-      family,
-      message: "User family not available",
+      deceased,
+      message: "User Deceased not available",
     };
     return { data, status: 200 };
   }
 
-  const data = { success: true, familyDetails };
+  const data = { success: true, deceased };
 
   return { data, status: 200 };
 };
 
-const getFamilyListByUserId = async (req) => {
+const getDeceasedListByUserId = async (req) => {
 
   const user = await User.findOne({ _id: req.params.userId, activated: true });
   if (!user) {
@@ -33,21 +33,21 @@ const getFamilyListByUserId = async (req) => {
     return { data, status: 404 };
   }
 
-  const familyDetails = await FamilyDetails.find({ userId: req.params.userId });
-  if (!familyDetails) {
+  const deceasedlist = await DeceasedDetails.find({ userId: req.params.userId });
+  if (!deceasedlist) {
     const data = {
       success: true,
-      families:familyDetails,
-      message: "User family not available",
+      families:DeceasedDetails,
+      message: "User Deceased not available",
     };
     return { data, status: 200 };
   }
 
-  const data = { success: true, familyDetails };
+  const data = { success: true, deceasedlist };
   return { data, status: 200 };
 };
 
-const createFamilyDetails = async (req, res) => {
+const createDeceasedDetails = async (req, res) => {
   const user = await User.findOne({ _id: req.params.userId, activated: true });
 
   if (!user) {
@@ -55,67 +55,67 @@ const createFamilyDetails = async (req, res) => {
     return { data, status: 404 };
   }
 
-  const familyData = {
+  const DeceasedData = {
     userId: user._id,
     ...req.body,
     createdAt: Date.now(),
     modifiedAt: Date.now(),
   };
 
-  await new FamilyDetails(familyData).save();
+  await new DeceasedDetails(DeceasedData).save();
 
   const data = {
     success: true,
-    message: "Family Details Created successfully",
+    message: "Deceased Details Created successfully",
   };
 
   return { data, status: 200 };
 };
 
-const updateFamilyDetails = async (req, res) => {
+const updateDeceasedDetails = async (req, res) => {
   const user = await User.findOne({ _id: req.params.userId, activated: true });
   if (!user) {
     const data = { success: false, message: "User not found" };
     return { data, status: 404 };
   }
 
-  if (!req.params.familyId) {
+  if (!req.params.deceasedId) {
     const data = {
       success: false,
-      message: "family detail invalid for this user",
+      message: "Deceased detail invalid for this user",
     };
     return { data, status: 404 };
   }
 
-  const existingFamilyId = await FamilyDetails.findOne({
-    _id: req.params.familyId,
+  const existingDeceasedId = await DeceasedDetails.findOne({
+    _id: req.params.deceasedId,
   });
 
-  if (!existingFamilyId || existingFamilyId === null) {
+  if (!existingDeceasedId || existingDeceasedId === null) {
     const data = {
       success: false,
-      message: "Family Details doesn't exists for this user",
+      message: "Deceased Details doesn't exists for this user",
     };
     return { data, status: 404 };
   }
 
-  const familyData = {
+  const DeceasedData = {
     ...req.body,
   };
 
-  const familyDetails = await FamilyDetails.findByIdAndUpdate(
-    req.params.familyId,
-    { $set: familyData },
+  const DeceasedList = await DeceasedDetails.findByIdAndUpdate(
+    req.params.deceasedId,
+    { $set: DeceasedData },
     { runValidators: true, new: true }
   );
   const data = {
     success: true,
-    message: "FamilyDetails updated successfully",
+    message: "DeceasedDetails updated successfully",
   };
   return { data, status: 200 };
 };
 
-const deleteFamilyDetails = async (req, res) => {
+const deleteDeceasedDetails = async (req, res) => {
   const user = await User.findOne({ _id: req.params.userId, activated: true });
 
   if (!user) {
@@ -123,48 +123,48 @@ const deleteFamilyDetails = async (req, res) => {
     return { data, status: 404 };
   }
 
-  if (!req.params.familyId) {
+  if (!req.params.deceasedId) {
     const data = {
       success: false,
-      message: "family detail invalid for this user",
+      message: "Deceased detail invalid for this user",
     };
     return { data, status: 404 };
   }
 
-  const existingFamilyId = await FamilyDetails.findOne({
-    _id: req.params.familyId,
+  const existingDeceasedId = await DeceasedDetails.findOne({
+    _id: req.params.deceasedId,
   });
 
-  if (!existingFamilyId || existingFamilyId === null) {
+  if (!existingDeceasedId || existingDeceasedId === null) {
     const data = {
       success: false,
-      message: "Family Details doesn't exists for this user",
+      message: "Deceased Details doesn't exists for this user",
     };
     return { data, status: 404 };
   }
 
-  const family = await FamilyDetails.deleteOne({ _id: req.params.familyId });
+  const Deceased = await DeceasedDetails.deleteOne({ _id: req.params.deceasedId });
 
-  if (!family) {
+  if (!Deceased) {
     const data = {
       success: false,
-      message: "Family details doesn't exists",
+      message: "Deceased details doesn't exists",
     };
     return { data, status: 404 };
   }
 
   const data = {
     success: true,
-    message: "Family Details deleted successfully",
+    message: "Deceased Details deleted successfully",
   };
 
   return { data, status: 200 };
 };
 
 module.exports = {
-  getFamilyDetailsByUserId,
-  createFamilyDetails,
-  updateFamilyDetails,
-  deleteFamilyDetails,
-  getFamilyListByUserId
+  getDeceasedDetailsByUserId,
+  createDeceasedDetails,
+  updateDeceasedDetails,
+  deleteDeceasedDetails,
+  getDeceasedListByUserId
 };
