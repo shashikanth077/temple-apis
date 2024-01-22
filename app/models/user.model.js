@@ -18,6 +18,10 @@ const User = mongoose.model(
       type: String,
       required: true,
     },
+    phonenumber :{
+      type:String,
+      required: true,
+    },
     activationToken: String,
     activationTokenExpiry: {
       type: Date
@@ -25,7 +29,6 @@ const User = mongoose.model(
     createdDate: {
       type: Date,
       default: Date.now,
-      //expires: 86400
     },
     modifiedAt: {
       type: Date,
