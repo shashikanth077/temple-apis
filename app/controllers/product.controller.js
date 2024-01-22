@@ -41,6 +41,7 @@ const {
         return res.status(productService.status).json(productService.data);
     } catch (error) {
         //logger.error('updateProduct Error:', error);
+        console.log(error);
         res.status(500).json({ error: 'Something went wrong please try again (updateProduct)' });
     }
   };

@@ -1,6 +1,7 @@
 const Product = require("../models/product.model");
 const { logger } = require("../../app/middlewares");
 const { PUBLIC_URL } = require("../utils/constants")
+const {isNullOrUndefined} = require("../utils")
 
 const getAllProducts  = async () => {
     const products = await Product.find({deleted: false});
@@ -50,11 +51,18 @@ const updateProduct = async (req) => {
         return {data, status: 404 };
     }
 
+    if(isNullOrUndefined(req.file?.filename)){
+        req.body.image = existingProduct.image;
+    } else {
+        const imagePath = PUBLIC_URL+'uploads/products/'+req?.file?.filename;
+        req.body.image = imagePath;     
+    }
+
     const product = await Product.findByIdAndUpdate(req.params.id, 
-        {$set: req.body},
-        { runValidators: true, new: true });
-        const data = { success: true,  message: "Product updated successfully", product};
-        return {data, status: 200 };
+    {$set: req.body},
+    { runValidators: true, new: true });
+    const data = { success: true,  message: "Product updated successfully", product};
+    return {data, status: 200 };
 };
 
 const deleteProduct = async (req) => {

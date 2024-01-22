@@ -2,7 +2,7 @@ const God = require("../models/god.model");
 const Service = require("../models/service.model");
 const { logger } = require("../../app/middlewares");
 const { allowedWorshipDays,PUBLIC_URL }  = require("../utils/constants");
-const { isNullOrUndefined } = require("../utils/index")
+const { isNullOrUndefined } = require("../utils")
 
 const getAllGodsList  = async () => {
     const gods = await God.find({deleted: false});
@@ -48,12 +48,28 @@ const addGodDetails = async (req) => {
 
 const updateGodDetails = async (req) => {
     const existingGod = await God.findOne({ _id: req.params.id, deleted: false});
+   
+    let workDays = JSON.parse(req.body.worshipDay);
 
     if (!existingGod) {
         const data = { success: false, message: "God details doesn't exist"};
         return {data, status: 404 };
     }
 
+    if(isNullOrUndefined(req.file?.filename)){
+        req.body.image = existingGod.image;
+    } else {
+        const imagePath = PUBLIC_URL+'uploads/gods/'+req?.file?.filename;
+        req.body.image = imagePath;     
+    }
+
+    if(req.body?.name !== existingGod.name){
+        req.body.name = existingGod.name;
+    } else {
+        req.body.name = req.body?.name;     
+    }
+
+    req.body.worshipDay = workDays;
     const result = await God.findByIdAndUpdate(req.params.id, 
         {$set: req.body},
         { runValidators: true, new: true });
