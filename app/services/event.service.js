@@ -1,7 +1,7 @@
 const validator = require("validator");
 const Event = require("../models/event.model");
 const { logger } = require("../../app/middlewares");
-const { isValidDateDDMMYYYYFormat } = require("../utils/index");
+const { isValidDateDDMMYYYYFormat,isNullOrUndefined } = require("../utils");
 const { PUBLIC_URL } = require("../utils/constants")
 
 const getAllEvents = async () => {
@@ -97,6 +97,13 @@ const updateEvent = async (req) => {
 
   if (!existingEvent) {
     return { success: false, message: "Event doesn't exists" };
+  }
+
+  if(isNullOrUndefined(req.file?.filename)){
+    req.body.image = existingEvent.image;
+  } else {
+    const imagePath = PUBLIC_URL+'uploads/events/'+req?.file?.filename;
+    req.body.image = imagePath;     
   }
 
   const event = await Event.findByIdAndUpdate(

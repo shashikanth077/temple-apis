@@ -111,6 +111,13 @@ const addServiceDetails = async (req) => {
       return { data, status: 404 };
     }
   
+    if(isNullOrUndefined(req.file?.filename)){
+      req.body.image = existingServiceId.image;
+    } else {
+      const imagePath = PUBLIC_URL+'uploads/events/'+req?.file?.filename;
+      req.body.image = imagePath;     
+    }
+
     const serviceData = {
       ...req.body,
     };

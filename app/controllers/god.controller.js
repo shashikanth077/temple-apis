@@ -10,6 +10,7 @@ const {
         return res.status(200).json(gods);
     } catch (error) {
         logger.error('getAllGodsList Error:', error);
+        console.log(error);
         res.status(500).json({ success: false, error: 'Internal server error (getAllGodsList)' });
     }
   };
