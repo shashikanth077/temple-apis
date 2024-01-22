@@ -25,6 +25,7 @@ exports.signup = async (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
+    phonenumber:req.body.phonenumber,
     password: bcrypt.hashSync(req.body.password, 8),
     activationToken: activationToken,
     activationTokenExpiry: activationTokenExpiry,
@@ -59,7 +60,6 @@ exports.signup = async (req, res) => {
               res.status(500).send({ message: err });
               return;
             }
-
             SendAccountActivationEmail(user, activationLink);
             res.send({
               success: true,
