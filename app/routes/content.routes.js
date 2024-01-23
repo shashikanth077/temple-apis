@@ -1,4 +1,8 @@
 const controller = require("../controllers/content.controller");
+const { authJwt } = require("../middlewares");
+const { upload } = require('../utils/fileUpload');
+
+const staticFolder = upload('uploads/staticfile'); 
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -8,6 +12,15 @@ module.exports = function (app) {
 
   app.get(
     "/api/content",
-    controller.contentController
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.getStaticContentJson
   );
+
+  app.post(
+    "/api/staticupload",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    staticFolder.single('staticFile'),
+    controller.uploadStaticFile
+  );
+
 };

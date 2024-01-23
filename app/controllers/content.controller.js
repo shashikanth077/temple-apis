@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const { logger } = require("../middlewares/logger");
 const AppConfig = require("../config/app.config.js");
 
-exports.contentController = async (req, res) => {
+exports.getStaticContentJson = async (req, res) => {
   try {
     const contentPath = path.join(
       __dirname,
@@ -29,3 +29,13 @@ exports.contentController = async (req, res) => {
     res.status(500).json({ error: "Internal server error (Content)" });
   }
 };
+
+exports.uploadStaticFile = async (req, res) => {
+  try {
+    const data = { success: true, message: "Static file uploded succesfully!"};
+    return res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ success: false, error: 'Something went wrong please try again (uploadStaticFile)' });
+  }
+};
+
