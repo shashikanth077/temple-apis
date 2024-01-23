@@ -1,8 +1,6 @@
 const multer = require('multer');
+const fs = require('fs');
 const path = require('path');
-
-// Set up a default folder
-let defaultImageFolder = 'uploads/';
 
 const upload = (folder) => {
   return multer({ storage: getStorage(folder) });
@@ -27,11 +25,20 @@ const getStorage = (imageFolder) => {
           const filename = `${godName}${extension}`;
           cb(null, filename); 
       } else if(imageFolder ===  "uploads/products") {
-          // const extension = path.extname(file.originalname);
-          // let productName = req.body.name.replace(/\s/g, '').toLowerCase();
-          // const filename = `${productName}${extension}`;
-          // cb(null, filename); 
           cb(null, file.originalname); 
+      } else if(imageFolder ===  "uploads/staticfile") {
+        const originalName = file.originalname;
+        const filePath = path.join('uploads/staticfile', originalName);
+        fs.access(filePath, fs.constants.F_OK, (err) => {
+          if (!err) {
+            const timestamp = new Date().toISOString().replace(/[-:.]/g, '');
+            const newName = `${timestamp}_${originalName}`;
+            fs.renameSync(filePath, path.join('uploads/staticfile', newName));
+            cb(null, originalName);
+          } else {
+            cb(null, originalName); 
+          }
+        });
       } else {
         cb(null, file.originalname); 
       }

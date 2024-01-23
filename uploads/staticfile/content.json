@@ -1,5 +1,4 @@
 {
-    "success": true,
     "contentData": {
         "content": {
             "home": {
@@ -583,7 +582,8 @@
             },
             "publicPages":{
                 "footer":{
-                    
+                    "test":"33",
+                    "test1":"dd"
                 },
                 "topbar":{
                        
