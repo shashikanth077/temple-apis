@@ -50,7 +50,8 @@ const getAllUsers = async () => {
 };
 
 const getUserByUserId = async (userId) => {
-  const user = await User.findOne({ _id: userId, activated: true });
+
+  const user = await User.findOne({ _id: userId });
   if (!user) {
     const data = { success: false, message: "User details not found" };
     return { data, status: 404 };
@@ -84,7 +85,6 @@ const getUserByUserId = async (userId) => {
   });
 
   const data = { success: true, userData };
-
   return { data, status: 200 };
 };
 
@@ -94,7 +94,6 @@ const updateUserRole = async (req, res) => {
     return { data, status: 400 };
   }
 
-  console.log("roles", req.body.roles);
   const isValidUserRoles = (req.body && req.body.roles.length > 0 );
 
     console.log(isValidUserRoles);
@@ -103,7 +102,7 @@ const updateUserRole = async (req, res) => {
     return { data, status: 400 };
   }
 
-  const user = await User.findOne({ _id: req.params.userId, activated: true });
+  const user = await User.findOne({ _id: req.params.userId });
   if (!user) {
     const data = { success: false, message: "User not found" };
     return { data, status: 404 };

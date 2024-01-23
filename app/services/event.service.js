@@ -105,7 +105,7 @@ const updateEvent = async (req) => {
     const imagePath = PUBLIC_URL+'uploads/events/'+req?.file?.filename;
     req.body.image = imagePath;     
   }
-
+ 
   const event = await Event.findByIdAndUpdate(
     req.params.id,
     { $set: req.body },

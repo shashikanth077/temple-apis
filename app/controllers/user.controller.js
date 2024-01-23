@@ -22,7 +22,6 @@ exports.adminBoard = (req, res) => {
 exports.getAllUsers = async (req, res) => {
   try {
     const result = await getAllUsers();
-
     return res.status(result.status).json(result.data);
   } catch (error) {
     //logger.error("getAllUsers Error:", error);
@@ -33,7 +32,6 @@ exports.getAllUsers = async (req, res) => {
 exports.getUserByUserId = async (req, res) => {
   try {
     const result = await getUserByUserId(req.params.userId);
-
     return res.status(result.status).json(result.data);
   } catch (error) {
     //logger.error("getUserByUserId Error:", error);
@@ -44,7 +42,6 @@ exports.getUserByUserId = async (req, res) => {
 exports.updateUserRole = async (req, res) => {
   try {
     const result = await updateUserRole(req);
-
     return res.status(result.status).json(result.data);
   } catch (error) {
     console.log(error);
@@ -58,7 +55,6 @@ exports.updateUserRole = async (req, res) => {
 exports.activateOrDeActivateUserByUserId = async (req, res) => {
   try {
     const result = await activateOrDeActivateUserByUserId(req);
-
     return res.status(result.status).json(result.data);
   } catch (error) {
     //logger.error('activateOrDeActivateUserByUserId Error:', error);

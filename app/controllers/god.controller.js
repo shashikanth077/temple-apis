@@ -39,8 +39,6 @@ const {
         const serviceResult = await updateGodDetails(req);
         return res.status(serviceResult.status).json(serviceResult.data);
     } catch (error) {
-        //logger.error('updateGodDetails Error:', error);
-        console.log(error);
         res.status(500).json({ success: false, error: 'Something went wrong please try again (updateGodDetails)' });
     }
   };
