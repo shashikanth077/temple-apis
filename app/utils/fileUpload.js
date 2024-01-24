@@ -24,8 +24,6 @@ const getStorage = (imageFolder) => {
           let godName = req.body.name.replace(/\s/g, '').toLowerCase();;
           const filename = `${godName}${extension}`;
           cb(null, filename); 
-      } else if(imageFolder ===  "uploads/products") {
-          cb(null, file.originalname); 
       } else if(imageFolder ===  "uploads/staticfile") {
         const originalName = file.originalname;
         const filePath = path.join('uploads/staticfile', originalName);

@@ -48,19 +48,37 @@
                     "shop": "Our products"
                 },
                 "donations": {
-                    "btnName":"Donate now",
                     "donationOneTitle": "Journey to enlightenment: we invite you to experience divine love and grace",
-                    "link1": "#",
-                    "link2": "#",
+                    "Link1": "#",
+                    "Link2": "#",
                     "donationTwoTitle": "Journey to enlightenment: we invite you to experience divine love and grace"
                 },
-                "regularProgram": {
-                    "btnName":"Donate now",
-                    "regularProgramTitleOne": "Program name one",
-                    "link1": "#",
-                    "link2": "#",
-                    "regularProgramTitleTwo": "Program name two"
-                }
+                "adverstiments": [
+                    {
+                        "ads_id": 1,
+                        "ads_image": "ads.jpg",
+                        "ads_title": "test@gmail.com",
+                        "ads_description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
+                    },
+                    {
+                        "ads_id": 2,
+                        "ads_image": "ads.jpg",
+                        "ads_title": "test@gmail.com",
+                        "ads_description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
+                    },
+                    {
+                        "ads_id": 3,
+                        "ads_image": "ads.jpg",
+                        "ads_title": "test@gmail.com",
+                        "ads_description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
+                    },
+                    {
+                        "ads_id": 4,
+                        "ads_image": "ads.jpg",
+                        "ads_title": "test@gmail.com",
+                        "ads_description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
+                    }
+                ]
             },
             "bookings": {
                 "heading": "Bookings",
@@ -571,9 +589,9 @@
                     "PhoneIcon": "fas fa-phone",
                     "EmailIcon": "fas fa-envelope",
                     "AddressIcon": "fas fa-map-marker-alt",
-                    "addressTitle": "Address",
-                    "phoneTitle": "Phone number",
-                    "emailTitle": "Email address",
+                    "addressTitle":"Address",
+                    "phoneTitle":"Phone number",
+                    "emailTitle":"Email address",
                     "Sociallinks": [
                         {
                             "iconName": "fab fa-facebook-f",
@@ -673,10 +691,10 @@
                     }
                 },
                 "ContactUsForm": {
-                    "GetInTouchTitle": "Get in Touch",
+                    "GetInTouchTitle":"Get in Touch",
                     "heading": "Lets Connect",
-                    "btnName": "Send",
-                    "SuccessMessage": "Submitted successfully",
+                    "btnName":"Send",
+                    "SuccessMessage":"Submitted successfully",
                     "formLabels": {
                         "name": "Your Name",
                         "email": "Email Adress",
@@ -688,10 +706,10 @@
                         "email": "Please enter email",
                         "subject": "Please enter subject",
                         "message": "Please enter message",
-                        "validEmail": "Please enter valid Email"
+                        "validEmail":"Please enter valid Email"
                     }
                 },
-                "Adverstiments": [
+                "Adverstiments":[
                     {
                         "id": 1,
                         "image": "ads.jpg",
@@ -717,40 +735,6 @@
                         "description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
                     }
                 ],
-                "Staffs": {
-                    "heading": "Staffs",
-                    "btnName": "Connnect",
-                    "StaffList": [
-                        {
-                            "id": 1,
-                            "name": "Rama Iyer",
-                            "image": "staff2.jpg",
-                            "designation": "Temple board president",
-                            "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
-                        },
-                        {
-                            "id": 2,
-                            "name": "Rama Iyer",
-                            "image": "staff2.jpg",
-                            "designation": "Temple board president",
-                            "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
-                        },
-                        {
-                            "id": 3,
-                            "name": "Rama Iyer",
-                            "image": "staff2.jpg",
-                            "designation": "Temple board president",
-                            "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
-                        },
-                        {
-                            "id": 4,
-                            "name": "Rama Iyer",
-                            "image": "staff2.jpg",
-                            "designation": "Temple board president",
-                            "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
-                        }
-                    ]
-                },
                 "Footer": {
                     "QuickLinks": [
                         {
@@ -799,8 +783,8 @@
                     "LogoPath": "logo.jpg",
                     "LogoCaption": "Something about temple caption",
                     "ReadMore": "Read more",
-                    "ReadMoreUrl": "/about",
-                    "GetInTouchTitle": "Get in Touch",
+                    "ReadMoreUrl":"/about",
+                    "GetInTouchTitle":"Get in Touch",
                     "RightArrowIcon": "fal fa-arrow-right",
                     "CopyRights": "Copyright © 2023 Temple. All rights reserved."
                 }
