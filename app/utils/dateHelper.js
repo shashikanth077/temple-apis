@@ -11,4 +11,16 @@ const isValidDateDDMMYYYYFormat = (dateString) => {
   return isValid(parsedDate);
 };
 
-module.exports = isValidDateDDMMYYYYFormat;
+const isDateInPresentOrFuture = (dateString) => {
+  const [day, month, year] = dateString.split("/").map(Number);
+  if (isNaN(day) || isNaN(month) || isNaN(year)) {
+    return false;
+  }
+  const inputDate = new Date(year, month - 1, day);
+  const currentDate = new Date();
+
+  // Check if the input date is greater than or equal to the current date
+  return inputDate >= currentDate;
+};
+
+module.exports = { isValidDateDDMMYYYYFormat, isDateInPresentOrFuture };
