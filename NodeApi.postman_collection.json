@@ -1201,7 +1201,7 @@
                         "header": [],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"shashi\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"0470691053\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishi\",\r\n    \"gotram\":\"abc\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+                            "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"harsha\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"0470691053\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishi\",\r\n    \"gotram\":\"abc\",\r\n    \"classification\":\"Individual\"\r\n\t}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -2165,6 +2165,570 @@
                                 "api",
                                 "family",
                                 "658907e000cbea17d019d135"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "AdminSevaBooking",
+            "item": [
+                {
+                    "name": "add seva booking",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n            \"sevaBookingType\":\"Pre-Booking\",\r\n            \"category\": \"specialevents\",\r\n            \"name\":\"Car pooja\",\r\n            \"amount\":4455,\r\n            \"avaiableSlot\":10,\r\n            \"description\":\"4566\",\r\n            \"image\":\"s.jpg\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/seva/booking",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "seva",
+                                "booking"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get seva booking by type",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n            \"sevaBookingType\":\"Pre-Booking\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/seva/booking-details",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "seva",
+                                "booking-details"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "update seva booking",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n            \"amount\":600\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/seva/booking/65ae49d61d316e787ed5921b",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "seva",
+                                "booking",
+                                "65ae49d61d316e787ed5921b"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "delete seva booking",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/seva/booking/65ae49d61d316e787ed5921b",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "seva",
+                                "booking",
+                                "65ae49d61d316e787ed5921b"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get seva booking by id",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/seva/booking/65ae49ee1d316e787ed59223",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "seva",
+                                "booking",
+                                "65ae49ee1d316e787ed59223"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "AdminManageDonationTypes",
+            "item": [
+                {
+                    "name": "add donationType",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n            \"donationType\":\"Anna-Dhanam\",\r\n            \"frequency\": \"Weekly\",\r\n            \"description\":\"3\",\r\n            \"image\":\"s.jpg\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/donation-type",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "donation-type"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get donation type by frequency",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n            \"frequency\":\"Monthly\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/donation-type/details",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "donation-type",
+                                "details"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "update donation type",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n            \"description\": \"444\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/donation-type/65ae6aeec99e2221cf1050b6",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "donation-type",
+                                "65ae6aeec99e2221cf1050b6"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "delete donation type",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/donation-type/65ae6aebc99e2221cf1050b2",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "donation-type",
+                                "65ae6aebc99e2221cf1050b2"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get donation type by id",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/donation-type/65ae6aebc99e2221cf1050b2",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "donation-type",
+                                "65ae6aebc99e2221cf1050b2"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Bookings",
+            "item": [
+                {
+                    "name": "create bookings",
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"userId\": \"657b9ce763746a61696100ce\",\r\n    \"category\": \"Pre-Booking\",\r\n    \"name\":\"house warming\",\r\n    \"amount\":500,\r\n    \"bookingDate\": \"26/01/2024\",\r\n    \"comments\": \"Reserve bookings before noon\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/booking",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "booking"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get seva list",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "basic",
+                            "basic": [
+                                {
+                                    "key": "password",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "username",
+                                    "value": "ClientApi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/bookings",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "bookings"
                             ]
                         }
                     },
