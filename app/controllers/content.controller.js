@@ -14,7 +14,6 @@ exports.getStaticContentJson = async (req, res) => {
     let jsonData;
     try {
       jsonData = JSON.parse(content);
-
       res
         .status(200)
         .json({ success: true, message: "Valid JSON Content", data: jsonData });

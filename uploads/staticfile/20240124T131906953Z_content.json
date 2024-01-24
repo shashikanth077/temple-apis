@@ -48,19 +48,37 @@
                     "shop": "Our products"
                 },
                 "donations": {
-                    "btnName":"Donate now",
                     "donationOneTitle": "Journey to enlightenment: we invite you to experience divine love and grace",
-                    "link1": "#",
-                    "link2": "#",
+                    "Link1": "#",
+                    "Link2": "#",
                     "donationTwoTitle": "Journey to enlightenment: we invite you to experience divine love and grace"
                 },
-                "regularProgram": {
-                    "btnName":"Donate now",
-                    "regularProgramTitleOne": "Program name one",
-                    "link1": "#",
-                    "link2": "#",
-                    "regularProgramTitleTwo": "Program name two"
-                }
+                "adverstiments": [
+                    {
+                        "ads_id": 1,
+                        "ads_image": "ads.jpg",
+                        "ads_title": "test@gmail.com",
+                        "ads_description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
+                    },
+                    {
+                        "ads_id": 2,
+                        "ads_image": "ads.jpg",
+                        "ads_title": "test@gmail.com",
+                        "ads_description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
+                    },
+                    {
+                        "ads_id": 3,
+                        "ads_image": "ads.jpg",
+                        "ads_title": "test@gmail.com",
+                        "ads_description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
+                    },
+                    {
+                        "ads_id": 4,
+                        "ads_image": "ads.jpg",
+                        "ads_title": "test@gmail.com",
+                        "ads_description": "333 Canada 6666 Near to chruch steert,Opposit to petrol bunk"
+                    }
+                ]
             },
             "bookings": {
                 "heading": "Bookings",
@@ -718,39 +736,40 @@
                     }
                 ],
                 "Staffs": {
-                    "heading": "Staffs",
-                    "btnName": "Connnect",
-                    "StaffList": [
-                        {
-                            "id": 1,
-                            "name": "Rama Iyer",
-                            "image": "staff2.jpg",
-                            "designation": "Temple board president",
-                            "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
-                        },
-                        {
-                            "id": 2,
-                            "name": "Rama Iyer",
-                            "image": "staff2.jpg",
-                            "designation": "Temple board president",
-                            "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
-                        },
-                        {
-                            "id": 3,
-                            "name": "Rama Iyer",
-                            "image": "staff2.jpg",
-                            "designation": "Temple board president",
-                            "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
-                        },
-                        {
-                            "id": 4,
-                            "name": "Rama Iyer",
-                            "image": "staff2.jpg",
-                            "designation": "Temple board president",
-                            "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
-                        }
-                    ]
-                },
+                    "heading":"Staffs",
+                    "btnName":"Connnect",
+                "StaffList":[    
+                    {
+                        "id": 1,
+                        "name": "Rama Iyer",
+                        "image": "staff2.jpg",
+                        "designation": "Temple board president",
+                        "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Rama Iyer",
+                        "image": "staff2.jpg",
+                        "designation": "Temple board president",
+                        "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Rama Iyer",
+                        "image": "staff2.jpg",
+                        "designation": "Temple board president",
+                        "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Rama Iyer",
+                        "image": "staff2.jpg",
+                        "designation": "Temple board president",
+                        "description": "4dfgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.hhhhhhhhhhhhhhhhhhhhhhhh"
+                    }
+                ]
+            },
+                
                 "Footer": {
                     "QuickLinks": [
                         {
