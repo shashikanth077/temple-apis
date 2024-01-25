@@ -86,6 +86,18 @@ require("./app/routes/god.routes")(app);
 // service details
 require("./app/routes/service.routes")(app);
 
+// donation details
+require("./app/routes/donation.routes")(app);
+
+// seva bookings
+require("./app/routes/booking.routes")(app);
+
+// admin: seva booking details
+require("./app/routes/sevaBooking.routes")(app);
+
+// admin: manage donation type details
+require("./app/routes/manageDonation.routes")(app);
+
 // content
 require("./app/routes/content.routes")(app);
 

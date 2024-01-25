@@ -11,7 +11,6 @@ const {
 exports.addSevaBookingDetailsController = async (req, res) => {
   try {
     const result = await addSevaBookingDetails(req);
-
     return res.status(result.status).json(result.data);
   } catch (message) {
     //logger.error('addSevaBookingDetails Error:', error);

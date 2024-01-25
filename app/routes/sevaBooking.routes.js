@@ -1,5 +1,7 @@
 const { authJwt } = require("../middlewares");
 const controller = require("../controllers/admin/sevaBooking.controller");
+const { upload } = require('../utils/fileUpload');
+const sevaFolder = upload('uploads/seva'); //services folder path
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -10,12 +12,14 @@ module.exports = function (app) {
   app.post(
     "/api/seva/booking",
     [authJwt.verifyToken, authJwt.isAdmin],
+    sevaFolder.single('image'),
     controller.addSevaBookingDetailsController
   );
 
   app.put(
     "/api/seva/booking/:id",
     [authJwt.verifyToken, authJwt.isAdmin],
+    sevaFolder.single('image'),
     controller.updateSevaBookingDetailsController
   );
 
