@@ -1,0 +1,109 @@
+const nodemailer = require("nodemailer");
+const handlebars = require("handlebars");
+const fs = require("fs");
+const path = require("path");
+
+module.exports = class Email {
+  constructor(user, url, title) {
+    this.to = user?.email;
+    this.name = user?.firstName + " " + user?.lastName;
+    this.url = url;
+    this.title = title;
+    this.from = `TempleOrg <${process.env.EMAIL_FROM}>`;
+  }
+
+  newTransport() {
+    if (process.env.NODE_ENV === "production") {
+      // Sendgrid
+      return nodemailer.createTransport({
+        service: "SendGrid",
+        auth: {
+          user: process.env.SENDGRID_USERNAME,
+          pass: process.env.SENDGRID_PASSWORD,
+        },
+      });
+    }
+
+    return nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      secure: false, //dev purpose
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+  }
+
+  registerPartials() {
+    const absoluteHeaderPath = path.resolve(
+      __dirname,
+      "../views/email/maillayout/header.handlebars"
+    );
+    handlebars.registerPartial(
+      "header",
+      fs.readFileSync(absoluteHeaderPath, "utf8")
+    );
+
+    const absoluteFooterPath = path.resolve(
+      __dirname,
+      "../views/email/maillayout/footer.handlebars"
+    );
+    handlebars.registerPartial(
+      "footer",
+      fs.readFileSync(absoluteFooterPath, "utf8")
+    );
+  }
+
+  // Send the actual email
+  async send(template, subject) {
+    this.registerPartials();
+
+    const headerTemplateSource = handlebars.partials["header"];
+    const footerTemplateSource = handlebars.partials["footer"];
+
+    const MainContentSource = fs.readFileSync(
+      `${__dirname}/../views/email/${template}.handlebars`,
+      "utf8"
+    );
+
+    const mainContentTemplate = handlebars.compile(MainContentSource, {
+      partials: {
+        header: headerTemplateSource,
+        footer: footerTemplateSource,
+      },
+    });
+
+    const emailHtml = mainContentTemplate(this);
+
+    // 2) Define email options
+    const mailOptions = {
+      from: this.from,
+      to: this.to,
+      subject,
+      html: emailHtml,
+    };
+
+    // 3) Create a transport and send email
+    await this.newTransport().sendMail(mailOptions);
+  }
+
+  async sendWelcome() {
+    await this.send("welcome", "Welcome to the Sai Sathya Narayana Temple!");
+  }
+
+  async sendPasswordReset() {
+    await this.send("requestResetPassword", "Reset password link");
+  }
+
+  async verifyEmailAddress() {
+    await this.send(
+      "verifyEmail",
+      "Verify your email address to activate your account"
+    );
+  }
+
+  async resetPassword() {
+    await this.send("resetPassword", "password has been reset succesfully");
+  }
+};

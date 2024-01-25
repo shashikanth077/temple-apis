@@ -1,12 +1,12 @@
 const config = require("../config/auth.config");
 const db = require("../models");
-const sendEmail = require("../email/sendEmail");
 const User = db.user;
 const Role = db.role;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 const crypto = require("crypto");
+const Email = require('./../utils/sendEmail');
 
 const {
   requestPasswordReset,
@@ -209,14 +209,6 @@ exports.resetPasswordController = async (req, res, next) => {
   return res.json(resetPasswordService);
 };
 
-const SendAccountActivationEmail = (user, activationLink) => {
-  sendEmail(
-    user.email,
-    "Activation email",
-    {
-      name: user.username,
-      link: activationLink,
-    },
-    "../email/template/verifyEmail.handlebars"
-  );
+const SendAccountActivationEmail = async (user, activationLink) => {
+   new Email(user, activationLink,'email activation').verifyEmailAddress();
 };
