@@ -4,9 +4,12 @@ const express = require("express");
 var bodyParser = require('body-parser');
 const cors = require("cors");
 const path = require("path");
+
+const mongoSanitize = require('express-mongo-sanitize');
+const compression = require('compression');
+
 const cookieSession = require("cookie-session");
 const { logger } = require("./app/middlewares");
-
 const dbConfig = require("./app/config/db.config");
 
 const app = express();
@@ -31,6 +34,11 @@ app.use(
   })
 );
 
+// Data sanitization against NoSQL query injection
+app.use(mongoSanitize());
+
+app.use(compression()); //payload compression
+
 const db = require("./app/models");
 const Role = db.role;
 
@@ -54,6 +62,7 @@ db.mongoose
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to client application." });
 });
+
 
 // routes
 require("./app/routes/auth.routes")(app);
@@ -100,6 +109,15 @@ require("./app/routes/manageDonation.routes")(app);
 
 // content
 require("./app/routes/content.routes")(app);
+
+//when not found any URL
+app.all("*", (req, res) => {
+  res.status(404).json({
+    status:'fail',
+    success:false,
+    message:`Can't find ${req.originalUrl} on this server`
+  })
+});
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
