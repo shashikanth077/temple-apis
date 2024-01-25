@@ -1,5 +1,7 @@
 const { authJwt } = require("../middlewares");
 const controller = require("../controllers/admin/manageDonation.controller");
+const { upload } = require('../utils/fileUpload');
+const donationFolder = upload('uploads/donations'); //services folder path
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -10,12 +12,14 @@ module.exports = function (app) {
   app.post(
     "/api/donation-type",
     [authJwt.verifyToken, authJwt.isAdmin],
+    donationFolder.single('image'),
     controller.addDonationTypeController
   );
 
   app.put(
     "/api/donation-type/:id",
     [authJwt.verifyToken, authJwt.isAdmin],
+    donationFolder.single('image'),
     controller.updateDonationTypeDetailsController
   );
 

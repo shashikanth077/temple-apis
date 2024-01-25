@@ -1,19 +1,25 @@
 const DonationType = require("../../models/manageDonation.model");
-const { isNullOrUndefined } = require("../../utils/index");
+const { isNullOrUndefined } = require("../../utils");
+const {PUBLIC_URL} = require("../../utils/constants");
 const { logger } = require("../../../app/middlewares");
 
 const addDonationType = async (req, res) => {
+  
+  let denominations = JSON.parse(req.body.denominations);
   if (isNullOrUndefined(req) || isNullOrUndefined(req.body)) {
     const data = { success: false, message: "invalid request" };
     return { data, status: 400 };
   }
+
+  const imagePath = PUBLIC_URL + "uploads/donations/" + req.file.filename;
 
   // TODO:: update validation
   const donationTypeData = {
     donationType: req.body.donationType,
     frequency: req.body.frequency,
     description: req.body.description,
-    image: req.body.image,
+    denominations:denominations,
+    image: imagePath,
     createdAt: Date.now(),
     modifiedAt: Date.now(),
   };
@@ -29,6 +35,7 @@ const addDonationType = async (req, res) => {
 };
 
 const getDonationTypesByFrequency = async (req) => {
+
   let donationTypeDetails;
   if (req.body && req.body.frequency) {
     donationTypeDetails = await DonationType.find({
@@ -70,6 +77,17 @@ const updateDonationTypeDetails = async (req) => {
     };
     return { data, status: 404 };
   }
+
+  let denominations = JSON.parse(req.body.denominations);
+  req.body.denominations = denominations;
+
+  if (isNullOrUndefined(req.file?.filename)) {
+    req.body.image = existingDonationType.image;
+  } else {
+    const imagePath = PUBLIC_URL + "uploads/donations/" + req?.file?.filename;
+    req.body.image = imagePath;
+  }
+
   const result = await DonationType.findByIdAndUpdate(
     req.params.id,
     { $set: req.body },

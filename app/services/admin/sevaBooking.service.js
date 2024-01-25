@@ -1,7 +1,8 @@
 const SevaBooking = require("../../models/sevaBooking.model");
 const { allowedSevaTypes } = require("../../utils/constants");
-const { isNullOrUndefined } = require("../../utils/index");
+const { isNullOrUndefined } = require("../../utils");
 const { logger } = require("../../../app/middlewares");
+const {PUBLIC_URL} = require("../../utils/constants");
 
 const addSevaBookingDetails = async (req, res) => {
   if (isNullOrUndefined(req) || isNullOrUndefined(req.body)) {
@@ -21,6 +22,8 @@ const addSevaBookingDetails = async (req, res) => {
   //     return { data, status: 400 };
   //   }
 
+  const imagePath = PUBLIC_URL + "uploads/seva/" + req.file.filename;
+ 
   const sevaBookingData = {
     sevaBookingType: req.body.sevaBookingType,
     name: req.body.name,
@@ -28,7 +31,7 @@ const addSevaBookingDetails = async (req, res) => {
     amount: req.body.amount,
     availableSlot: req.body.availableSlot,
     description: req.body.description,
-    image: req.body.image,
+    image: imagePath,
     createdAt: Date.now(),
     modifiedAt: Date.now(),
   };
@@ -85,6 +88,14 @@ const updateSevaBookingDetails = async (req) => {
     };
     return { data, status: 404 };
   }
+  
+  if (isNullOrUndefined(req.file?.filename)) {
+    req.body.image = existingSevaBooking.image;
+  } else {
+    const imagePath = PUBLIC_URL + "uploads/seva/" + req?.file?.filename;
+    req.body.image = imagePath;
+  }
+
   const result = await SevaBooking.findByIdAndUpdate(
     req.params.id,
     { $set: req.body },
@@ -130,14 +141,14 @@ const getSevaBookingDetailsById = async (req, res) => {
     const data = { success: false, message: "invalid request" };
     return { data, status: 400 };
   }
-  const bookings = await SevaBooking.findOne({ _id: req.params.id });
+  const booking = await SevaBooking.findOne({ _id: req.params.id });
 
-  if (!bookings) {
+  if (!booking) {
     const data = { success: false, message: "Seva booking details not found" };
     return { data, status: 404 };
   }
 
-  const data = { success: true, bookings };
+  const data = { success: true, booking};
 
   return { data, status: 200 };
 };
