@@ -17,7 +17,7 @@ exports.signup = async (req, res) => {
   // Generate a random activation token
   const activationToken = crypto.randomBytes(20).toString("hex");
   const clientURL = process.env.CLIENT_URL;
-  const activationLink = `${clientURL}/activate/${activationToken}`;
+  const activationLink = `${clientURL}/useractivation/${activationToken}`;
   const activationTokenExpiry = new Date();
   activationTokenExpiry.setHours(activationTokenExpiry.getHours() + 24); // Set expiration to 24 hour from now
 
