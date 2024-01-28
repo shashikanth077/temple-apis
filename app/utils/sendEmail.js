@@ -8,6 +8,10 @@ module.exports = class Email {
     this.to = user?.email;
     this.name = user?.firstName + " " + user?.lastName;
     this.url = url;
+    this.subject = user?.subject;
+    this.customerName = user?.name;
+    this.customerEmail = user?.email;
+    this.message = user?.message;
     this.title = title;
     this.from = `TempleOrg <${process.env.EMAIL_FROM}>`;
   }
@@ -86,6 +90,10 @@ module.exports = class Email {
 
     // 3) Create a transport and send email
     await this.newTransport().sendMail(mailOptions);
+  }
+
+  async sendEnquiry() {
+    await this.send("sendEnquiry", "Enquiry notification");
   }
 
   async sendWelcome() {

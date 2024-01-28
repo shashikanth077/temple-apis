@@ -25,7 +25,6 @@ exports.getDonationDetailsByUserId = async (req, res) => {
 exports.getDonationDetailsByDonationId = async (req, res) => {
   try {
     const result = await getDonationDetailsByDonationId(req);
-
     return res.status(result.status).json(result.data);
   } catch (error) {
     logger.error("getDonationDetailsByUserId Error:", error);

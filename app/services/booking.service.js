@@ -68,7 +68,7 @@ const getSevaList = async () => {
 
   if (!bookings) {
     const data = {
-      success: true,
+      success: false,
       message: "Seva details doesn't exist",
     };
     return { data, status: 404 };
