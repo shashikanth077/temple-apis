@@ -4,13 +4,17 @@ const Token = require("../models/token.model");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
+const Email = require('./../utils/sendEmail');
 
 const bcryptSalt = process.env.BCRYPT_SALT;
 const clientURL = process.env.CLIENT_URL;
 
 const requestPasswordReset = async (email) => {
   const user = await User.findOne({ email });
-  if (!user) throw new Error("Email does not exist");
+  if (!user) {
+    const data = { success: false, message: "User not found" };
+    return { data, status: 404 };
+  }
 
   let token = await Token.findOne({ userId: user._id });
   if (token) await token.deleteOne();
@@ -25,32 +29,27 @@ const requestPasswordReset = async (email) => {
   }).save();
 
   const link = `${clientURL}/passwordReset?token=${resetToken}&id=${user._id}`;
-
-  sendEmail(
-    user.email,
-    "Password Reset Request",
-    {
-      name: user.username,
-      link: link,
-    },
-    "./template/requestResetPassword.handlebars"
-  );
-  return { link };
+  new Email(user,link,'Reset password link').sendPasswordReset();
+  const data = { success: true, message: link };
+  return { data, status: 200 };
 };
 
 const resetPassword = async (userId, token, password) => {
+
+  console.log(userId);
+  console.log(token);
+  console.log(password);
   let passwordResetToken = await Token.findOne({ userId });
 
   if (!passwordResetToken) {
-    throw new Error("Invalid or expired password reset token");
+     return { success: false,
+      message: "Invalid or expired password reset token", status: 404 };
   }
-
-  console.log(passwordResetToken.token, token);
 
   const isValid = await bcrypt.compare(token, passwordResetToken.token);
 
   if (!isValid) {
-    throw new Error("Invalid or expired password reset token");
+    return { success: false, message: "Invalid or expired password reset token", status: 404 };
   }
 
   const hash = await bcrypt.hash(password, Number(bcryptSalt));
@@ -63,18 +62,11 @@ const resetPassword = async (userId, token, password) => {
 
   const user = await User.findById({ _id: userId });
 
-  sendEmail(
-    user.email,
-    "Password Reset Successfully",
-    {
-      name: user.username,
-    },
-    "./template/resetPassword.handlebars"
-  );
+  new Email(user,'','Reset password successfull').resetPassword();
 
   await passwordResetToken.deleteOne();
 
-  return { message: "Password reset was successful" };
+  return { success: true, message: "Password reset successfull", status: 200 };
 };
 
 module.exports = {

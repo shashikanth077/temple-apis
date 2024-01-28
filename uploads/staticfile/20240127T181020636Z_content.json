@@ -934,10 +934,28 @@
                 },
                 {
                     "menuId":3,
-                    "link": "/seva-types",
+                    "link": "/bookings",
                     "title": "Bookings",
-                    "isDropdown": false
-               },
+                    "isDropdown": true,
+                    "dropdownItem": [
+                        {
+                            "link": "/",
+                            "title": "Vadamala"
+                        },
+                        {
+                            "link": "/v2",
+                            "title": "Pooja bookings"
+                        },
+                        {
+                            "link": "/v3",
+                            "title": "Shardam booking"
+                        },
+                        {
+                            "link": "/v4",
+                            "title": "Hallbookings"
+                        }
+                    ]
+                },
                 {
                     "menuId":4,
                     "link": "/services",

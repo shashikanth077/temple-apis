@@ -10,9 +10,6 @@ const sendEnquiry = async (req) => {
     message: message,
     createdAt: Date.now()
   }).save();
- 
-  //TODO:: Send Email integration
-
   return { success: true, message: 'Enquiry form submitted successfully' };
 };
 

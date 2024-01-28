@@ -197,16 +197,16 @@ exports.resetPasswordRequestController = async (req, res, next) => {
   const requestPasswordResetService = await requestPasswordReset(
     req.body.email
   );
-  return res.json(requestPasswordResetService);
+  return res.status(requestPasswordResetService.status).json(requestPasswordResetService.data);
 };
 
 exports.resetPasswordController = async (req, res, next) => {
   const resetPasswordService = await resetPassword(
-    req.body.userId,
-    req.body.token,
+    req.body.userid,
+    req.body.identifier,
     req.body.password
   );
-  return res.json(resetPasswordService);
+  return res.status(resetPasswordService.status).send({ success:resetPasswordService.success,message: resetPasswordService.message });
 };
 
 const SendAccountActivationEmail = async (user, activationLink) => {
