@@ -940,10 +940,28 @@
                },
                 {
                     "menuId":4,
-                    "link": "/service-list",
+                    "link": "/services",
                     "title": "Services",
-                    "isDropdown": false
-               },
+                    "isDropdown": true,
+                    "dropdownItem": [
+                        {
+                            "link": "/",
+                            "title": "Vadamala"
+                        },
+                        {
+                            "link": "/v2",
+                            "title": "Pooja bookings"
+                        },
+                        {
+                            "link": "/v3",
+                            "title": "Shardam booking"
+                        },
+                        {
+                            "link": "/v4",
+                            "title": "Hallbookings"
+                        }
+                    ]
+                },
                 {
                     "menuId":5,
                     "link": "/events",
@@ -965,7 +983,7 @@
                 {
                     "menuId":8,
                     "link": "/volunteers",
-                    "title": "Volunteers",
+                    "title": "Resources",
                     "isDropdown": false
                 },
                 {

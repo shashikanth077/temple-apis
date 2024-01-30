@@ -71,7 +71,6 @@ const UserProfileSchema = new Schema(
     },
     homeNumber: {
       type: Number,
-      required: true,
     },
     dateOfBirth: {
       type: String

@@ -11,6 +11,7 @@ exports.createBookingsController = async (req, res) => {
     return res.status(result.status).json(result.data);
   } catch (message) {
     //logger.error('createBookingsController Error:', error);
+    console.log(message);
     res
       .status(500)
       .json({

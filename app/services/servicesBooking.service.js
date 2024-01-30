@@ -6,6 +6,7 @@ const {
   allowedServiceTypes,
 } = require("../utils/constants");
 const { isNullOrUndefined } = require("../utils");
+const {PUBLIC_URL} = require("../utils/constants")
 
 const getAllServices = async () => {
   const services = await Service.find({ deleted: false });

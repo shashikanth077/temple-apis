@@ -13,6 +13,10 @@ const User = mongoose.model(
       required: true,
       unique: true,
     },
+    TermConcent: {
+      type: Boolean,
+      required: true,
+    },
     token: String,
     password: {
       type: String,

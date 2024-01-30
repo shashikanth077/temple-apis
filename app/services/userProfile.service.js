@@ -11,10 +11,10 @@ const getUserProfileByUserId = async (userId) => {
   }
 
   const profile = await UserProfile.findOne({ userId: userId });
-  if (!profile) {
-    const data = { success: false, message: "User Profile not found" };
-    return { data, status: 404 };
-  }
+  // if (!profile) {
+  //   const data = { success: false, message: "User Profile not found" };
+  //   return { data, status: 404 };
+  // }
 
   const data = { success: true, profile };
 
