@@ -45,6 +45,7 @@ const createBookings = async (req, res) => {
     userId: user._id,
     bookingId: bookingId,
     name: req.body.name,
+    NoOfPerson:req.body.NoOfPerson,
     category: req.body.category,
     amount: req.body.amount,
     comments: req.body.comments,

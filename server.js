@@ -110,6 +110,9 @@ require("./app/routes/manageDonation.routes")(app);
 // content
 require("./app/routes/content.routes")(app);
 
+// volunteers
+require("./app/routes/volunteers.routes")(app);
+
 //when not found any URL
 app.all("*", (req, res) => {
   res.status(404).json({

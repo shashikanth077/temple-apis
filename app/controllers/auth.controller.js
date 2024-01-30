@@ -2,6 +2,7 @@ const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
+const UserProfile = require("../models/userProfile.model");
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
@@ -25,6 +26,7 @@ exports.signup = async (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
+    TermConcent:req.body.TermConcent,
     phonenumber:req.body.phonenumber,
     password: bcrypt.hashSync(req.body.password, 8),
     activationToken: activationToken,
@@ -109,6 +111,20 @@ exports.activateEmail = async (req, res) => {
     // Activate the user
     user.activated = true;
     user.activationToken = undefined;
+
+    const profileData = {
+      userId: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      mobileNumber: user.phonenumber,
+      email: user.email,
+      ...req.body,
+      createdAt: Date.now(),
+      modifiedAt: Date.now(),
+    };
+  
+    await new UserProfile(profileData).save();
+
     await user.save();
 
     return res.send({
@@ -117,6 +133,7 @@ exports.activateEmail = async (req, res) => {
     });
   } catch (err) {
     //this.next(err);
+    console.log(err);
     return res
       .status(500)
       .send({

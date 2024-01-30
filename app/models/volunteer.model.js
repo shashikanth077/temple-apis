@@ -1,38 +1,37 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const BookingSchema = new Schema(
+const VoluteersSchema = new Schema(
   {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true
-    },
-    bookingId: {
-        type: String,
+    beforevolunteer: {
+        type: Boolean,
         required: true
     },
-    category: {
+    description: {
+      type: String,
+    },
+    email: {
       type: String,
       required: true
     },
-    NoOfPerson: {
-      type: Number,
+    islive: {
+      type: Boolean,
+      required: true
+    },
+    isveg: {
+      type: Boolean,
+      required: true
+    },
+    iswhatsupnumber: {
+      type: Boolean,
     },
     name: {
       type: String,
       required: true
     },
-    amount: {
-      type: Number,
-      required: true
-    },
-    comments: {
-      type: String,
-    },
-    bookingDate: {
-      type: String,
-      required: true
+    phone: {
+        type: String,
+        required: true
     },
     createdAt: {
       type: Date,
@@ -46,4 +45,4 @@ const BookingSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Booking", BookingSchema);
+module.exports = mongoose.model("Volunteers", VoluteersSchema);
