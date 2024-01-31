@@ -13,6 +13,7 @@ const createVolunteers = async (req, res) => {
     return { data, status: 400 };
   }
 
+  req.body.approveStatus = null;
   const VolunteerData = {
     ...req.body,
     createdAt: Date.now(),
@@ -43,9 +44,27 @@ const getVolunteers = async () => {
       const data = { success: true, volunteers };
       return { data, status: 200 };
     }
-  };
+};
+
+const updateVolunteer = async (req) => {
+  const existingVolunteer = await Volunteers.findOne({_id: req.body._id});
+
+    if (!existingVolunteer) {
+        const data = { success: false, message: "Volunteer doesn't exist"};
+        return {data, status: 404 };
+    }
+
+    const newStatus = req.body.status;
+
+    const volunteer = await Volunteers.findByIdAndUpdate(req.body._id, 
+    { $set: { approveStatus: newStatus } }, 
+    { runValidators: true, new: true });
+    const data = { success: true,  message: "Volunteer updated successfully", volunteer};
+    return {data, status: 200 };
+};
 
 module.exports = {
   createVolunteers,
-  getVolunteers
+  getVolunteers,
+  updateVolunteer
 };

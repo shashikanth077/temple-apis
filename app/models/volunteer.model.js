@@ -33,6 +33,9 @@ const VoluteersSchema = new Schema(
         type: String,
         required: true
     },
+    approveStatus:{
+      type:String
+    },
     createdAt: {
       type: Date,
       default: Date.now,

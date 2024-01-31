@@ -1,7 +1,8 @@
 const { logger } = require("../middlewares");
 const {
     createVolunteers,
-    getVolunteers
+    getVolunteers,
+    updateVolunteer
 } = require("../services/volunteers.service");
 
 exports.createVolunteersController = async (req, res) => {
@@ -32,6 +33,22 @@ exports.getVolunteersController = async (req, res) => {
           success: false,
           error:
             "Something went wrong please try again (getVolunteers)",
+        });
+    }
+  };
+
+  exports.updateVolunteerStatusController = async (req, res) => {
+    try {
+      const volunteerResult = await updateVolunteer(req);
+      return res.status(volunteerResult.status).json(volunteerResult.data);
+    } catch (error) {
+        console.log(error);
+      res
+        .status(500)
+        .json({
+          success: false,
+          error:
+            "Something went wrong please try again (updateVolunteerStatusController)",
         });
     }
   };

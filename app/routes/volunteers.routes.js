@@ -17,4 +17,11 @@ module.exports = function (app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.getVolunteersController
   );
+
+  app.put(
+    "/api/volunteerapprove", 
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.updateVolunteerStatusController
+  );
+
 };
