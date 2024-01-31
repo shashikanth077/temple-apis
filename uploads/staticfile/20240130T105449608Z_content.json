@@ -751,29 +751,6 @@
                         }
                     ]
                 },
-                "Volunteers" : {
-                    "heading":"Voluteers",
-                    "subHeading":"The Sri Sathya Narayana Temple has always relied on the power of volunteer efforts to help deliver all of the amazingly successful programs for our community. Volunteering also means meeting incredible, new people who share strong, spiritual values. To join our volunteer group please fill out the form below:",
-                    "LeftImage":"volunteers.jpg",
-                    "formValidation":{
-                        "name":"Please enter first and last name together",
-                        "email":"Please enter the email address",
-                        "validEmail":"Please enter valid email address",
-                        "phone":"Please enter the phone number",
-                        "description":"Please enter the description"
-                    },
-                    "formLabels":{
-                        "name":"First and last name*",
-                        "email":"email address*",
-                        "phone":"Phone number*",
-                        "description":"What areas are you interested to volunteer in?*",
-                        "beforevolunteer":"Have you previously volunteeredfor this temple?*",
-                        "isveg":"Are you a vegetarian?*",
-                        "islive":"Do you curretly live in Ontario?*",
-                        "iswhatsupnumber":"Is this number available on Whatsapp?*"
-                    }
-
-                },
                 "Footer": {
                     "QuickLinks": [
                         {
@@ -932,14 +909,6 @@
                             "parentKey": "donations"
                         }
                       ]
-                }, 
-                {
-                    "key": "volunteerlist",
-                    "roles":["ROLE_ADMIN"],
-                    "label": "Volunteer list",
-                    "isTitle": false,
-                    "icon": "fas fa-hands-helping",
-                    "url": "/admin/volunteers/list"
                 },
                 {
                     "key": "managerusers",
