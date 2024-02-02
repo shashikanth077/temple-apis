@@ -760,19 +760,17 @@
                         "email":"Please enter the email address",
                         "validEmail":"Please enter valid email address",
                         "phone":"Please enter the phone number",
-                        "description":"Please enter the skills",
+                        "description":"Please enter the description",
                         "address":"Please enter the address",
                         "city":"Please enter the city",
-                        "state":"Please enter the state",
                         "zipcode":"Please enter the zip code",
-                        "possibleDays":"At least one day must be selected"
+                        "possibleDays":"Select any days please"
                     },
                     "formLabels":{
                         "name":"First and last name*",
-                        "email":"Email address*",
-                        "state":"State*",
+                        "email":"email address*",
                         "phone":"Phone number*",
-                        "description":"How can you support our temple  based on your Skills?*",
+                        "description":"What areas are you interested to volunteer in?*",
                         "beforevolunteer":"Have you previously volunteered for this temple?*",
                         "isveg":"Are you a vegetarian?*",
                         "islive":"Do you curretly live in Toronto?*",

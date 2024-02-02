@@ -4,6 +4,7 @@ const {
     getVolunteers,
     updateVolunteer
 } = require("../services/volunteers.service");
+const Email = require('./../utils/sendEmail');
 
 exports.createVolunteersController = async (req, res) => {
   try {
@@ -26,7 +27,6 @@ exports.getVolunteersController = async (req, res) => {
       const volunteerResult = await getVolunteers(req);
       return res.status(volunteerResult.status).json(volunteerResult.data);
     } catch (error) {
-        console.log(error);
       res
         .status(500)
         .json({
@@ -40,6 +40,16 @@ exports.getVolunteersController = async (req, res) => {
   exports.updateVolunteerStatusController = async (req, res) => {
     try {
       const volunteerResult = await updateVolunteer(req);
+
+      if(volunteerResult?.data.volunteer?.approveStatus == 'approved') {
+        let VolunterObj = {
+          name  : volunteerResult?.data.volunteer.name,
+          email : volunteerResult?.data.volunteer.email
+        }
+
+        SendApprovEmail(VolunterObj, '');
+      }
+
       return res.status(volunteerResult.status).json(volunteerResult.data);
     } catch (error) {
         console.log(error);
@@ -52,3 +62,7 @@ exports.getVolunteersController = async (req, res) => {
         });
     }
   };
+
+  const SendApprovEmail = async (user, activationLink) => {
+    new Email(user, activationLink,'volunteer approval',type='volapprove').volunteerApprove();
+ };

@@ -760,28 +760,17 @@
                         "email":"Please enter the email address",
                         "validEmail":"Please enter valid email address",
                         "phone":"Please enter the phone number",
-                        "description":"Please enter the skills",
-                        "address":"Please enter the address",
-                        "city":"Please enter the city",
-                        "state":"Please enter the state",
-                        "zipcode":"Please enter the zip code",
-                        "possibleDays":"At least one day must be selected"
+                        "description":"Please enter the description"
                     },
                     "formLabels":{
                         "name":"First and last name*",
-                        "email":"Email address*",
-                        "state":"State*",
+                        "email":"email address*",
                         "phone":"Phone number*",
-                        "description":"How can you support our temple  based on your Skills?*",
-                        "beforevolunteer":"Have you previously volunteered for this temple?*",
+                        "description":"What areas are you interested to volunteer in?*",
+                        "beforevolunteer":"Have you previously volunteeredfor this temple?*",
                         "isveg":"Are you a vegetarian?*",
-                        "islive":"Do you curretly live in Toronto?*",
-                        "iswhatsupnumber":"Is this number available on Whatsapp?*",
-                        "address":"Address*",
-                        "city":"City*",
-                        "zipcode":"Zipcode*",
-                        "possibleDays":"Possible Days*",
-                        "activityList":"Please indicate the activities for which you're available to volunteer."
+                        "islive":"Do you curretly live in Ontario?*",
+                        "iswhatsupnumber":"Is this number available on Whatsapp?*"
                     }
 
                 },

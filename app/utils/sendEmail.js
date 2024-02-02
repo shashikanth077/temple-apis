@@ -4,9 +4,8 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = class Email {
-  constructor(user, url, title) {
+  constructor(user, url, title,type='login') {
     this.to = user?.email;
-    this.name = user?.firstName + " " + user?.lastName;
     this.url = url;
     this.subject = user?.subject;
     this.customerName = user?.name;
@@ -14,6 +13,12 @@ module.exports = class Email {
     this.message = user?.message;
     this.title = title;
     this.from = `TempleOrg <${process.env.EMAIL_FROM}>`;
+
+    if(type ==='volapprove') {
+      this.name = user?.name;
+    } else {
+      this.name = user?.firstName + " " + user?.lastName;
+    }
   }
 
   newTransport() {
@@ -113,5 +118,9 @@ module.exports = class Email {
 
   async resetPassword() {
     await this.send("resetPassword", "password has been reset succesfully");
+  }
+
+  async volunteerApprove() {
+    await this.send("volunteerapprove", "Your volunteer request submission status");
   }
 };
