@@ -1,4 +1,4 @@
-const Product = require("../models/shop/product.model");
+const Product = require("../../models/shop/product.model");
 const { logger } = require("../../middlewares");
 const { PUBLIC_URL } = require("../../utils/constants")
 const {isNullOrUndefined} = require("../../utils")

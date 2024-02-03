@@ -2,7 +2,7 @@ const { logger } = require("../../middlewares");
 
 const {
     getAllGodsList, getGodDetailsById, addGodDetails, updateGodDetails, deleteGodDetails
-} = require("../../services/god.service");
+} = require("../../services/god/god.service");
 
   exports.getAllGodsListController = async (req, res, next) => {
     try {

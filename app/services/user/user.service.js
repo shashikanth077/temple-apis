@@ -1,5 +1,5 @@
-const User = require("../models/user/user.model");
-const Role = require("../models/user/role.model");
+const User = require("../../models/user/user.model");
+const Role = require("../../models/user/role.model");
 const { allowedUserRoles } = require("../../utils/constants");
 const { isNullOrUndefined } = require("../../utils/index");
 const { logger } = require("../../middlewares");

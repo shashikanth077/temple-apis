@@ -1,5 +1,5 @@
 const JWT = require("jsonwebtoken");
-const User = require("../models/user/user.model");
+const User = require("../../models/user/user.model");
 const Token = require("../../models/token.model");
 const sendEmail = require("../../utils/sendEmail");
 const crypto = require("crypto");

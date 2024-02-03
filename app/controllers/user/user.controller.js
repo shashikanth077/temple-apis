@@ -5,7 +5,7 @@ const {
   getUserByUserId,
   updateUserRole,
   activateOrDeActivateUserByUserId,
-} = require("../../services/user.service");
+} = require("../../services/user/user.service");
 
 exports.allAccess = (req, res) => {
   res.status(200).send("Public Content.");

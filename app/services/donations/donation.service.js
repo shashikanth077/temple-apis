@@ -1,6 +1,6 @@
-const User = require("../models/user/user.model");
-const UserProfile = require("../models/user/userProfile.model");
-const Donation = require("../models/donations/donation.model");
+const User = require("../../models/user/user.model");
+const UserProfile = require("../../models/user/userProfile.model");
+const Donation = require("../../models/donations/donation.model");
 const { allowedDonationTypes } = require("../../utils/constants");
 const { isNullOrUndefined, concatenateNames } = require("../../utils/index");
 const { logger } = require("../../middlewares");

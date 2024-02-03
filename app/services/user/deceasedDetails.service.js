@@ -1,5 +1,5 @@
-const DeceasedDetails = require("../models/user/deceasedDetails.model");
-const User = require("../models/user/user.model");
+const DeceasedDetails = require("../../models/user/deceasedDetails.model");
+const User = require("../../models/user/user.model");
 const { logger } = require("../../middlewares");
 
 const getDeceasedDetailsByUserId = async (req) => {

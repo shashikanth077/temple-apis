@@ -6,7 +6,7 @@ const {
   updateDeceasedDetails,
   deleteDeceasedDetails,
   getDeceasedListByUserId
-} = require("../../services/DeceasedDetails.service");
+} = require("../../services/user/DeceasedDetails.service");
 
 exports.getDeceasedDetailsByUserId = async (req, res) => {
   try {

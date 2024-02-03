@@ -1,8 +1,8 @@
 const config = require("../../config/auth.config");
-const db = require("../../models");
+const db = require("../../models/user");
 const User = db.user;
 const Role = db.role;
-const UserProfile = require("../../models/userProfile.model");
+const UserProfile = require("../../models/user/userProfile.model");
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
@@ -12,7 +12,7 @@ const Email = require('../../utils/sendEmail');
 const {
   requestPasswordReset,
   resetPassword,
-} = require("../../services/auth.service");
+} = require("../../services/user/auth.service");
 
 exports.signup = async (req, res) => {
   // Generate a random activation token

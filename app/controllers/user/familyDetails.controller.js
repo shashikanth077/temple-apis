@@ -6,7 +6,7 @@ const {
   updateFamilyDetails,
   deleteFamilyDetails,
   getFamilyListByUserId
-} = require("../../services/familyDetails.service");
+} = require("../../services/user/familyDetails.service");
 
 exports.getFamilyDetailsByUserId = async (req, res) => {
   try {

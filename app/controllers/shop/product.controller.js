@@ -2,7 +2,7 @@ const { logger } = require("../../middlewares");
 
 const {
     getAllProducts, createProduct, getProductById, updateProduct, deleteProduct
-  } = require("../../services/product.service");
+  } = require("../../services/shop/product.service");
 
   exports.getAllProductsController = async (req, res, next) => {
     try {
