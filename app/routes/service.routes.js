@@ -1,5 +1,5 @@
 const { authJwt } = require("../middlewares");
-const controller = require("../controllers/service.controller");
+const controller = require("../controllers/services/service.controller");
 const { upload } = require('../utils/fileUpload');
 
 const serviceFolder = upload('uploads/services'); //services folder path

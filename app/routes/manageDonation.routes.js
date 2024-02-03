@@ -1,7 +1,7 @@
 const { authJwt } = require("../middlewares");
-const controller = require("../controllers/admin/manageDonation.controller");
+const controller = require("../controllers/donations/manageDonation.controller");
 const { upload } = require('../utils/fileUpload');
-const donationFolder = upload('uploads/donations'); //services folder path
+const donationFolder = upload('uploads/donations'); //donations folder path
 
 module.exports = function (app) {
   app.use(function (req, res, next) {

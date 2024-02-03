@@ -1,5 +1,5 @@
 const { authJwt } = require("../middlewares");
-const controller = require("../controllers/booking.controller");
+const controller = require("../controllers/seva/booking.controller");
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
