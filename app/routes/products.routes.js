@@ -1,5 +1,5 @@
 const { authJwt } = require("../middlewares");
-const controller = require("../controllers/product.controller");
+const controller = require("../controllers/shop/product.controller");
 
 const { upload } = require('../utils/fileUpload');
 const productFolder = upload('uploads/products'); //products folder path

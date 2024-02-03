@@ -1,5 +1,5 @@
 const { authJwt } = require("../middlewares");
-const controller = require("../controllers/admin/sevaBooking.controller");
+const controller = require("../controllers/seva/sevaBooking.controller");
 const { upload } = require('../utils/fileUpload');
 const sevaFolder = upload('uploads/seva'); //services folder path
 
