@@ -1,6 +1,6 @@
-const UserProfile = require("../models/user/userProfile.model");
-const User = require("../models/user/user.model");
-const FamilyDetails = require("../models/user/familyDetails.model");
+const UserProfile = require("../../models/user/userProfile.model");
+const User = require("../../models/user/user.model");
+const FamilyDetails = require("../../models/user/familyDetails.model");
 const { logger } = require("../../middlewares");
 
 const getUserProfileByUserId = async (userId) => {

@@ -1,6 +1,6 @@
 const { createLogger, format, transports } = require("winston");
-
 const { combine, label, timestamp, printf } = format;
+
 // Make sure this exists
 const LOG_FILE_PATH = 'logs/error.log';
 

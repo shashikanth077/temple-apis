@@ -4,7 +4,7 @@ const {
   addDonationDetails,
   getDonationDetailsByUserId,
   getDonationDetailsByDonationId,
-} = require("../../services/donation.service");
+} = require("../../services/donations/donation.service");
 
 exports.getDonationDetailsByUserId = async (req, res) => {
   try {

@@ -3,7 +3,7 @@ const { logger } = require("../../middlewares");
 const {
   createBookings,
   getSevaList
-} = require("../../services/booking.service");
+} = require("../../services/seva/booking.service");
 
 exports.createBookingsController = async (req, res) => {
   try {

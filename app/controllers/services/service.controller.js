@@ -8,7 +8,7 @@ const {
   inactivateServiceByServiceId,
   inactivateServiceByGodId,
   getServiceByServiceId,
-} = require("../../services/servicesBooking.service");
+} = require("../../services/services/servicesBooking.service");
 
 exports.getAllServicesController = async (req, res, next) => {
   try {

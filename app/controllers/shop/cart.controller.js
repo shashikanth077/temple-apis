@@ -1,7 +1,7 @@
 const { logger } = require("../../middlewares");
-const Cart = require("../../models/cart.model");
-const User = require("../../models/user.model");
-const Product = require("../../models/product.model");
+const Cart = require("../../models/shop/cart.model");
+const User = require("../../models/user/user.model");
+const Product = require("../../models/shop/product.model");
 
 //get cart
 exports.getCart = async (req, res) => {

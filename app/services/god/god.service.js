@@ -1,5 +1,5 @@
-const God = require("../models/god/god.model");
-const Service = require("../models/services/service.model");
+const God = require("../../models/god/god.model");
+const Service = require("../../models/services/service.model");
 const { logger } = require("../../middlewares");
 const { allowedWorshipDays,PUBLIC_URL }  = require("../../utils/constants");
 const { isNullOrUndefined } = require("../../utils")

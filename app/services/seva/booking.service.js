@@ -1,6 +1,6 @@
-const User = require("../models/user/user.model");
-const Booking = require("../models/seva/booking.model");
-const SevaBooking = require("../models/seva/sevaBooking.model");
+const User = require("../../models/user/user.model");
+const Booking = require("../../models/seva/booking.model");
+const SevaBooking = require("../../models/seva/sevaBooking.model");
 const {
   isNullOrUndefined,
   isDateInPresentOrFuture,

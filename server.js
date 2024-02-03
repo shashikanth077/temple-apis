@@ -39,7 +39,7 @@ app.use(mongoSanitize());
 
 app.use(compression()); //payload compression
 
-const db = require("./app/models");
+const db = require("./app/models/user");
 const Role = db.role;
 
 // TODO::move to db.js

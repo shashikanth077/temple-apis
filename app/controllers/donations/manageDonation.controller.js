@@ -6,7 +6,7 @@ const {
   updateDonationTypeDetails,
   deleteDonationTypeDetails,
   getDonationTypeDetailsById,
-} = require("../../services/admin/manageDonation.service");
+} = require("../../services/donations/manageDonation.service");
 
 exports.addDonationTypeController = async (req, res) => {
   try {

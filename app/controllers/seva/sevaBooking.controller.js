@@ -6,7 +6,7 @@ const {
   updateSevaBookingDetails,
   deleteSevaBookingDetails,
   getSevaBookingDetailsById,
-} = require("../../services/admin/sevaBooking.service");
+} = require("../../services/seva/sevaBooking.service");
 
 exports.addSevaBookingDetailsController = async (req, res) => {
   try {
