@@ -565,8 +565,6 @@
             },
             "FrontEnd": {
                 "ContactDetails": {
-                    "TempleName":"Sri Sathya Narayana Temple",
-                    "TempleLogo":"logo.jpg",
                     "Phonenumber": "+91 812319222",
                     "Emailaddress": "test@gmail.com",
                     "Address": "333 Canada Near to old steert,Opposit to petrol bunk",
@@ -774,7 +772,7 @@
                         "email":"Email address*",
                         "state":"State*",
                         "phone":"Phone number*",
-                        "description":"How can you support our temple based on your Skills?*",
+                        "description":"How can you support our temple  based on your Skills?*",
                         "beforevolunteer":"Have you previously volunteered for this temple?*",
                         "isveg":"Are you a vegetarian?*",
                         "islive":"Do you curretly live in Toronto?*",

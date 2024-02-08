@@ -1,16 +1,14 @@
 const User = require("../../models/user/user.model");
-const UserProfile = require("../../models/user/userProfile.model");
+const MasterDonation = require("../../models/donations/manageDonation.model");
 const Donation = require("../../models/donations/donation.model");
-const { allowedDonationTypes } = require("../../utils/constants");
-const { isNullOrUndefined, concatenateNames } = require("../../utils/index");
+const { isNullOrUndefined, generateUniqueNumber } = require("../../utils/index");
 const { logger } = require("../../middlewares");
 
 const addDonationDetails = async (req, res) => {
   if (
     isNullOrUndefined(req) ||
     isNullOrUndefined(req.body) ||
-    isNullOrUndefined(req.params.userId) ||
-    isNullOrUndefined(req.body.isSameAsHomeAddress)
+    isNullOrUndefined(req.params.userId) 
   ) {
     const data = { success: false, message: "invalid request" };
     return { data, status: 400 };
@@ -19,8 +17,7 @@ const addDonationDetails = async (req, res) => {
   const isValidDonationTypes =
     req &&
     req.body &&
-    !isNullOrUndefined(req.body.donationType) &&
-    allowedDonationTypes.includes(req.body.donationType);
+    !isNullOrUndefined(req.body.donationType) ;
 
   if (!isValidDonationTypes) {
     const data = { success: false, message: "invalid donationType in request" };
@@ -28,34 +25,22 @@ const addDonationDetails = async (req, res) => {
   }
 
   const user = await User.findOne({ _id: req.params.userId, activated: true });
+  const donationTypeDetails = await MasterDonation.findOne({ _id: req.body.donateTypeId });
 
   if (!user) {
     const data = { success: false, message: "User not found" };
     return { data, status: 404 };
   }
 
-  let homeAddress = {};
-  if (req.body.isSameAsHomeAddress === true) {
-    const profile = await UserProfile.findOne({ userId: req.params.userId });
-    if (!profile) {
-      const data = { success: false, message: "User Profile not found" };
-      return { data, status: 404 };
-    } else {
-      if (profile.homeAddress) {
-        homeAddress = {
-          address1: profile.homeAddress.address1,
-          address2: profile.homeAddress.address2,
-          city: profile.homeAddress.city,
-          postalCode: profile.homeAddress.postalCode,
-          province: profile.homeAddress.province,
-          phone: profile.mobileNumber,
-        };
-      } else {
-        homeAddress = null;
-      }
-    }
+  if (!donationTypeDetails) {
+    const data = { success: false, message: "No donation type found" };
+    return { data, status: 404 };
   }
 
+  //billing address
+  let billingAddress = {};
+  
+  //when donate grocery items this come to picture or else by default zero price
   let totalPrice = 0;
   if (
     !isNullOrUndefined(req.body.donatedItems) &&
@@ -68,16 +53,22 @@ const addDonationDetails = async (req, res) => {
 
   const donationData = {
     userId: user._id,
-    donor: concatenateNames(user.firstName, user.lastName),
-    donationType: req.body.donationType,
-    donationDate: isNullOrUndefined(req.body.donationDate)
-      ? Date.now()
-      : req.body.donationDate,
-    totalDonationAmount: totalPrice > 0 ? totalPrice : null,
+    donateTypeId: donationTypeDetails._id,
+    donationType:req.body.donationType,
+    donorName: req.body.donorName,
+    donorEmail: req.body.donorEmail,
+    frequency: req.body.frequency,
+    donorPhoneNumber: req.body.donorPhoneNumber,
+    donorNotes: req.body.donorNotes,
+    billingAddress:req.body.billingAddress,
+    stripeReferenceId: req.body.stripeReferenceId,
+    donatedAmount: req.body.donatedAmount,
+    transStatus: req.body.transStatus,
+    paymentMode: req.body.paymentMode,
+    taxReceiptNo: generateUniqueNumber(),
+    donationDate: Date.now(),
     donatedItems: req.body.donatedItems,
-    address:
-      req.body.isSameAsHomeAddress === true ? homeAddress : req.body.address,
-    isSameAsHomeAddress: req.body.isSameAsHomeAddress,
+    address: billingAddress,
     createdAt: Date.now(),
     modifiedAt: Date.now(),
   };
@@ -105,14 +96,14 @@ const getDonationDetailsByUserId = async (req, res) => {
     return { data, status: 404 };
   }
 
-  const donationDetails = await Donation.find({ userId: req.params.userId });
+  const donations = await Donation.find({ userId: req.params.userId });
 
-  if (!donationDetails) {
+  if (!donations) {
     const data = { success: false, message: "Donation details not found" };
     return { data, status: 404 };
   }
 
-  const data = { success: true, donationDetails };
+  const data = { success: true, donations };
 
   return { data, status: 200 };
 };

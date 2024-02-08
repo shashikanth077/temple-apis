@@ -40,10 +40,10 @@ exports.getDonationDetailsByDonationId = async (req, res) => {
 exports.addDonationDetailsController = async (req, res) => {
   try {
     const result = await addDonationDetails(req);
-
     return res.status(result.status).json(result.data);
   } catch (message) {
     //logger.error('addDonationController Error:', error);
+    console.log(message);
     res
       .status(500)
       .json({
