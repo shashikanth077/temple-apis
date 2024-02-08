@@ -34,6 +34,11 @@ app.use(
   })
 );
 
+app.use(express.json({
+  verify: (req, res, buffer) => req['rawBody'] = buffer, 
+}));
+
+
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
 
@@ -112,6 +117,9 @@ require("./app/routes/content.routes")(app);
 
 // volunteers
 require("./app/routes/volunteers.routes")(app);
+
+//payment
+require("./app/routes/payment.routes")(app);
 
 //when not found any URL
 app.all("*", (req, res) => {

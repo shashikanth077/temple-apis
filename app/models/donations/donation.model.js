@@ -7,7 +7,6 @@ const addressSchema = new Schema({
   city: String,
   postalCode: String,
   province: String,
-  phone: String,
 });
 
 const itemSchema = new Schema({
@@ -28,36 +27,56 @@ const DonationSchema = new Schema(
       ref: "User",
       required: true,
     },
-    donor: {
+    donateTypeId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Admin_DonationType",
+      required: true,
+    },
+    donationType: {
+      type: String,
+    },
+    donorName: {
+      type: String,
+    },
+    paymentMethod: {
+      type: String,
+    },
+    donatedItems: {
+      type: [itemSchema],
+      default: [],
+    },
+    billingAddress: addressSchema,
+    donorEmail: {
+      type: String,
+    },
+    frequency: {
+      type: String,
+    },
+    donorPhoneNumber: {
+      type: String,
+    },
+    donorNotes: {
+      type: String,
+    },
+    stripeReferenceId: {
+      type: String,
+    },
+    donatedAmount: {
+      type: Number,
+    },
+    transStatus: {
+      type: String,
+    },
+    paymentMode: {
+      type: Array,
+    },
+    taxReceiptNo: {
       type: String,
     },
     donationDate: {
       type: Date,
       required: true,
       default: Date.now,
-    },
-    donationType: {
-      type: String,
-      required: true,
-    },
-    status: {
-      type: String,
-    },
-    address: addressSchema,
-    donatedItems: [itemSchema],
-    subTotal: {
-      type: Number,
-    },
-    tax: {
-      type: Number,
-    },
-    totalDonationAmount: {
-      type: Number,
-      default: 0,
-    },
-    isSameAsHomeAddress: {
-      type: Boolean,
-      required: true,
     },
     createdAt: {
       type: Date,
