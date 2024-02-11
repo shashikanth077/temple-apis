@@ -57,23 +57,19 @@ const addDonationDetails = async (req, res) => {
   }
 
   //send email and sms success or failur
-  // const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
-  // const messageText = "Hello from Twilio!";
-
-  // sendSMS(toPhoneNumber, messageText)
-  //   .then(() => {
-  //     console.log("SMS sent successfully");
-  //   })
-  //   .catch((error) => {
-  //     console.error("Failed to send SMS:", error);
-  //   });
-  
+  const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
+ 
+   
   let message ;
   if(req.body.transStatus === 'succeeded') {
-      message ='Payment was successfull. Thank you for donating'
+    message ='Payment was successfull. Thank you for donating to '+req.body.donationType
   } else {
     message ='Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days'
   }
+
+  let taxReceipt = generateUniqueNumber();
+  const messageText = `Hello ${req.body.donorName}. ${message}. Receipt no:${taxReceipt}`;
+  sendSMS(toPhoneNumber, messageText);
 
   let EmailObject = {
     name : req.body.donorName,
@@ -99,7 +95,7 @@ const addDonationDetails = async (req, res) => {
     donatedAmount: req.body.donatedAmount,
     transStatus: req.body.transStatus,
     paymentMode: req.body.paymentMode,
-    taxReceiptNo: generateUniqueNumber(),
+    taxReceiptNo: taxReceipt,
     donationDate: Date.now(),
     donatedItems: req.body.donatedItems,
     address: billingAddress,

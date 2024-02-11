@@ -13,11 +13,10 @@ exports.addDonationTypeController = async (req, res) => {
     const result = await addDonationType(req);
     return res.status(result.status).json(result.data);
   } catch (message) {
-    //logger.error('addDonationType Error:', error);
-   
+    logger.error('addDonationType Error:', error);
     res.status(500).json({
       success: false,
-      error: "Internal server error (addDonationType)",
+      error: "Internal server error (addDonationTypeController)",
     });
   }
 };
@@ -27,6 +26,7 @@ exports.getDonationTypesByFrequencyController = async (req, res) => {
     const serviceResult = await getDonationTypesByFrequency(req);
     return res.status(serviceResult.status).json(serviceResult.data);
   } catch (error) {
+    logger.error('getDonationTypesByFrequencyController Error:', error);
     res
       .status(500)
       .json({
@@ -42,7 +42,7 @@ exports.updateDonationTypeDetailsController = async (req, res) => {
     const serviceResult = await updateDonationTypeDetails(req);
     return res.status(serviceResult.status).json(serviceResult.data);
   } catch (error) {
-    //logger.error('updateDonationTypeDetails Error:', error);
+    logger.error('updateDonationTypeDetailsController Error:', error);
     console.log(error);
     res
       .status(500)
@@ -59,7 +59,7 @@ exports.deleteDonationTypeDetailsController = async (req, res) => {
     const serviceResult = await deleteDonationTypeDetails(req);
     return res.status(serviceResult.status).json(serviceResult.data);
   } catch (error) {
-    //logger.error('deleteDonationTypeDetails Error:', error);
+    logger.error('deleteDonationTypeDetails Error:', error);
     res
       .status(500)
       .json({
@@ -75,7 +75,7 @@ exports.getDonationTypeDetailsByIdController = async (req, res) => {
     const serviceResult = await getDonationTypeDetailsById(req);
     return res.status(serviceResult.status).json(serviceResult.data);
   } catch (error) {
-    console.log(error);
+    logger.error('getDonationTypeDetailsByIdController Error:', error);
     res
       .status(500)
       .json({
