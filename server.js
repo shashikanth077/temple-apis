@@ -11,7 +11,6 @@ const compression = require('compression');
 const cookieSession = require("cookie-session");
 const { logger } = require("./app/middlewares");
 const dbConfig = require("./app/config/db.config");
-const checkoutController = require("./app/controllers/payment/checkout.controller");
 
 const app = express();
 
@@ -123,7 +122,7 @@ require("./app/routes/volunteers.routes")(app);
 require("./app/routes/payment.routes")(app);
 
 //web hooks
-app.post('/api/webhook', checkoutController.handleWebhook);
+require('./app/routes/webhook.routes')(app);
 
 //when not found any URL
 app.all("*", (req, res) => {

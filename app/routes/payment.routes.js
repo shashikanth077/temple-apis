@@ -14,7 +14,6 @@ module.exports = function (app) {
     checkoutController.createCheckoutSession
   );
 
-  app.post("/api/webhook", [authJwt.verifyToken], checkoutController.handleWebhook);
 
   app.post(
     "/api/create-payment-intent",

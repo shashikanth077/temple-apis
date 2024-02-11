@@ -16,7 +16,7 @@ exports.getCards = async (req, res) => {
       });
       res.status(200).json(cards.data);
     } catch (error) {
-      console.log(error);
+      logger.error("getCards Error:", error);
       res.status(400).json({ error: "an error occured, unable to get cards" });
     }
   } catch (error) {}
@@ -38,7 +38,7 @@ exports.paymentIntent = async(req,res) => {
       
       res.status(200).json({ clientSecret: paymentIntent.client_secret, id: paymentIntent.id})
     } catch (error) {
-      console.log(error);
+      logger.error("paymentIntent Error:", error);
       res.status(400).json({ error: 'an error occured, unable to create payment intent' })
     }
 }
@@ -54,7 +54,7 @@ exports.PaymentSetupIntent = async(req,res) => {
       });
       res.status(200).json(setupIntent);
     } catch (error) {
-      console.log(error);
+      logger.error("PaymentSetupIntent Error:", error);
       res.status(400).json({ error: 'an error occured, unable to create setup intent' });
     }
 }
@@ -72,7 +72,7 @@ exports.PaymentUpdateIntent = async(req,res) => {
       );
       res.status(200).json({ clientSecret: paymentIntent.client_secret });
     } catch(error) {
-      console.log(error);
+      logger.error("PaymentUpdateIntent Error:", error);
       res.status(400).json({ error: 'unable to update payment intent' });
     }
 }

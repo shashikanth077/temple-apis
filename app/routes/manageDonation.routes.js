@@ -25,7 +25,7 @@ module.exports = function (app) {
 
   app.post(
     "/api/donation-type/details",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    // [authJwt.verifyToken, authJwt.isAdmin],
     controller.getDonationTypesByFrequencyController
   );
 
@@ -38,7 +38,7 @@ module.exports = function (app) {
 
   app.get(
     "/api/donation-type/:id",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    // [authJwt.verifyToken, authJwt.isAdmin],
     controller.getDonationTypeDetailsByIdController
   );
 };
