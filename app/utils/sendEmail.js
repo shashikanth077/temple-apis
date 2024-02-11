@@ -2,6 +2,7 @@ const nodemailer = require("nodemailer");
 const handlebars = require("handlebars");
 const fs = require("fs");
 const path = require("path");
+const {getCurrentDate} = require('../utils');
 
 module.exports = class Email {
   constructor(user, url, title,type='login') {
@@ -10,15 +11,12 @@ module.exports = class Email {
     this.subject = user?.subject;
     this.customerName = user?.name;
     this.customerEmail = user?.email;
+    this.currentdate = getCurrentDate;
     this.message = user?.message;
+    this.bodyData = user?.bodyData;
     this.title = title;
     this.from = `TempleOrg <${process.env.EMAIL_FROM}>`;
-
-    if(type ==='volapprove') {
-      this.name = user?.name;
-    } else {
-      this.name = user?.firstName + " " + user?.lastName;
-    }
+    this.name = user?.name;
   }
 
   newTransport() {
@@ -113,6 +111,13 @@ module.exports = class Email {
     await this.send(
       "verifyEmail",
       "Verify your email address to activate your account"
+    );
+  }
+
+  async donationConfirmation() {
+    await this.send(
+      "donationSuccess",
+      "Donation confirmation email"
     );
   }
 

@@ -1,23 +1,26 @@
 const User = require("../../models/user/user.model");
 const MasterDonation = require("../../models/donations/manageDonation.model");
 const Donation = require("../../models/donations/donation.model");
-const { isNullOrUndefined, generateUniqueNumber } = require("../../utils/index");
+const {
+  isNullOrUndefined,
+  generateUniqueNumber,
+} = require("../../utils/index");
 const { logger } = require("../../middlewares");
+const { sendSMS } = require("../../utils/sendSMS");
+const Email = require('../../utils/sendEmail');
 
 const addDonationDetails = async (req, res) => {
   if (
     isNullOrUndefined(req) ||
     isNullOrUndefined(req.body) ||
-    isNullOrUndefined(req.params.userId) 
+    isNullOrUndefined(req.params.userId)
   ) {
     const data = { success: false, message: "invalid request" };
     return { data, status: 400 };
   }
 
   const isValidDonationTypes =
-    req &&
-    req.body &&
-    !isNullOrUndefined(req.body.donationType) ;
+    req && req.body && !isNullOrUndefined(req.body.donationType);
 
   if (!isValidDonationTypes) {
     const data = { success: false, message: "invalid donationType in request" };
@@ -25,7 +28,9 @@ const addDonationDetails = async (req, res) => {
   }
 
   const user = await User.findOne({ _id: req.params.userId, activated: true });
-  const donationTypeDetails = await MasterDonation.findOne({ _id: req.body.donateTypeId });
+  const donationTypeDetails = await MasterDonation.findOne({
+    _id: req.body.donateTypeId,
+  });
 
   if (!user) {
     const data = { success: false, message: "User not found" };
@@ -39,7 +44,7 @@ const addDonationDetails = async (req, res) => {
 
   //billing address
   let billingAddress = {};
-  
+
   //when donate grocery items this come to picture or else by default zero price
   let totalPrice = 0;
   if (
@@ -51,16 +56,45 @@ const addDonationDetails = async (req, res) => {
     });
   }
 
+  //send email and sms success or failur
+  // const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
+  // const messageText = "Hello from Twilio!";
+
+  // sendSMS(toPhoneNumber, messageText)
+  //   .then(() => {
+  //     console.log("SMS sent successfully");
+  //   })
+  //   .catch((error) => {
+  //     console.error("Failed to send SMS:", error);
+  //   });
+  
+  let message ;
+  if(req.body.transStatus === 'succeeded') {
+      message ='Payment was successfull. Thank you for donating'
+  } else {
+    message ='Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days'
+  }
+
+  let EmailObject = {
+    name : req.body.donorName,
+    email:req.body.donorEmail,
+    message:message,
+    bodyData:req.body,
+    url:"http://localhost:3000/mydonations/list"
+  }
+  SendConfirmationEmail(EmailObject, '');
+
   const donationData = {
     userId: user._id,
     donateTypeId: donationTypeDetails._id,
-    donationType:req.body.donationType,
+    donationType: req.body.donationType,
     donorName: req.body.donorName,
+    devoteeId: req.body.devoteeId,
     donorEmail: req.body.donorEmail,
     frequency: req.body.frequency,
     donorPhoneNumber: req.body.donorPhoneNumber,
     donorNotes: req.body.donorNotes,
-    billingAddress:req.body.billingAddress,
+    billingAddress: req.body.billingAddress,
     stripeReferenceId: req.body.stripeReferenceId,
     donatedAmount: req.body.donatedAmount,
     transStatus: req.body.transStatus,
@@ -83,6 +117,11 @@ const addDonationDetails = async (req, res) => {
   return { data, status: 200 };
 };
 
+const SendConfirmationEmail = async (user, activationLink) => {
+  new Email(user, activationLink,'donation confirmation email').donationConfirmation();
+};
+
+
 const getDonationDetailsByUserId = async (req, res) => {
   if (isNullOrUndefined(req) || isNullOrUndefined(req.params.userId)) {
     const data = { success: false, message: "invalid request" };
@@ -90,7 +129,7 @@ const getDonationDetailsByUserId = async (req, res) => {
   }
 
   const user = await User.findOne({ _id: req.params.userId, activated: true });
- 
+
   if (!user) {
     const data = { success: false, message: "User not found" };
     return { data, status: 404 };
@@ -107,6 +146,7 @@ const getDonationDetailsByUserId = async (req, res) => {
 
   return { data, status: 200 };
 };
+
 
 const getDonationDetailsByDonationId = async (req, res) => {
   if (

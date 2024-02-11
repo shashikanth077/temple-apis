@@ -38,6 +38,9 @@ const DonationSchema = new Schema(
     donorName: {
       type: String,
     },
+    devoteeId : {
+        type:Number
+    },
     paymentMethod: {
       type: String,
     },

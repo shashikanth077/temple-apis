@@ -571,10 +571,10 @@
                     "DuplicateCopy":"(Duplicate copy)",
                     "ReceivedStatement":"Received with thanks, the sum of :",
                     "AsDonation":"as Donations to the",
-                    "TresurerSig":"assets/images/temple/tresurer/signature.png"
+                    "TresurerSig":"assets/images/temple/tresuru_sig/tresurer.png"
                 },
                 "ContactDetails": {
-                    "TresurerSig":"assets/images/temple/tresurer/signature.png",
+                    "TresurerSig":"/assets/images/temple/tresuru_sig/tresurer.png",
                     "TempleName":"Sri Sathya Narayana Temple",
                     "TempleLogo":"logo.jpg",
                     "chartiyNo":"Charity BN/ 823015227RR0001",

@@ -13,6 +13,10 @@ const User = mongoose.model(
       required: true,
       unique: true,
     },
+    devoteeId:{
+      type:Number,
+      unique:true
+    },
     TermConcent: {
       type: Boolean,
       required: true,

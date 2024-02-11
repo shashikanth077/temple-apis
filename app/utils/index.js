@@ -1,4 +1,4 @@
-const { isValidDateDDMMYYYYFormat, isDateInPresentOrFuture } = require("./dateHelper");
+const { isValidDateDDMMYYYYFormat, isDateInPresentOrFuture,getCurrentDate } = require("./dateHelper");
 const { isNullOrUndefined, concatenateNames } = require("./dataHelper");
 const { generateUniqueKey,generateUniqueNumber } = require("./uuidGenerator");
 const { generateUniqueBookingId } = require("./bookingIdGenerator");
@@ -11,6 +11,7 @@ module.exports = {
     isNullOrUndefined,
     concatenateNames,
     generateUniqueNumber,
+    getCurrentDate,
     generateUniqueKey,
     generateUniqueBookingId,
     convertStringToObjectId,

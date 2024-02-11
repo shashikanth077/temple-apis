@@ -564,21 +564,9 @@
                 "SubmitBtn": "Login"
             },
             "FrontEnd": {
-                "TaxReceipt":{
-                    "heading":"Official Tax Reciept For Contributions In ",
-                    "originalCopy":"(Original copy)",
-                    "TempleName":"Sri Sathya Narayana Temple",
-                    "DuplicateCopy":"(Duplicate copy)",
-                    "ReceivedStatement":"Received with thanks, the sum of :",
-                    "AsDonation":"as Donations to the",
-                    "TresurerSig":"assets/images/temple/tresurer/signature.png"
-                },
                 "ContactDetails": {
-                    "TresurerSig":"assets/images/temple/tresurer/signature.png",
                     "TempleName":"Sri Sathya Narayana Temple",
                     "TempleLogo":"logo.jpg",
-                    "chartiyNo":"Charity BN/ 823015227RR0001",
-                    "website":"https://sathrantemple.com",
                     "Phonenumber": "+91 812319222",
                     "Emailaddress": "test@gmail.com",
                     "Address": "333 Canada Near to old steert,Opposit to petrol bunk",
