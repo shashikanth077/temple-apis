@@ -23,4 +23,12 @@ const isDateInPresentOrFuture = (dateString) => {
   return inputDate >= currentDate;
 };
 
-module.exports = { isValidDateDDMMYYYYFormat, isDateInPresentOrFuture };
+const getCurrentDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    const yy = String(today.getFullYear());
+    return `${dd}-${mm}-${yy}`;
+}
+
+module.exports = { isValidDateDDMMYYYYFormat, isDateInPresentOrFuture,getCurrentDate };

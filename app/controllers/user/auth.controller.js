@@ -3,6 +3,7 @@ const db = require("../../models/user");
 const User = db.user;
 const Role = db.role;
 const UserProfile = require("../../models/user/userProfile.model");
+const Counter = require("../../models/counter.model");
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
@@ -15,6 +16,7 @@ const {
 } = require("../../services/user/auth.service");
 
 exports.signup = async (req, res) => {
+
   // Generate a random activation token
   const activationToken = crypto.randomBytes(20).toString("hex");
   const clientURL = process.env.CLIENT_URL;
@@ -22,10 +24,17 @@ exports.signup = async (req, res) => {
   const activationTokenExpiry = new Date();
   activationTokenExpiry.setHours(activationTokenExpiry.getHours() + 24); // Set expiration to 24 hour from now
 
+  const counter = await Counter.findByIdAndUpdate(
+    { _id: 'devoteeId' },
+    { $inc: { seq: 1 } },
+    { new: true, upsert: true }
+  );
+ 
   const user = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
+    devoteeId : counter.seq,
     TermConcent:req.body.TermConcent,
     phonenumber:req.body.phonenumber,
     password: bcrypt.hashSync(req.body.password, 8),
@@ -194,6 +203,8 @@ exports.signin = (req, res) => {
       res.status(200).send({
         id: user._id,
         email: user.email,
+        devoteeId:user.devoteeId,
+        phonenumber:user.phonenumber,
         roles: authorities,
         success: true,
         message: "login successful",
