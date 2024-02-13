@@ -58,8 +58,7 @@ const addDonationDetails = async (req, res) => {
 
   //send email and sms success or failur
   const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
- 
-   
+    
   let message ;
   if(req.body.transStatus === 'succeeded') {
     message ='Payment was successfull. Thank you for donating to '+req.body.donationType

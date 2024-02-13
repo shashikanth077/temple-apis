@@ -27,5 +27,15 @@ module.exports = function (app) {
     controller.resetPasswordRequestController
   );
 
+  app.post(
+    "/api/generateotp",
+    controller.getOTP
+  );
+
+  app.post(
+    "/api/verifyotp",
+    controller.verifyOTP
+  );
+
   app.post("/api/auth/resetPassword", controller.resetPasswordController);
 };

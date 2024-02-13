@@ -26,9 +26,14 @@ const User = mongoose.model(
       type: String,
       required: true,
     },
+    countrycode : {
+      type: String,
+      required: true,
+    },
     phonenumber :{
       type:String,
       required: true,
+      unique: true,
     },
     activationToken: String,
     activationTokenExpiry: {

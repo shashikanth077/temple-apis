@@ -11,7 +11,13 @@ const generateUniqueNumber = () => {
   return uniqueNumber;
 }
 
+const generateRandomOtp = () => {
+  const otp = Math.floor(100000 + Math.random() * 900000);
+  return otp.toString(); 
+}
+
 module.exports = {
     generateUniqueKey,
-    generateUniqueNumber
+    generateUniqueNumber,
+    generateRandomOtp
 }
