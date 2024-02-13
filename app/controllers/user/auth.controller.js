@@ -42,7 +42,7 @@ exports.signup = async (req, res) => {
     devoteeId : counter.seq,
     countrycode:req.body.countrycode,
     TermConcent:req.body.TermConcent,
-    phonenumber:req.body.phonenumber,
+    phonenumber:req.body.countrycode+''+req.body.phonenumber,
     password: bcrypt.hashSync(req.body.password, 8),
     activationToken: activationToken,
     activationTokenExpiry: activationTokenExpiry,
@@ -77,6 +77,8 @@ exports.signup = async (req, res) => {
               res.status(500).send({ message: err });
               return;
             }
+            let mobileNumber = req.body.countrycode+''+req.body.phonenumber;
+            SendOTP(mobileNumber);
             SendAccountActivationEmail(user, activationLink);
             res.send({
               success: true,
@@ -99,6 +101,9 @@ exports.signup = async (req, res) => {
             res.status(500).send({ message: err });
             return;
           }
+          
+          let mobileNumber = req.body.countrycode+''+req.body.phonenumber;
+          SendOTP(mobileNumber);
           SendAccountActivationEmail(user, activationLink);
           res.send({
             success: true,
@@ -125,11 +130,13 @@ exports.activateEmail = async (req, res) => {
 
     // Activate the user
     user.activated = true;
+    user.IsEmailActive = true;
     user.activationToken = undefined;
 
     const profileData = {
       userId: user._id,
       firstName: user.firstName,
+      countryCode:req.body.countrycode,
       lastName: user.lastName,
       mobileNumber: user.phonenumber,
       email: user.email,
@@ -269,6 +276,7 @@ exports.verifyOTP = async (req, res) => {
     const result = await VerifyOTP(req.body.phoneNumber,req.body.otp);
     return res.status(result.status).json(result.data);
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       error:
         "Something went wrong please try again (verifyOTP)",
@@ -278,4 +286,17 @@ exports.verifyOTP = async (req, res) => {
 
 const SendAccountActivationEmail = async (user, activationLink) => {
    new Email(user, activationLink,'email activation').verifyEmailAddress();
+};
+
+const SendOTP = async (mobileNumber) => {
+  try {
+    const result = await generateandSaveOTP(mobileNumber);
+ 
+    let message = 'Please enter the below OTP'
+
+    const messageText = `Hello ${message}.:${result.data.otp}`;
+    return sendSMS(mobileNumber, messageText);
+  } catch (error) {
+    console.log(error);
+  }
 };
