@@ -1,12 +1,14 @@
 const JWT = require("jsonwebtoken");
 const User = require("../../models/user/user.model");
 const Token = require("../../models/token.model");
+const otpModel = require("../../models/user/otp.model");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
-const Email = require('../../utils/sendEmail');
+const Email = require("../../utils/sendEmail");
 
 const bcryptSalt = process.env.BCRYPT_SALT;
 const clientURL = process.env.CLIENT_URL;
+const { generateRandomOtp } = require("../../utils");
 
 const requestPasswordReset = async (email) => {
   const user = await User.findOne({ email });
@@ -28,27 +30,30 @@ const requestPasswordReset = async (email) => {
   }).save();
 
   const link = `${clientURL}/passwordReset?token=${resetToken}&id=${user._id}`;
-  new Email(user,link,'Reset password link').sendPasswordReset();
+  new Email(user, link, "Reset password link").sendPasswordReset();
   const data = { success: true, message: link };
   return { data, status: 200 };
 };
 
 const resetPassword = async (userId, token, password) => {
-
-  console.log(userId);
-  console.log(token);
-  console.log(password);
   let passwordResetToken = await Token.findOne({ userId });
 
   if (!passwordResetToken) {
-     return { success: false,
-      message: "Invalid or expired password reset token", status: 404 };
+    return {
+      success: false,
+      message: "Invalid or expired password reset token",
+      status: 404,
+    };
   }
 
   const isValid = await bcrypt.compare(token, passwordResetToken.token);
 
   if (!isValid) {
-    return { success: false, message: "Invalid or expired password reset token", status: 404 };
+    return {
+      success: false,
+      message: "Invalid or expired password reset token",
+      status: 404,
+    };
   }
 
   const hash = await bcrypt.hash(password, Number(bcryptSalt));
@@ -60,15 +65,53 @@ const resetPassword = async (userId, token, password) => {
   );
 
   const user = await User.findById({ _id: userId });
-
-  new Email(user,'','Reset password successfull').resetPassword();
+  new Email(user, "", "Reset password successfull").resetPassword();
 
   await passwordResetToken.deleteOne();
-
   return { success: true, message: "Password reset successfull", status: 200 };
 };
+
+const generateandSaveOTP = async (phoneNumber) => {
+
+  await otpModel.deleteMany({ phoneNumber });
+
+  const otp = generateRandomOtp();
+  const otpDocument = new otpModel({
+    phoneNumber,
+    otp,
+  });
+  try {
+    await otpDocument.save();
+    const data = { success: true, otp: otp, message: "otp inserted" };
+    return { data, status: 200 };
+  } catch (error) {
+    const data = { success: false, message: error };
+    return { data, status: 500 };
+  }
+};
+
+const VerifyOTP = async (phoneNumber,userOTP) => {
+  const otpDocument = await otpModel.findOne({ phoneNumber, otp: userOTP }).exec();
+
+  try {
+    if (otpDocument) {
+      await otpDocument.remove();
+      const data = { success: true, otpStatus: true, message: "valid" };
+      return { data, status: 200 };
+    } else {
+      const data = { success: false, otpStatus: false, message: "Invalid OTP" };
+      return { data, status: 404 };
+    }
+  } catch (error) {
+    const data = { success: false, message: error };
+    return { data, status: 500 };
+  }
+
+}
 
 module.exports = {
   requestPasswordReset,
   resetPassword,
+  generateandSaveOTP,
+  VerifyOTP
 };

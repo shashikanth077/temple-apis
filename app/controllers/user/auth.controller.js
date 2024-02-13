@@ -9,11 +9,16 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const Email = require('../../utils/sendEmail');
+const {sendSMS} = require('../../utils/sendSMS');
 
 const {
   requestPasswordReset,
   resetPassword,
+  generateandSaveOTP,
+  VerifyOTP
 } = require("../../services/user/auth.service");
+
+
 
 exports.signup = async (req, res) => {
 
@@ -35,6 +40,7 @@ exports.signup = async (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     devoteeId : counter.seq,
+    countrycode:req.body.countrycode,
     TermConcent:req.body.TermConcent,
     phonenumber:req.body.phonenumber,
     password: bcrypt.hashSync(req.body.password, 8),
@@ -203,6 +209,7 @@ exports.signin = (req, res) => {
       res.status(200).send({
         id: user._id,
         email: user.email,
+        countrycode:user.countrycode,
         devoteeId:user.devoteeId,
         phonenumber:user.phonenumber,
         roles: authorities,
@@ -235,6 +242,38 @@ exports.resetPasswordController = async (req, res, next) => {
     req.body.password
   );
   return res.status(resetPasswordService.status).send({ success:resetPasswordService.success,message: resetPasswordService.message });
+};
+
+exports.getOTP = async (req, res) => {
+  try {
+    const result = await generateandSaveOTP(req.body.phoneNumber);
+
+    const toPhoneNumber = "+918123192799"; 
+    let message = 'Please enter the below otp:'
+
+    const messageText = `Hello ${message}. OTP:${result.data.otp}`;
+    sendSMS(toPhoneNumber, messageText);
+
+    return res.status(result.status).json(result.data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      error:
+        "Something went wrong please try again (getOTP)",
+    });
+  }
+};
+
+exports.verifyOTP = async (req, res) => {
+  try {
+    const result = await VerifyOTP(req.body.phoneNumber,req.body.otp);
+    return res.status(result.status).json(result.data);
+  } catch (error) {
+    res.status(500).json({
+      error:
+        "Something went wrong please try again (verifyOTP)",
+    });
+  }
 };
 
 const SendAccountActivationEmail = async (user, activationLink) => {
