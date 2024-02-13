@@ -30,6 +30,12 @@ const User = mongoose.model(
       type: String,
       required: true,
     },
+    IsPhoneActive: {
+      type:Boolean
+    },
+    IsEmailActive: {
+      type:Boolean
+    },
     phonenumber :{
       type:String,
       required: true,

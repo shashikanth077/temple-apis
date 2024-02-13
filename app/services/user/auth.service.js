@@ -80,6 +80,7 @@ const generateandSaveOTP = async (phoneNumber) => {
     phoneNumber,
     otp,
   });
+
   try {
     await otpDocument.save();
     const data = { success: true, otp: otp, message: "otp inserted" };
@@ -88,13 +89,19 @@ const generateandSaveOTP = async (phoneNumber) => {
     const data = { success: false, message: error };
     return { data, status: 500 };
   }
+  
 };
 
-const VerifyOTP = async (phoneNumber,userOTP) => {
+const VerifyOTP = async (phoneNumber, userOTP) => {
   const otpDocument = await otpModel.findOne({ phoneNumber, otp: userOTP }).exec();
 
   try {
     if (otpDocument) {
+      await User.findOneAndUpdate(
+        { phonenumber: phoneNumber },
+        { $set: { IsPhoneActive: true } },
+        { runValidators: true, new: true }
+      );
       await otpDocument.remove();
       const data = { success: true, otpStatus: true, message: "valid" };
       return { data, status: 200 };
@@ -103,11 +110,11 @@ const VerifyOTP = async (phoneNumber,userOTP) => {
       return { data, status: 404 };
     }
   } catch (error) {
+    console.log(error);
     const data = { success: false, message: error };
     return { data, status: 500 };
   }
-
-}
+};
 
 module.exports = {
   requestPasswordReset,
