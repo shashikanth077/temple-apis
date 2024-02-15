@@ -18,8 +18,6 @@ const {
   VerifyOTP
 } = require("../../services/user/auth.service");
 
-
-
 exports.signup = async (req, res) => {
 
   // Generate a random activation token
@@ -216,6 +214,7 @@ exports.signin = (req, res) => {
       res.status(200).send({
         id: user._id,
         email: user.email,
+        userName:user.firstName+''+user.lastName,
         countrycode:user.countrycode,
         devoteeId:user.devoteeId,
         phonenumber:user.phonenumber,

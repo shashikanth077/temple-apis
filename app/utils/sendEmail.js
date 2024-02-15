@@ -121,6 +121,13 @@ module.exports = class Email {
     );
   }
 
+  async ShopConfirmation() {
+    await this.send(
+      "shopSuccess",
+      "Purchasing confirmation email"
+    );
+  }
+
   async resetPassword() {
     await this.send("resetPassword", "password has been reset succesfully");
   }

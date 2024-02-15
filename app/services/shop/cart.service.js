@@ -1,5 +1,13 @@
 const Product = require("../../models/shop/cart.model");
 const { logger } = require("../../middlewares");
+const BookingHistoryModel = require('../../models/bookingHistory/bookingHistory.model');
+const User = require('../../models/user/user.model');
+const {
+  isNullOrUndefined,
+  generateUniqueNumber,
+} = require("../../utils/index");
+const { sendSMS } = require("../../utils/sendSMS");
+const Email = require('../../utils/sendEmail');
 
 const addCart = async (req) => {
   const owner = req.user._id;
@@ -44,6 +52,85 @@ const addCart = async (req) => {
   }
 };
 
+const AddBookingHistory = async (req) => {
+
+  if (
+    isNullOrUndefined(req) ||
+    isNullOrUndefined(req.body) 
+  ) {
+    const data = { success: false, message: "invalid request" };
+    return { data, status: 400 };
+  }
+
+  const user = await User.findOne({ _id: req.body.userId, activated: true });
+  
+  if (!user) {
+    const data = { success: false, message: "User not found" };
+    return { data, status: 404 };
+  }
+
+  //send email and sms success or failur
+  const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
+
+  let message;
+  if (req.body.transStatus === "succeeded") {
+    message =
+      "Payment was successfull. Thank you for purchasing"
+  } else {
+    message =
+      "Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days";
+  }
+
+  let OrderId = req.body.devoteeId+'/'+generateUniqueNumber();
+  const messageText = `Hello ${req.body.devoteeName}. ${message}. Order Id:${OrderId}`;
+  sendSMS(toPhoneNumber, messageText);
+
+  let EmailObject = {
+    name: req.body.devoteeName,
+    email: req.body.devoteeEmail,
+    message: message,
+    bodyData: req.body,
+    url: "http://localhost:3000/mybookings/list",
+  };
+  
+  SendConfirmationEmail(EmailObject, "");
+
+  const ShopData = {
+    userId: req.body.userId,
+    OrderId:OrderId,
+    devoteeId: req.body.devoteeId,
+    orderType: req.body.orderType,
+    amount: req.body.amount,
+    Items: req.body.Items,
+    billingAddress: req.body.billingAddress,
+    devoteeName: req.body.devoteeName,
+    devoteePhoneNumber: req.body.devoteePhoneNumber,
+    devoteeEmail: req.body.devoteeEmail,
+    transStatus: req.body.transStatus,
+    stripeReferenceId: req.body.stripeReferenceId,
+    paymentMode: req.body.paymentMode,
+    orderNotes: req.body.orderNotes,
+    OrderDate: Date.now(),
+    createdAt: Date.now(),
+    modifiedAt: Date.now(),
+  }
+
+  await new BookingHistoryModel(ShopData).save();
+
+  const data = {
+    success: true,
+    message: "Shop details added successfully",
+  };
+
+  return { data, status: 200 };
+};
+
+const SendConfirmationEmail = async (user, activationLink) => {
+  new Email(user, activationLink,'shopping confirmation email').ShopConfirmation();
+};
+
+
 module.exports = {
   addCart,
+  AddBookingHistory,
 };

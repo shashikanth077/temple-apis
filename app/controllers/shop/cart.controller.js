@@ -2,16 +2,16 @@ const { logger } = require("../../middlewares");
 const Cart = require("../../models/shop/cart.model");
 const User = require("../../models/user/user.model");
 const Product = require("../../models/shop/product.model");
+const { AddBookingHistory } = require("../../services/shop/cart.service");
 
 //get cart
 exports.getCart = async (req, res) => {
-
   const userId = req.params.id;
   const user = await User.findOne({ _id: userId });
-  const sessionId = req.headers["session"]; 
+  const sessionId = req.headers["session"];
 
   const owner = user != null ? user._id : null;
-  
+
   try {
     let cart;
     if (owner != null) {
@@ -34,7 +34,7 @@ exports.getCart = async (req, res) => {
 exports.addCart = async (req, res) => {
   const userId = req.body["userid"];
   const user = await User.findOne({ _id: userId });
-  const sessionId = req.headers["session"]; 
+  const sessionId = req.headers["session"];
   const owner = user != null ? user._id : null;
 
   const { productId, quantity } = req.body;
@@ -52,7 +52,7 @@ exports.addCart = async (req, res) => {
     const image = product.image;
 
     let cart = await setHeaderQuery(owner, sessionId);
-  
+
     if (quantity > stock) {
       res.status(400).send({ message: `Only ${stock} quantity available` });
       return;
@@ -67,8 +67,8 @@ exports.addCart = async (req, res) => {
       //check if product exists or not
       if (itemIndex != -1) {
         let item = cart.items[itemIndex];
-       
-        if(req.body.type === 'decrease'){
+
+        if (req.body.type === "decrease") {
           item.quantity -= quantity;
         } else {
           item.quantity += quantity;
@@ -79,19 +79,19 @@ exports.addCart = async (req, res) => {
         }, 0);
 
         cart.totalQuantity = cart.items.reduce((acc, curr) => {
-          return acc + curr.quantity ;
+          return acc + curr.quantity;
         }, 0);
 
-        console.log("item",cart);
+        console.log("item", cart);
         cart.sessionId = sessionId;
         cart.items[itemIndex] = item;
         await cart.save();
         res.status(200).send(cart);
       } else {
-        cart.items.push({ productId, name, quantity, price,image });
+        cart.items.push({ productId, name, quantity, price, image });
 
         cart.totalQuantity = cart.items.reduce((acc, curr) => {
-          return acc + curr.quantity ;
+          return acc + curr.quantity;
         }, 0);
 
         cart.totalPrice = cart.items.reduce((acc, curr) => {
@@ -107,7 +107,7 @@ exports.addCart = async (req, res) => {
       const newCart = await Cart.create({
         owner,
         sessionId: sessionId,
-        items: [{ productId, name, quantity, price,image }],
+        items: [{ productId, name, quantity, price, image }],
         totalPrice: quantity * price,
       });
       return res.status(201).send(newCart);
@@ -121,7 +121,7 @@ exports.addCart = async (req, res) => {
 exports.deleteCart = async (req, res) => {
   const userId = req.params.userid;
   const user = await User.findOne({ _id: userId });
-  const sessionId = req.headers["session"]; 
+  const sessionId = req.headers["session"];
   const owner = user != null ? user._id : null;
   const productId = req.params.productId;
   console.log(productId);
@@ -129,7 +129,7 @@ exports.deleteCart = async (req, res) => {
   try {
     let cart = await setHeaderQuery(owner, sessionId);
 
-    if(req.params.productId ==0) {
+    if (req.params.productId == 0) {
       cart.items = [];
       cart.totalPrice = 0;
       cart.totalQuantity = 0;
@@ -140,28 +140,42 @@ exports.deleteCart = async (req, res) => {
       const itemIndex = cart.items.findIndex(
         (item) => item.productId == productId
       );
-  
+
       if (itemIndex > -1) {
-        cart.items = cart.items.filter((item) => item.productId != productId)
-  
+        cart.items = cart.items.filter((item) => item.productId != productId);
+
         cart.totalPrice = cart.items.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
         }, 0);
-  
+
         cart.totalQuantity = cart.items.reduce((acc, curr) => {
-          return acc + curr.quantity ;
+          return acc + curr.quantity;
         }, 0);
-  
+
         cart = await cart.save();
         res.status(200).send(cart);
       } else {
         res.status(404).send("item not found");
       }
     }
-    
   } catch (error) {
     console.log(error);
     res.status(400).send();
+  }
+};
+
+exports.AddBookingHistory = async (req, res) => {
+  try {
+    const bookinhService = await AddBookingHistory(req);
+    return res.status(bookinhService.status).json(bookinhService.data);
+  } catch (error) {
+    //logger.error('updateProduct Error:', error);
+    console.log(error);
+    res
+      .status(500)
+      .json({
+        error: "Something went wrong please try again (AddBookingHistory)",
+      });
   }
 };
 

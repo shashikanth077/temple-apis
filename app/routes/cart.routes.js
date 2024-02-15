@@ -9,6 +9,7 @@ module.exports = function (app) {
   app.get("/api/cart/:id", controller.getCart);
 
   app.post("/api/cart", controller.addCart);
+  app.post("/api/checkout/addhistory", controller.AddBookingHistory);
 
   app.get("/api/cart/delete/:productId/:userid/:type", controller.deleteCart);
 };
