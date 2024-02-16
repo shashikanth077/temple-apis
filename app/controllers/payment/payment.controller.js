@@ -23,22 +23,24 @@ exports.getCards = async (req, res) => {
 };
 
 exports.paymentIntent = async(req,res) => {
-    const { cartItems, description, receipt_email, shipping } = req.body;
+    const { bookingdetails,payment_method_types,amount,currency, description, receipt_email, shipping } = req.body;
     let paymentIntent;
   
     try {
       paymentIntent = await stripeAPI.paymentIntents.create({
-        amount: 124, //later will change it
-        currency: 'usd',
+        bookingdetails,
+        amount: amount, 
+        currency: currency,
         description,
-        payment_method_types: ['card'],
+        payment_method_types: payment_method_types,
         receipt_email,
         shipping,
       });
       
       res.status(200).json({ clientSecret: paymentIntent.client_secret, id: paymentIntent.id})
     } catch (error) {
-      logger.error("paymentIntent Error:", error);
+      //logger.error("paymentIntent Error:", error);
+      console.log(error);
       res.status(400).json({ error: 'an error occured, unable to create payment intent' })
     }
 }
