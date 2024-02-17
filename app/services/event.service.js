@@ -1,8 +1,18 @@
 const validator = require("validator");
+const User = require("../models/user/user.model");
 const Event = require("../models/event.model");
-const { logger } = require("../../app/middlewares");
-const { isValidDateDDMMYYYYFormat,isNullOrUndefined } = require("../utils");
+const eventHistory = require("../models/bookingHistory/eventHistory.model");
+const {
+  isNullOrUndefined,
+  isDateInPresentOrFuture,
+  isValidDateDDMMYYYYFormat,
+  convertStringToObjectId,
+  generateUniqueNumber,
+} = require("../utils");
 const { PUBLIC_URL } = require("../utils/constants")
+const { sendSMS } = require("../utils/sendSMS");
+const Email = require('../utils/sendEmail');
+const { logger } = require("../../app/middlewares");
 
 const getAllEvents = async () => {
   const events = await Event.find({ deleted: false });
@@ -20,30 +30,6 @@ const addEvents = async (req) => {
   if (event.length < 1) {
     return { success: false, message: "No event found" };
   }
-
-  // const hasInvalidEvent = eventsArray.some(
-  //   (event) => {
-
-  //     console.log(event);
-  //       const imagePath = PUBLIC_URL+'uploads/products/'+req.file.filename;
-  //       req.body.image = imagePath;
-  
-  //       !validator.isEmail(event.organizerEmail) ||
-  //       !event.name ||
-  //       !event.bookingPrice ||
-  //       !event.organizer ||
-  //       !event.organizerPhone ||
-  //       !isValidDateDDMMYYYYFormat(event.startDate) ||
-  //       !isValidDateDDMMYYYYFormat(event.endDate) ||
-  //       !event.venue ||
-  //       !event.image ||
-  //       !event.description
-  //   }
-  // );
-
-  // if (hasInvalidEvent) {
-  //   return { success: false, message: "Bad Request" };
-  // }
 
   const imagePath = PUBLIC_URL+'uploads/events/'+req.file.filename;
   req.body.image = imagePath;
@@ -138,6 +124,97 @@ const deleteEvent = async (req) => {
   return { success: true, message: "Event deleted successfully", event };
 };
 
+const createBookings = async (req) => {
+  if (
+    isNullOrUndefined(req) ||
+    isNullOrUndefined(req.body) ||
+    isNullOrUndefined(
+      req.body.userId 
+    )
+  ) {
+    const data = { success: false, message: "invalid request" };
+    return { data, status: 400 };
+  }
+
+  const user = await User.findOne({ _id: req.body.userId, activated: true });
+
+  if (!user) {
+    const data = { success: false, message: "User not found" };
+    return { data, status: 404 };
+  }
+
+  if (!convertStringToObjectId(req.body.userId).equals(user._id)) {
+    const data = { success: false, message: "invalid request" };
+    return { data, status: 404 };
+  }
+
+  //send email and sms success or failur
+  const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
+
+  let message;
+  if (req.body.transStatus === "succeeded") {
+    message =
+      "Payment was successfull. Thank you for booking " + req.body.eventName;
+  } else {
+    message =
+      "Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days";
+  }
+
+  const serviceShortName = "EVT";
+  let serviceBookId =
+    serviceShortName + "_" + req.body.devoteeId + "/" + generateUniqueNumber();
+  const messageText = `Hello ${req.body.devoteeName}. ${message}. Booking Id:${serviceBookId}`;
+  sendSMS(toPhoneNumber, messageText);
+
+  let EmailObject = {
+    name: req.body.devoteeName,
+    email: req.body.devoteeEmail,
+    message: message,
+    bodyData: req.body,
+    url: "http://localhost:3000/mybookings/list",
+  };
+  SendConfirmationEmail(EmailObject, "");
+
+  const eventData = {
+    userId: user._id,
+    eventBookId: serviceBookId,
+    orderType: req.body.orderType,
+    venue:req.body.venue,
+    eventId: req.body.eventId,
+    devoteeName: req.body.devoteeName,
+    devoteeId: req.body.devoteeId,
+    devoteeEmail: req.body.devoteeEmail,
+    devoteePhoneNumber: req.body.devoteePhoneNumber,
+    orderNotes: req.body.orderNotes,
+    billingAddress: req.body.billingAddress,
+    stripeReferenceId: req.body.stripeReferenceId,
+    amount: req.body.amount,
+    transStatus: req.body.transStatus,
+    paymentMode: req.body.paymentMode,
+    paymentMethod: req.body.paymentMethod,
+    eventName: req.body.eventName,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    organizer: req.body.organizer,
+    organizerPhone: req.body.organizerPhone,
+    createdAt: Date.now(),
+    modifiedAt: Date.now(),
+  };
+
+  await new eventHistory(eventData).save();
+
+  const data = {
+    success: true,
+    message: "eventData details added successfully",
+  };
+
+  return { data, status: 200 };
+};
+
+const SendConfirmationEmail = async (user, activationLink) => {
+  new Email(user, activationLink, "event booking email").eventConfirmation();
+};
+
 module.exports = {
   getAllEvents,
   getEventById,
@@ -145,4 +222,5 @@ module.exports = {
   getEventsByDateFilter,
   updateEvent,
   deleteEvent,
+  createBookings
 };
