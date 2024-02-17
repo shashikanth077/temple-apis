@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const addressSchema = new Schema({
-    address1: String,
-    address2: String,
-    city: String,
-    postalCode: String,
-    province: String,
+    billingAddress: String,
+    billingCity: String,
+    billingZipcode: String,
+    state: String,
 });
 
 const itemSchema = new Schema({

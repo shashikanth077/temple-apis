@@ -128,6 +128,13 @@ module.exports = class Email {
     );
   }
 
+  async serviceConfirmation() {
+    await this.send(
+      "serviceSuccess",
+      "Service confirmation email"
+    );
+  }
+
   async resetPassword() {
     await this.send("resetPassword", "password has been reset succesfully");
   }

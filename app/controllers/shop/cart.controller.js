@@ -179,6 +179,21 @@ exports.AddBookingHistory = async (req, res) => {
   }
 };
 
+exports.GetOrderHistory = async (req, res) => {
+  try {
+    const bookinhService = await getOrderDetailsByUserId(req);
+    return res.status(bookinhService.status).json(bookinhService.data);
+  } catch (error) {
+    //logger.error('updateProduct Error:', error);
+    console.log(error);
+    res
+      .status(500)
+      .json({
+        error: "Something went wrong please try again (GetOrderHistory)",
+      });
+  }
+};
+
 async function setHeaderQuery(owner, sessionId) {
   let cart;
   if (owner != null) {
