@@ -1,5 +1,6 @@
 const BookingHistoryModel = require('../models/bookingHistory/bookingHistory.model');
 const ServiceHistoryModel = require('../models/bookingHistory/ServiceHistory.Model');
+const SevaHistoryModel = require('../models/bookingHistory/sevaHistory.model');
 
 const User = require('../models/user/user.model');
 const {
@@ -20,7 +21,11 @@ const GetOrderDetailsById = async (req) => {
     
     if(req.params.type ==='services'){
       orders = await ServiceHistoryModel.find({ userId: req.params.id});
-  }  
+    } 
+    
+    if(req.params.type ==='seva'){
+      orders = await SevaHistoryModel.find({ userId: req.params.id});
+    } 
 
     if (!orders) {
       const data = { success: false, message: "Order details doesn't exist" };
