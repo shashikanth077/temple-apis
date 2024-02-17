@@ -142,6 +142,13 @@ module.exports = class Email {
     );
   }
 
+  async eventConfirmation() {
+    await this.send(
+      "eventSuccess",
+      "Event booking confirmation email"
+    );
+  }
+
   async resetPassword() {
     await this.send("resetPassword", "password has been reset succesfully");
   }

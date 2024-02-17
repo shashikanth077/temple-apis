@@ -1,6 +1,7 @@
 const BookingHistoryModel = require('../models/bookingHistory/bookingHistory.model');
 const ServiceHistoryModel = require('../models/bookingHistory/ServiceHistory.Model');
 const SevaHistoryModel = require('../models/bookingHistory/sevaHistory.model');
+const EventHistoryModel = require('../models/bookingHistory/eventHistory.model');
 
 const User = require('../models/user/user.model');
 const {
@@ -25,6 +26,10 @@ const GetOrderDetailsById = async (req) => {
     
     if(req.params.type ==='seva'){
       orders = await SevaHistoryModel.find({ userId: req.params.id});
+    } 
+
+    if(req.params.type ==='events'){
+      orders = await EventHistoryModel.find({ userId: req.params.id});
     } 
 
     if (!orders) {

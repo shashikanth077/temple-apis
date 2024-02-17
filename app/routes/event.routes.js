@@ -34,4 +34,10 @@ module.exports = function (app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.deleteEventController
   );
+
+  app.post(
+    "/api/event-booking",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.bookEventController
+  );
 };

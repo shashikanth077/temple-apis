@@ -1,5 +1,4 @@
 const { logger } = require("../middlewares");
-const { eventNames } = require("../models/enquiry.model");
 
 const {
   getAllEvents,
@@ -8,6 +7,7 @@ const {
   getEventsByDateFilter,
   updateEvent,
   deleteEvent,
+  createBookings
 } = require("../services/event.service");
 
 exports.getAllEventsController = async (req, res, next) => {
@@ -80,5 +80,19 @@ exports.deleteEventController = async (req, res) => {
     res
       .status(500)
       .json({ error: "Something went wrong please try again (deleteEvent)" });
+  }
+};
+
+
+exports.bookEventController = async (req, res) => {
+  try {
+    const event = await createBookings(req);
+    return res.status(event.status).json(event.data);
+  } catch (error) {
+    console.log(error);
+    //logger.error('deleteProduct Error:', error);
+    res
+      .status(500)
+      .json({ error: "Something went wrong please try again (bookEventController)" });
   }
 };
