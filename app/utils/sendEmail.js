@@ -135,6 +135,13 @@ module.exports = class Email {
     );
   }
 
+  async sevaConfirmation() {
+    await this.send(
+      "sevaSuccess",
+      "Seva confirmation email"
+    );
+  }
+
   async resetPassword() {
     await this.send("resetPassword", "password has been reset succesfully");
   }
