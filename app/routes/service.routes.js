@@ -49,4 +49,10 @@ module.exports = function (app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.inActivateServiceByGodIdController
   );
+
+  app.post(
+    "/api/service-booking",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.createServiceBookController
+  );
 };

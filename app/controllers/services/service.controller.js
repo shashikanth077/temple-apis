@@ -8,6 +8,7 @@ const {
   inactivateServiceByServiceId,
   inactivateServiceByGodId,
   getServiceByServiceId,
+  createBookings
 } = require("../../services/services/servicesBooking.service");
 
 exports.getAllServicesController = async (req, res, next) => {
@@ -113,5 +114,21 @@ exports.inActivateServiceByGodIdController = async (req, res) => {
       error:
         "Something went wrong please try again (inActivateServiceByGodIdController)",
     });
+  }
+};
+
+exports.createServiceBookController = async (req, res) => {
+  try {
+    const result = await createBookings(req);
+    return res.status(result.status).json(result.data);
+  } catch (message) {
+    //logger.error('createBookingsController Error:', error);
+    console.log(message);
+    res
+      .status(500)
+      .json({
+        success: false,
+        error: "Internal server error (createServiceBookController)",
+      });
   }
 };

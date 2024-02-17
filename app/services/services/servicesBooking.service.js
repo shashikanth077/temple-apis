@@ -1,11 +1,21 @@
 const Service = require("../../models/services/service.model");
 const God = require("../../models/god/god.model");
+const User = require("../../models/user/user.model");
+const ServiceHistory = require("../../models/bookingHistory/ServiceHistory.Model");
 const { logger } = require("../../middlewares");
+const { sendSMS } = require("../../utils/sendSMS");
+const Email = require('../../utils/sendEmail');
 const {
   allowedBookingTypes,
   allowedServiceTypes,
 } = require("../../utils/constants");
-const { isNullOrUndefined } = require("../../utils");
+const {
+  isNullOrUndefined,
+  isDateInPresentOrFuture,
+  isValidDateDDMMYYYYFormat,
+  convertStringToObjectId,
+  generateUniqueNumber
+} = require("../../utils/index");
 const {PUBLIC_URL} = require("../../utils/constants")
 
 const getAllServices = async () => {
@@ -214,6 +224,98 @@ const inactivateServiceByGodId = async (req, res) => {
   return { data, status: 200 };
 };
 
+const createBookings = async (req, res) => {
+  if (
+    isNullOrUndefined(req) ||
+    isNullOrUndefined(req.body) ||
+    isNullOrUndefined(
+      req.body.userId || !isValidDateDDMMYYYYFormat(req.body.bookingDate)
+    )
+  ) {
+    const data = { success: false, message: "invalid request" };
+    return { data, status: 400 };
+  }
+
+  const user = await User.findOne({ _id: req.body.userId, activated: true });
+
+  if (!user) {
+    const data = { success: false, message: "User not found" };
+    return { data, status: 404 };
+  }
+
+  if (!isDateInPresentOrFuture(req.body.bookingDate)) {
+    const data = { success: false, message: "invalid booking date" };
+    return { data, status: 400 };
+  }
+
+  if (!convertStringToObjectId(req.body.userId).equals(user._id)) {
+    const data = { success: false, message: "invalid request" };
+    return { data, status: 404 };
+  }
+
+  //send email and sms success or failur
+  const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
+    
+  let message ;
+  if(req.body.transStatus === 'succeeded') {
+    message ='Payment was successfull. Thank you for booking '+req.body.ServiceName
+  } else {
+    message ='Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days'
+  }
+
+  const serviceShortName = "SER"
+  let serviceBookId = serviceShortName+'_'+req.body.devoteeId+'/'+generateUniqueNumber();
+  const messageText = `Hello ${req.body.devoteeName}. ${message}. Booking Id:${serviceBookId}`;
+  sendSMS(toPhoneNumber, messageText);
+
+  let EmailObject = {
+    name : req.body.devoteeName,
+    email:req.body.devoteeEmail,
+    message:message,
+    bodyData:req.body,
+    url:"http://localhost:3000/mybookings/list"
+  }
+  SendConfirmationEmail(EmailObject, '');
+
+  const serviceData = {
+    userId: user._id,
+    ServiceBookId:serviceBookId,
+    orderType: req.body.orderType,
+    godName: req.body.godName,
+    serviceType: req.body.serviceType,
+    devoteeName: req.body.devoteeName,
+    devoteeId: req.body.devoteeId,
+    devoteeEmail: req.body.devoteeEmail,
+    devoteePhoneNumber: req.body.devoteePhoneNumber,
+    orderNotes: req.body.orderNotes,
+    billingAddress: req.body.billingAddress,
+    stripeReferenceId: req.body.stripeReferenceId,
+    amount: req.body.amount,
+    transStatus: req.body.transStatus,
+    paymentMode: req.body.paymentMode,
+    paymentMethod: req.body.paymentMethod,
+    ServiceName: req.body.ServiceName,
+    NoOfPerson: req.body.NoOfPerson,
+    bookingDate: req.body.bookingDate,
+    createdAt: Date.now(),
+    modifiedAt: Date.now(),
+  };
+
+  await new ServiceHistory(serviceData).save();
+
+  const data = {
+    success: true,
+    message: "serviceData details added successfully",
+  };
+
+  return { data, status: 200 };
+};
+
+const SendConfirmationEmail = async (user, activationLink) => {
+  new Email(user, activationLink,'service booking email').serviceConfirmation();
+};
+
+
 module.exports = {
   getAllServices,
   getServicesByGodId,
@@ -221,5 +323,6 @@ module.exports = {
   updateServiceDetailsByGodId,
   inactivateServiceByServiceId,
   inactivateServiceByGodId,
-  getServiceByServiceId
+  getServiceByServiceId,
+  createBookings
 };

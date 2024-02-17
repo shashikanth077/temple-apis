@@ -121,6 +121,9 @@ require("./app/routes/volunteers.routes")(app);
 //payment
 require("./app/routes/payment.routes")(app);
 
+//order history
+require('./app/routes/orderhistory.routes')(app);
+
 //web hooks
 require('./app/routes/webhook.routes')(app);
 
