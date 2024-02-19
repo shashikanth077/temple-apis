@@ -11,6 +11,7 @@ const {
 const { sendSMS } = require("../../utils/sendSMS");
 const Email = require('../../utils/sendEmail');
 const { logger } = require("../../middlewares");
+const AdminTranscationModel = require("../../models/bookingHistory/adminTranscation.model");
 
 const createBookings = async (req, res) => {
   if (
@@ -91,7 +92,32 @@ const createBookings = async (req, res) => {
     modifiedAt: Date.now(),
   };
 
-  await new SevaHistory(SevaData).save();
+  const sevaHistory = new SevaHistory(SevaData);
+  const savedSeva = await sevaHistory.save();
+  const lastInsertedId = savedSeva._id;
+
+  const adminTransData = {
+    userId: user._id,
+    tabelRefId:lastInsertedId,
+    orderType:"sevas",
+    serviceName: req.body.sevaName,
+    devoteeName: req.body.devoteeName,
+    devoteeId: req.body.devoteeId,
+    devoteeEmail: req.body.devoteeEmail,
+    devoteePhoneNumber: req.body.devoteePhoneNumber,
+    orderNotes: req.body.orderNotes,
+    billingAddress: req.body.billingAddress,
+    stripeReferenceId: req.body.stripeReferenceId,
+    amount: req.body.amount,
+    transStatus: req.body.transStatus,
+    paymentMode: req.body.paymentMode,
+    ticketId: serviceBookId,
+    items: [],
+    createdAt: Date.now(),
+    modifiedAt: Date.now(),
+  };
+
+  await AdminTranscationModel.create(adminTransData);
 
   const data = {
     success: true,

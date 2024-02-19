@@ -8,6 +8,7 @@ const {
 } = require("../../utils/index");
 const { sendSMS } = require("../../utils/sendSMS");
 const Email = require('../../utils/sendEmail');
+const AdminTranscationModel = require("../../models/bookingHistory/adminTranscation.model");
 
 const addCart = async (req) => {
   const owner = req.user._id;
@@ -115,7 +116,32 @@ const AddBookingHistory = async (req) => {
     modifiedAt: Date.now(),
   }
 
-  await new BookingHistoryModel(ShopData).save();
+  const serHistory = new BookingHistoryModel(ShopData);
+  const savedService = await serHistory.save();
+  const lastInsertedId = savedService._id;
+
+  const adminTransData = {
+    userId: user._id,
+    tabelRefId:lastInsertedId,
+    orderType:"shoporders",
+    serviceName: 'Products',
+    devoteeName: req.body.devoteeName,
+    devoteeId: req.body.devoteeId,
+    devoteeEmail: req.body.devoteeEmail,
+    devoteePhoneNumber: req.body.devoteePhoneNumber,
+    orderNotes: req.body.orderNotes,
+    billingAddress: req.body.billingAddress,
+    stripeReferenceId: req.body.stripeReferenceId,
+    amount: req.body.amount,
+    transStatus: req.body.transStatus,
+    paymentMode: req.body.paymentMode,
+    ticketId: OrderId,
+    items: req.body.Items,
+    createdAt: Date.now(),
+    modifiedAt: Date.now(),
+  };
+
+  await AdminTranscationModel.create(adminTransData);
 
   const data = {
     success: true,

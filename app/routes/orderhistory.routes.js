@@ -9,4 +9,5 @@ module.exports = function (app) {
   });
 
   app.get("/api/orders/:id/:type", controller.getOrdersByUserIdType);
+  app.get("/api/getTranscation", controller.getTranscationDetails);
 };

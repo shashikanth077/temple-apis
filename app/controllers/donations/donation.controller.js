@@ -41,8 +41,9 @@ exports.addDonationDetailsController = async (req, res) => {
   try {
     const result = await addDonationDetails(req);
     return res.status(result.status).json(result.data);
-  } catch (message) {
+  } catch (error) {
     logger.error('addDonationController Error:', error);
+    console.log(error);
     res
       .status(500)
       .json({

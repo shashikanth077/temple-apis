@@ -5,6 +5,7 @@ const ServiceHistory = require("../../models/bookingHistory/ServiceHistory.Model
 const { logger } = require("../../middlewares");
 const { sendSMS } = require("../../utils/sendSMS");
 const Email = require('../../utils/sendEmail');
+const AdminTranscationModel = require("../../models/bookingHistory/adminTranscation.model");
 const {
   allowedBookingTypes,
   allowedServiceTypes,
@@ -301,7 +302,32 @@ const createBookings = async (req, res) => {
     modifiedAt: Date.now(),
   };
 
-  await new ServiceHistory(serviceData).save();
+  const serHistory = new ServiceHistory(serviceData);
+  const savedService = await serHistory.save();
+  const lastInsertedId = savedService._id;
+
+  const adminTransData = {
+    userId: user._id,
+    tabelRefId:lastInsertedId,
+    orderType:"services",
+    serviceName: req.body.ServiceName,
+    devoteeName: req.body.devoteeName,
+    devoteeId: req.body.devoteeId,
+    devoteeEmail: req.body.devoteeEmail,
+    devoteePhoneNumber: req.body.devoteePhoneNumber,
+    orderNotes: req.body.orderNotes,
+    billingAddress: req.body.billingAddress,
+    stripeReferenceId: req.body.stripeReferenceId,
+    amount: req.body.amount,
+    transStatus: req.body.transStatus,
+    paymentMode: req.body.paymentMode,
+    ticketId: serviceBookId,
+    items: [],
+    createdAt: Date.now(),
+    modifiedAt: Date.now(),
+  };
+
+  await AdminTranscationModel.create(adminTransData);
 
   const data = {
     success: true,

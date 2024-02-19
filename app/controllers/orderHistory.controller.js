@@ -1,4 +1,4 @@
-const { GetOrderDetailsById } = require("../services/orderHistory.service");
+const { GetOrderDetailsById,getTranscationDetails } = require("../services/orderHistory.service");
 const { logger } = require("../middlewares");
 
 exports.getOrdersByUserIdType = async (req, res) => {
@@ -11,3 +11,16 @@ exports.getOrdersByUserIdType = async (req, res) => {
         res.status(500).json({ success: false, error: 'Internal server error (getOrdersByUserIdType)' });
     }
 };
+
+exports.getTranscationDetails = async (req,res) => {
+    try {
+        const TransResult = await getTranscationDetails(req);
+        return res.status(TransResult.status).json(TransResult.data);
+    } catch {
+        logger.error('getTranscationDetails Error:', error);
+        console.log(error);
+        res.status(500).json({ success: false, error: 'Internal server error (getTranscationDetails)' });
+    }
+}
+
+
