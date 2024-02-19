@@ -1,6 +1,8 @@
 const User = require("../../models/user/user.model");
 const MasterDonation = require("../../models/donations/manageDonation.model");
 const Donation = require("../../models/donations/donation.model");
+const AdminTranscationModel = require("../../models/bookingHistory/adminTranscation.model");
+
 const {
   isNullOrUndefined,
   generateUniqueNumber,
@@ -42,9 +44,6 @@ const addDonationDetails = async (req, res) => {
     return { data, status: 404 };
   }
 
-  //billing address
-  let billingAddress = {};
-
   //when donate grocery items this come to picture or else by default zero price
   let totalPrice = 0;
   if (
@@ -77,32 +76,57 @@ const addDonationDetails = async (req, res) => {
     bodyData:req.body,
     url:"http://localhost:3000/mydonations/list"
   }
+
   SendConfirmationEmail(EmailObject, '');
 
-  const donationData = {
+  const donationDetails = {
     userId: user._id,
-    donateTypeId: donationTypeDetails._id,
+    donateTypeId:donationTypeDetails?._id,
     donationType: req.body.donationType,
-    donorName: req.body.donorName,
+    devoteeName: req.body.donorName,
     devoteeId: req.body.devoteeId,
-    donorEmail: req.body.donorEmail,
+    devoteeEmail: req.body.donorEmail,
     frequency: req.body.frequency,
-    donorPhoneNumber: req.body.donorPhoneNumber,
-    donorNotes: req.body.donorNotes,
+    devoteePhoneNumber: req.body.donorPhoneNumber,
+    orderNotes: req.body.donorNotes,
     billingAddress: req.body.billingAddress,
     stripeReferenceId: req.body.stripeReferenceId,
-    donatedAmount: req.body.donatedAmount,
+    amount: req.body.donatedAmount,
     transStatus: req.body.transStatus,
     paymentMode: req.body.paymentMode,
     taxReceiptNo: taxReceipt,
     donationDate: Date.now(),
     donatedItems: req.body.donatedItems,
-    address: billingAddress,
+    createdAt: Date.now(),
+    modifiedAt: Date.now(),
+  };
+  
+  const donationHistory = new Donation(donationDetails);
+  const savedDonate = await donationHistory.save();
+  const lastInsertedId = savedDonate._id;
+  
+  const adminTransData = {
+    userId: user._id,
+    tabelRefId:lastInsertedId,
+    orderType:"donations",
+    serviceName: req.body.donationType,
+    devoteeName: req.body.donorName,
+    devoteeId: req.body.devoteeId,
+    devoteeEmail: req.body.donorEmail,
+    devoteePhoneNumber: req.body.donorPhoneNumber,
+    orderNotes: req.body.donorNotes,
+    billingAddress: req.body.billingAddress,
+    stripeReferenceId: req.body.stripeReferenceId,
+    amount: req.body.donatedAmount,
+    transStatus: req.body.transStatus,
+    paymentMode: req.body.paymentMode,
+    ticketId: taxReceipt,
+    items: req.body.donatedItems,
     createdAt: Date.now(),
     modifiedAt: Date.now(),
   };
 
-  await new Donation(donationData).save();
+  await AdminTranscationModel.create(adminTransData);
 
   const data = {
     success: true,
@@ -112,9 +136,6 @@ const addDonationDetails = async (req, res) => {
   return { data, status: 200 };
 };
 
-const SendConfirmationEmail = async (user, activationLink) => {
-  new Email(user, activationLink,'donation confirmation email').donationConfirmation();
-};
 
 
 const getDonationDetailsByUserId = async (req, res) => {
@@ -171,6 +192,11 @@ const getDonationDetailsByDonationId = async (req, res) => {
 
   return { data, status: 200 };
 };
+
+const SendConfirmationEmail = async (user, activationLink) => {
+  new Email(user, activationLink, "donation email book").donationConfirmation();
+};
+
 
 module.exports = {
   addDonationDetails,

@@ -13,6 +13,7 @@ const { PUBLIC_URL } = require("../utils/constants")
 const { sendSMS } = require("../utils/sendSMS");
 const Email = require('../utils/sendEmail');
 const { logger } = require("../../app/middlewares");
+const AdminTranscationModel = require("../models/bookingHistory/adminTranscation.model");
 
 const getAllEvents = async () => {
   const events = await Event.find({ deleted: false });
@@ -173,6 +174,7 @@ const createBookings = async (req) => {
     bodyData: req.body,
     url: "http://localhost:3000/mybookings/list",
   };
+
   SendConfirmationEmail(EmailObject, "");
 
   const eventData = {
@@ -201,7 +203,32 @@ const createBookings = async (req) => {
     modifiedAt: Date.now(),
   };
 
-  await new eventHistory(eventData).save();
+  const serHistory = new eventHistory(eventData);
+  const savedService = await serHistory.save();
+  const lastInsertedId = savedService._id;
+
+  const adminTransData = {
+    userId: user._id,
+    tabelRefId:lastInsertedId,
+    orderType:"events",
+    serviceName: req.body.eventName,
+    devoteeName: req.body.devoteeName,
+    devoteeId: req.body.devoteeId,
+    devoteeEmail: req.body.devoteeEmail,
+    devoteePhoneNumber: req.body.devoteePhoneNumber,
+    orderNotes: req.body.orderNotes,
+    billingAddress: req.body.billingAddress,
+    stripeReferenceId: req.body.stripeReferenceId,
+    amount: req.body.amount,
+    transStatus: req.body.transStatus,
+    paymentMode: req.body.paymentMode,
+    ticketId: serviceBookId,
+    items: [],
+    createdAt: Date.now(),
+    modifiedAt: Date.now(),
+  };
+
+  await AdminTranscationModel.create(adminTransData);
 
   const data = {
     success: true,

@@ -4,6 +4,10 @@ const fs = require("fs");
 const path = require("path");
 const {getCurrentDate} = require('../utils');
 
+//send grid
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 module.exports = class Email {
   constructor(user, url, title,type='login') {
     this.to = user?.email;
@@ -15,31 +19,26 @@ module.exports = class Email {
     this.message = user?.message;
     this.bodyData = user?.bodyData;
     this.title = title;
-    this.from = `TempleOrg <${process.env.EMAIL_FROM}>`;
+    this.from = `<${process.env.EMAIL_FROM}>`;
     this.name = user?.name;
   }
 
   newTransport() {
-    if (process.env.NODE_ENV === "production") {
-      // Sendgrid
-      return nodemailer.createTransport({
-        service: "SendGrid",
-        auth: {
-          user: process.env.SENDGRID_USERNAME,
-          pass: process.env.SENDGRID_PASSWORD,
-        },
-      });
-    }
 
-    return nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: process.env.EMAIL_PORT,
-      secure: false, //dev purpose
-      auth: {
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
+    //if (process.env.NODE_ENV === "production") {
+      return sgMail;
+   // }
+
+    // return nodemailer.createTransport({
+    //   host: process.env.EMAIL_HOST,
+    //   port: process.env.EMAIL_PORT,
+    //   secure: false, //dev purpose
+    //   auth: {
+    //     user: process.env.EMAIL_USERNAME,
+    //     pass: process.env.EMAIL_PASSWORD,
+    //   },
+    // });
+
   }
 
   registerPartials() {
@@ -92,7 +91,7 @@ module.exports = class Email {
     };
 
     // 3) Create a transport and send email
-    await this.newTransport().sendMail(mailOptions);
+    await sgMail.send(mailOptions);
   }
 
   async sendEnquiry() {

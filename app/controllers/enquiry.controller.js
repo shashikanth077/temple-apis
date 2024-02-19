@@ -20,7 +20,7 @@ exports.sendEnquiryController = async (req, res, next) => {
         );
           
         let emailbody = {
-           email : "shashikanth033@gmail.com",
+           email : email,
            message:message,
            subject:subject,
            name:name

@@ -35,7 +35,7 @@ const DonationSchema = new Schema(
     donationType: {
       type: String,
     },
-    donorName: {
+    devoteeName: {
       type: String,
     },
     devoteeId : {
@@ -49,22 +49,22 @@ const DonationSchema = new Schema(
       default: [],
     },
     billingAddress: addressSchema,
-    donorEmail: {
+    devoteeEmail: {
       type: String,
     },
     frequency: {
       type: String,
     },
-    donorPhoneNumber: {
+    devoteePhoneNumber: {
       type: String,
     },
-    donorNotes: {
+    orderNotes: {
       type: String,
     },
     stripeReferenceId: {
       type: String,
     },
-    donatedAmount: {
+    amount: {
       type: Number,
     },
     transStatus: {
