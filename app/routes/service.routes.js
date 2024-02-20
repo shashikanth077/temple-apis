@@ -14,7 +14,7 @@ module.exports = function (app) {
 
   app.get(
     "/api/service/:godId",
-    [authJwt.verifyToken],
+    // [authJwt.verifyToken],
     controller.getServicesByGodIdController
   );
 
