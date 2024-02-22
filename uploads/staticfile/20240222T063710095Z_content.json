@@ -62,7 +62,7 @@
                     "regularProgramTitleTwo": "Program name two"
                 }
             },
-            "sitemanage":{
+            "siteManage":{
                 "heading":"Manage static contents",
                 "addStaticJson": {
                     "formValidation":{

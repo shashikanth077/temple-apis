@@ -62,18 +62,6 @@
                     "regularProgramTitleTwo": "Program name two"
                 }
             },
-            "sitemanage":{
-                "heading":"Manage static contents",
-                "addStaticJson": {
-                    "formValidation":{
-                        "staticFile":"File name should name to content.json please do not use any other name."
-                    },
-                    "formLabels":{
-                        "staticFile":"Upload static JSON file"
-                    }
-                },
-                "downloadTitle":"Download from here for update and upload"
-            },
             "bookings": {
                 "heading": "Bookings",
                 "addBooking": {
@@ -136,7 +124,7 @@
                     }
                 },
                 "editDonation": {
-                    "heading": "Edit donation types",
+                    "heading": "Edit Service",
                     "formLabels": {
                         "type": "Donation type",
                         "description": "Description",
@@ -165,8 +153,6 @@
                         "bookingPrice": "Booking price",
                         "description": "Description",
                         "organizer": "Organizer",
-                        "startDate":"startDate",
-                        "endDate":"endDate",
                         "organizerPhone": "Organizer phone",
                         "venue": "Venue",
                         "image": "Image",
@@ -180,12 +166,29 @@
                         "organizerPhone": "Please enter the Organizer phone",
                         "venue": "Please enter the venue",
                         "image": "Please upload image",
-                        "organizerEmail": "Please enter Organizer email",
-                        "validEmail":"Please enter valid Email"
+                        "organizerEmail": "Please enter Organizer email"
                     }
                 },
                 "editEvent": {
-                    "heading": "Update Event"
+                    "heading": "Update Event",
+                    "formLabels": {
+                        "name": "Event name",
+                        "bookingPrice": "Booking price",
+                        "description": "Description",
+                        "organizer": "Organizer",
+                        "organizerPhone": "Organizer phone",
+                        "venue": "Venue",
+                        "image": "Image"
+                    },
+                    "formValidation": {
+                        "name": "Please enter Event name",
+                        "bookingPrice": "Please enter Booking price",
+                        "description": "Please enter the description",
+                        "organizer": "Please enter the Organizer",
+                        "organizerPhone": "Please enter the Organizer phone",
+                        "venue": "Please enter the venue",
+                        "image": "Please upload image"
+                    }
                 },
                 "listEvents": {
                     "labels": {}
@@ -193,13 +196,27 @@
             },
             "godmaster": {
                 "heading": "Godmaster",
-                "editHeading": "Edit God",
                 "addGod": {
                     "heading": "Add God",
+                    "formValidation": {
+                        "formLabels": {
+                            "name": "God name",
+                            "worshipDay": "Select day of workship",
+                            "image": "Image"
+                        },
+                        "formValidation": {
+                            "name": "Please enter god name",
+                            "worshipDay": "Please select day of workship",
+                            "image": "Please upload image"
+                        }
+                    }
+                },
+                "editGod": {
+                    "heading": "Edit God",
                     "formLabels": {
                         "name": "God name",
-                        "worshipDay": "Select day of workship",
-                        "image": "Image"
+                        "worshipDay": "Day of workship",
+                        "image": "image"
                     },
                     "formValidation": {
                         "name": "Please enter god name",
@@ -414,7 +431,6 @@
             },
             "services": {
                 "heading": "Services",
-                "editServiceHeading":"Edit service",
                 "addService": {
                     "heading": "Add Service",
                     "formLabels": {
@@ -422,7 +438,33 @@
                         "serviceType": "Service type",
                         "serviceName": "Service name",
                         "price": "Price",
-                        "occurmonth":"Select service occuring month",
+                        "bookingType": "Booking type",
+                        "accountNumber": "AccountNumber",
+                        "description": "Description",
+                        "image": "Image",
+                        "daysahead": "Days ahead",
+                        "frequency": "Frequency"
+                    },
+                    "formValidation": {
+                        "godId": "Please select god name",
+                        "serviceType": "Please select service type",
+                        "serviceName": "Please enter service name",
+                        "price": "Please enter the price",
+                        "bookingType": "Please select the booking type",
+                        "accountNumber": "Please enter account number",
+                        "description": "Please enter description",
+                        "image": "Please upload image",
+                        "daysahead": "Please select days ahead",
+                        "frequency": "Please enter frequency"
+                    }
+                },
+                "editService": {
+                    "heading": "Edit Service",
+                    "formLabels": {
+                        "godId": "God name",
+                        "serviceType": "Service type",
+                        "serviceName": "Service name",
+                        "price": "Price",
                         "bookingType": "Booking type",
                         "accountNumber": "AccountNumber",
                         "description": "Description",
@@ -449,13 +491,12 @@
             },
             "users": {
                 "heading": "users",
-                "editUserHeading":"edit User",
                 "addUser": {
                     "heading": "Add new user",
                     "formLabels": {
                         "role": "Role",
                         "firstName": "First name",
-                        "lastName": "last name",
+                        "lastName": "Service name",
                         "phonenumber": "Phone number",
                         "email": "Email address"
                     },
@@ -464,33 +505,28 @@
                         "firstName": "Please enter first name",
                         "lastName": "Please enter last name",
                         "phonenumber": "Please enter phone number",
-                        "email": "Please enter email address",
-                        "isValidEmail":"Please enter the valid email"
+                        "email": "Please enter email address"
+                    }
+                },
+                "editUser": {
+                    "heading": "Edit user",
+                    "formLabels": {
+                        "role": "Role",
+                        "firstName": "First name",
+                        "lastName": "Service name",
+                        "phonenumber": "Phone number",
+                        "email": "Email address"
+                    },
+                    "formValidation": {
+                        "role": "Please select user role",
+                        "firstName": "Please enter first name",
+                        "lastName": "Please enter last name",
+                        "phonenumber": "Please enter phone number",
+                        "email": "Please enter email address"
                     }
                 },
                 "listUsers": {
                     "labels": {}
-                }
-            },
-            "volunteers":{
-                "heading":"Manage volunteer section",
-                "additionaDetails":{
-                    "heading":"Additional Details",
-                    "activities":"Activities",
-                    "possibledays":"Possible days",
-                    "state":"State",
-                    "city":"City",
-                    "zipCode":"zip Code",
-                    "otherActivities":"other Activities",
-                    "beforevolunteer":"Have you previously volunteered for this temple?:",
-                    "IsVeg":"Are you a vegetarian",
-                    "IsLive":"Do you currently live in Toronto?:"
-                },
-                "certificate":{
-                    "heading":"Certificate of Recognition",
-                    "subHeading":"In gratitude, we present this certificate of recognition to",
-                    "signature":"Signature",
-                    "dateCompleted":"Date Completed"
                 }
             },
             "registration": {
