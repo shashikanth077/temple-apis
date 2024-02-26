@@ -28,7 +28,7 @@ const ServiceSchema = new Schema(
       type: String
     },
     occurmonth: {
-      type: String
+      type: Array
     },
     frequency: {
       type: String

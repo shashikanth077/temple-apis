@@ -424,7 +424,6 @@
                         "price": "Price",
                         "occurmonth":"Select service occuring month",
                         "bookingType": "Booking type",
-                        "isTaxable":"isTaxable",
                         "accountNumber": "AccountNumber",
                         "description": "Description",
                         "image": "Image",
@@ -433,7 +432,6 @@
                     },
                     "formValidation": {
                         "godId": "Please select god name",
-                        "isTaxable":"isTaxable",
                         "serviceType": "Please select service type",
                         "serviceName": "Please enter service name",
                         "price": "Please enter the price",
@@ -864,7 +862,7 @@
                 },
                 {
                     "key": "donations",
-                    "label": "Donation types",
+                    "label": "Donations",
                     "isTitle": false,
                     "icon": "fas fa-hand-holding-usd",
                     "url": "/admin/donationtypes/list",

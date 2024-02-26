@@ -864,7 +864,7 @@
                 },
                 {
                     "key": "donations",
-                    "label": "Donation types",
+                    "label": "Donations",
                     "isTitle": false,
                     "icon": "fas fa-hand-holding-usd",
                     "url": "/admin/donationtypes/list",
