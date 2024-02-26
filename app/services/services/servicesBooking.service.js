@@ -75,13 +75,13 @@ const addServiceDetails = async (req) => {
     !isNullOrUndefined(req.body.bookingType) &&
     allowedBookingTypes.includes(req.body.bookingType);
 
-  if (!isValidServiceTypes || !isValidBookingTypes) {
-    const data = {
-      success: false,
-      message: "invalid serviceType or bookingType request",
-    };
-    return { data, status: 400 };
-  }
+  // if (!isValidServiceTypes || !isValidBookingTypes) {
+  //   const data = {
+  //     success: false,
+  //     message: "invalid serviceType or bookingType request",
+  //   };
+  //   return { data, status: 400 };
+  // }
 
   const god = await God.findOne({ _id: req.params.godId, deleted: false });
 
@@ -93,6 +93,9 @@ const addServiceDetails = async (req) => {
   const imagePath = PUBLIC_URL + "uploads/services/" + req.file.filename;
   req.body.image = imagePath;
 
+  let workDays = JSON.parse(req.body.occurmonth);
+  req.body.occurmonth = workDays;
+  
   const serviceData = {
     godId: god._id,
     godName: god.name,
@@ -142,6 +145,9 @@ const updateServiceDetailsByGodId = async (req, res) => {
     const imagePath = PUBLIC_URL + "uploads/services/" + req?.file?.filename;
     req.body.image = imagePath;
   }
+
+  let workDays = JSON.parse(req.body.occurmonth);
+  req.body.occurmonth = workDays;
 
   const serviceData = {
     ...req.body,

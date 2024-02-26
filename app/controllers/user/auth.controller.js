@@ -8,18 +8,17 @@ const Counter = require("../../models/counter.model");
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 const crypto = require("crypto");
-const Email = require('../../utils/sendEmail');
-const {sendSMS} = require('../../utils/sendSMS');
+const Email = require("../../utils/sendEmail");
+const { sendSMS } = require("../../utils/sendSMS");
 
 const {
   requestPasswordReset,
   resetPassword,
   generateandSaveOTP,
-  VerifyOTP
+  VerifyOTP,
 } = require("../../services/user/auth.service");
 
 exports.signup = async (req, res) => {
-
   // Generate a random activation token
   const activationToken = crypto.randomBytes(20).toString("hex");
   const clientURL = process.env.CLIENT_URL;
@@ -28,102 +27,112 @@ exports.signup = async (req, res) => {
   activationTokenExpiry.setHours(activationTokenExpiry.getHours() + 24); // Set expiration to 24 hour from now
 
   const counter = await Counter.findByIdAndUpdate(
-    { _id: 'devoteeId' },
+    { _id: "devoteeId" },
     { $inc: { seq: 1 } },
     { new: true, upsert: true }
   );
- 
+
   const user = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    devoteeId : counter.seq,
-    countrycode:req.body.countrycode,
-    TermConcent:req.body.TermConcent,
-    phonenumber:req.body.countrycode+''+req.body.phonenumber,
+    devoteeId: counter.seq,
+    countrycode: req.body.countrycode,
+    TermConcent: req.body.TermConcent,
+    phonenumber: req.body.countrycode + "" + req.body.phonenumber,
     password: bcrypt.hashSync(req.body.password, 8),
     activationToken: activationToken,
     activationTokenExpiry: activationTokenExpiry,
     activated: false,
   });
 
-  user.save((err, user) => {
-    if (err) {
-      res.status(500).send({ message: err });
-      return;
-    }
+  try {
+    user.save((err, user) => {
+      if (err) {
+        res.status(500).send({ message: err });
+        return;
+      }
 
-    if (!user.firstName) {
-      res.status(500).send({ message: "First Name is required" });
-      return;
-    }
+      if (!user.firstName) {
+        res.status(500).send({ message: "First Name is required" });
+        return;
+      }
 
-    if (req.body.roles) {
-      Role.find(
-        {
-          name: { $in: req.body.roles },
-        },
-        (err, roles) => {
+      if (req.body.roles) {
+        Role.find(
+          {
+            name: { $in: req.body.roles },
+          },
+          (err, roles) => {
+            if (err) {
+              res.status(500).send({ message: err });
+              return;
+            }
+
+            user.roles = roles.map((role) => role._id);
+            user.save((err) => {
+              if (err) {
+                res.status(500).send({ message: err });
+                return;
+              }
+              let mobileNumber =  req.body.countrycode + "" + req.body.phonenumber;
+              SendOTP(mobileNumber);
+              SendAccountActivationEmail(user, activationLink);
+              res.send({
+                success: true,
+                message:
+                  "User was registered successfully! Activation email sent to your registered email and it expires in 24 hours",
+              });
+            });
+          }
+        );
+      } else {
+        Role.findOne({ name: "user" }, (err, role) => {
           if (err) {
             res.status(500).send({ message: err });
             return;
           }
 
-          user.roles = roles.map((role) => role._id);
+          user.roles = [role._id];
           user.save((err) => {
             if (err) {
               res.status(500).send({ message: err });
               return;
             }
-            let mobileNumber = req.body.countrycode+''+req.body.phonenumber;
+
+            let mobileNumber = req.body.countrycode + "" + req.body.phonenumber;
             SendOTP(mobileNumber);
             SendAccountActivationEmail(user, activationLink);
             res.send({
               success: true,
               message:
-                "User was registered successfully! Activation email sent to your registered email and it expires in 24 hours",
+                "User was registered successfully! Activation email sent. Please check your email.",
             });
           });
-        }
-      );
-    } else {
-      Role.findOne({ name: "user" }, (err, role) => {
-        if (err) {
-          res.status(500).send({ message: err });
-          return;
-        }
-
-        user.roles = [role._id];
-        user.save((err) => {
-          if (err) {
-            res.status(500).send({ message: err });
-            return;
-          }
-          
-          let mobileNumber = req.body.countrycode+''+req.body.phonenumber;
-          SendOTP(mobileNumber);
-          SendAccountActivationEmail(user, activationLink);
-          res.send({
-            success: true,
-            message:
-              "User was registered successfully! Activation email sent. Please check your email.",
-          });
         });
-      });
-    }
-  });
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 exports.activateEmail = async (req, res) => {
   try {
     const { token } = req.params;
     // Find the user by activation token
-    const user = await User.findOne({ activationToken: token, activationTokenExpiry: { $gt: new Date() } });
+    const user = await User.findOne({
+      activationToken: token,
+      activationTokenExpiry: { $gt: new Date() },
+    });
 
     if (!user) {
       return res
         .status(404)
-        .send({ success: false, message: "Invalid or expired activation token" });
+        .send({
+          success: false,
+          message: "Invalid or expired activation token",
+        });
     }
 
     // Activate the user
@@ -134,7 +143,7 @@ exports.activateEmail = async (req, res) => {
     const profileData = {
       userId: user._id,
       firstName: user.firstName,
-      countryCode:req.body.countrycode,
+      countryCode: req.body.countrycode,
       lastName: user.lastName,
       mobileNumber: user.phonenumber,
       email: user.email,
@@ -142,7 +151,7 @@ exports.activateEmail = async (req, res) => {
       createdAt: Date.now(),
       modifiedAt: Date.now(),
     };
-  
+
     await new UserProfile(profileData).save();
 
     await user.save();
@@ -154,12 +163,10 @@ exports.activateEmail = async (req, res) => {
   } catch (err) {
     //this.next(err);
     console.log(err);
-    return res
-      .status(500)
-      .send({
-        success: false,
-        message: "something went wrong (activateEmail)",
-      });
+    return res.status(500).send({
+      success: false,
+      message: "something went wrong (activateEmail)",
+    });
   }
 };
 
@@ -214,10 +221,10 @@ exports.signin = (req, res) => {
       res.status(200).send({
         id: user._id,
         email: user.email,
-        userName:user.firstName+''+user.lastName,
-        countrycode:user.countrycode,
-        devoteeId:user.devoteeId,
-        phonenumber:user.phonenumber,
+        userName: user.firstName + "" + user.lastName,
+        countrycode: user.countrycode,
+        devoteeId: user.devoteeId,
+        phonenumber: user.phonenumber,
         roles: authorities,
         success: true,
         message: "login successful",
@@ -238,7 +245,9 @@ exports.resetPasswordRequestController = async (req, res, next) => {
   const requestPasswordResetService = await requestPasswordReset(
     req.body.email
   );
-  return res.status(requestPasswordResetService.status).json(requestPasswordResetService.data);
+  return res
+    .status(requestPasswordResetService.status)
+    .json(requestPasswordResetService.data);
 };
 
 exports.resetPasswordController = async (req, res, next) => {
@@ -247,15 +256,20 @@ exports.resetPasswordController = async (req, res, next) => {
     req.body.identifier,
     req.body.password
   );
-  return res.status(resetPasswordService.status).send({ success:resetPasswordService.success,message: resetPasswordService.message });
+  return res
+    .status(resetPasswordService.status)
+    .send({
+      success: resetPasswordService.success,
+      message: resetPasswordService.message,
+    });
 };
 
 exports.getOTP = async (req, res) => {
   try {
     const result = await generateandSaveOTP(req.body.phoneNumber);
 
-    const toPhoneNumber = "+918123192799"; 
-    let message = 'Please enter the below otp:'
+    const toPhoneNumber = "+918123192799";
+    let message = "Please enter the below otp:";
 
     const messageText = `Hello ${message}. OTP:${result.data.otp}`;
     sendSMS(toPhoneNumber, messageText);
@@ -264,34 +278,32 @@ exports.getOTP = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({
-      error:
-        "Something went wrong please try again (getOTP)",
+      error: "Something went wrong please try again (getOTP)",
     });
   }
 };
 
 exports.verifyOTP = async (req, res) => {
   try {
-    const result = await VerifyOTP(req.body.phoneNumber,req.body.otp);
+    const result = await VerifyOTP(req.body.phoneNumber, req.body.otp);
     return res.status(result.status).json(result.data);
   } catch (error) {
     console.log(error);
     res.status(500).json({
-      error:
-        "Something went wrong please try again (verifyOTP)",
+      error: "Something went wrong please try again (verifyOTP)",
     });
   }
 };
 
 const SendAccountActivationEmail = async (user, activationLink) => {
-   new Email(user, activationLink,'email activation').verifyEmailAddress();
+  new Email(user, activationLink, "email activation").verifyEmailAddress();
 };
 
 const SendOTP = async (mobileNumber) => {
   try {
     const result = await generateandSaveOTP(mobileNumber);
- 
-    let message = 'Please enter the below OTP'
+
+    let message = "Please enter the below OTP";
 
     const messageText = `Hello ${message}.:${result.data.otp}`;
     return sendSMS(mobileNumber, messageText);

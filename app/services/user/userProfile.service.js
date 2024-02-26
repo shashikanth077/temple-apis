@@ -61,13 +61,14 @@ const updateUserProfile = async (req, res) => {
   }
 
   const existingProfile = await UserProfile.findOne({ userId: user._id });
-  if (!existingProfile) {
-    const data = {
-      success: false,
-      message: "Profile doesn't exists for this user",
-    };
-    return { data, status: 404 };
-  }
+
+  // if (!existingProfile) {
+  //   const data = {
+  //     success: false,
+  //     message: "Profile doesn't exists for this user",
+  //   };
+  //   return { data, status: 404 };
+  // }
 
   const profileData = {
     email: user.email,

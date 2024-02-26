@@ -32,6 +32,12 @@ module.exports = function(app) {
     controller.getUserByUserId
   );
 
+  app.post(
+    "/api/user",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.addUserByAdmin
+  );
+
   app.put(
     "/api/:userId/roles",
     [authJwt.verifyToken, authJwt.isAdmin],

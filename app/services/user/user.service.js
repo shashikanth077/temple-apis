@@ -78,6 +78,7 @@ const getUserByUserId = async (userId) => {
     _id: user._id,
     firstName: user.firstName,
     lastName: user.lastName,
+    phonenumber:user.phonenumber,
     email: user.email,
     viewRoles: roleNames,
     roles: user.roles,

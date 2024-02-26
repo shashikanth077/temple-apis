@@ -113,6 +113,13 @@ module.exports = class Email {
     );
   }
 
+  async adminRegistrationConfirm() {
+    await this.send(
+      "adminRegister",
+      "Admin registration confirmation email"
+    );
+  }
+
   async donationConfirmation() {
     await this.send(
       "donationSuccess",
