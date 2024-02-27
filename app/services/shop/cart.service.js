@@ -82,7 +82,7 @@ const AddBookingHistory = async (req) => {
       "Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days";
   }
 
-  let OrderId = req.body.devoteeId+'/'+generateUniqueNumber();
+  let OrderId = 'Prod_'+req.body.devoteeId+'/'+generateUniqueNumber();
   const messageText = `Hello ${req.body.devoteeName}. ${message}. Order Id:${OrderId}`;
   sendSMS(toPhoneNumber, messageText);
 

@@ -65,7 +65,7 @@ const addDonationDetails = async (req, res) => {
     message ='Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days'
   }
 
-  let taxReceipt = generateUniqueNumber();
+  let taxReceipt = 'Dont_'+generateUniqueNumber();
   const messageText = `Hello ${req.body.donorName}. ${message}. Receipt no:${taxReceipt}`;
   sendSMS(toPhoneNumber, messageText);
 
