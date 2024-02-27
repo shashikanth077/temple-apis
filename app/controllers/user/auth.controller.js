@@ -221,6 +221,8 @@ exports.signin = (req, res) => {
       res.status(200).send({
         id: user._id,
         email: user.email,
+        firstName:user.firstName,
+        lastName:user.lastName,
         userName: user.firstName + "" + user.lastName,
         countrycode: user.countrycode,
         devoteeId: user.devoteeId,
