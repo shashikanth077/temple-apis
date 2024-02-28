@@ -934,7 +934,7 @@
                         },
                         {
                             "key": "Otherdonations",
-                            "label": "Other donations",
+                            "label": "otherdonation",
                             "url": "/otherdonations",
                             "parentKey": "donations"
                         }

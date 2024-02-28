@@ -41,4 +41,10 @@ module.exports = function (app) {
     // [authJwt.verifyToken, authJwt.isAdmin],
     controller.getDonationTypeDetailsByIdController
   );
+
+  app.get(
+    "/api/donations-type/:type",
+    // [authJwt.verifyToken, authJwt.isAdmin],
+    controller.getDonationTypeDetailsByTypeController
+  );
 };

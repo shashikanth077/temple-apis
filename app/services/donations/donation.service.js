@@ -85,6 +85,7 @@ const addDonationDetails = async (req, res) => {
     donationType: req.body.donationType,
     devoteeName: req.body.donorName,
     devoteeId: req.body.devoteeId,
+    prasadamOverEmail:req.body.prasadamOverEmail,
     devoteeEmail: req.body.donorEmail,
     frequency: req.body.frequency,
     devoteePhoneNumber: req.body.donorPhoneNumber,
