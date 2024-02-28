@@ -20,6 +20,7 @@ const {
         const serviceResult = await addGodDetails(req);
         return res.status(serviceResult.status).json(serviceResult.data);
     } catch (error) {
+        console.log(error);
         //logger.error('addGodDetailsController Error:', error);
         res.status(500).json({ success: false, error: 'Internal server error (addGodDetails)' });
     }

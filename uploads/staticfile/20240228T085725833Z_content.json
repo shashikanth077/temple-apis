@@ -903,40 +903,6 @@
                       ]
                 },
                 {
-                    "key": "onlinebookings",
-                    "label": "Online booking",
-                    "isTitle": false,
-                    "icon": "fas fa-cash-register",
-                    "url": "/mybookings/lists",
-                    "roles":["ROLE_USER"],
-                    "children": [
-                        {
-                            "key": "services",
-                            "label": "Services",
-                            "url": "/online-booking/services",
-                            "parentKey": "onlinebookings"
-                        },
-                        {
-                            "key": "sevas",
-                            "label": "Sevas",
-                            "url": "/online-booking/services",
-                            "parentKey": "onlinebookings"
-                        },
-                        {
-                            "key": "events",
-                            "label": "Events",
-                            "url": "/online-booking/events",
-                            "parentKey": "onlinebookings"
-                        },
-                        {
-                            "key": "store",
-                            "label": "Store",
-                            "url": "/online-store",
-                            "parentKey": "onlinebookings"
-                        }
-                      ]
-                },
-                {
                     "key": "mydonations",
                     "label": "My donations",
                     "isTitle": false,
