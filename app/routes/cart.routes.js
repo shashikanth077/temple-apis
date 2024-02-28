@@ -10,6 +10,5 @@ module.exports = function (app) {
 
   app.post("/api/cart", controller.addCart);
   app.post("/api/checkout/addhistory", controller.AddBookingHistory);
-
   app.get("/api/cart/delete/:productId/:userid/:type", controller.deleteCart);
 };

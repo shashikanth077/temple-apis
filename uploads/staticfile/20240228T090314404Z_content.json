@@ -903,6 +903,22 @@
                       ]
                 },
                 {
+                    "key": "mydonations",
+                    "label": "My donations",
+                    "isTitle": false,
+                    "icon": "fas fa-donate",
+                    "url": "/mydonations/list",
+                    "roles":["ROLE_USER"]
+                },
+                {
+                    "key": "mybookings",
+                    "label": "My Bookings",
+                    "isTitle": false,
+                    "icon": "fas fa-donate",
+                    "url": "/mybookings/lists",
+                    "roles":["ROLE_USER"]
+                },
+                {
                     "key": "onlinebookings",
                     "label": "Online booking",
                     "isTitle": false,
@@ -927,30 +943,8 @@
                             "label": "Events",
                             "url": "/online-booking/events",
                             "parentKey": "onlinebookings"
-                        },
-                        {
-                            "key": "store",
-                            "label": "Store",
-                            "url": "/online-store",
-                            "parentKey": "onlinebookings"
                         }
                       ]
-                },
-                {
-                    "key": "mydonations",
-                    "label": "My donations",
-                    "isTitle": false,
-                    "icon": "fas fa-donate",
-                    "url": "/mydonations/list",
-                    "roles":["ROLE_USER"]
-                },
-                {
-                    "key": "mybookings",
-                    "label": "My Bookings",
-                    "isTitle": false,
-                    "icon": "fas fa-donate",
-                    "url": "/mybookings/lists",
-                    "roles":["ROLE_USER"]
                 },
                 {
                     "key": "donations",
