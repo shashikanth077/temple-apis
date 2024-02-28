@@ -41,6 +41,9 @@ const DonationSchema = new Schema(
     devoteeId : {
         type:Number
     },
+    prasadamOverEmail:{
+      type:Boolean
+    },
     paymentMethod: {
       type: String,
     },

@@ -146,10 +146,28 @@ const getDonationTypeDetailsById = async (req, res) => {
   return { data, status: 200 };
 };
 
+const getDonationTypeDetailsByType = async (req, res) => {
+  if (isNullOrUndefined(req) || isNullOrUndefined(req.params.type)) {
+    const data = { success: false, message: "invalid request" };
+    return { data, status: 400 };
+  }
+  const donationType = await DonationType.findOne({ donationType: req.params.type });
+
+  if (!donationType) {
+    const data = { success: false, message: "donation type details not found" };
+    return { data, status: 404 };
+  }
+
+  const data = { success: true, donationType };
+
+  return { data, status: 200 };
+};
+
 module.exports = {
     addDonationType,
     getDonationTypesByFrequency,
     updateDonationTypeDetails,
     deleteDonationTypeDetails,
+    getDonationTypeDetailsByType,
     getDonationTypeDetailsById,
 };

@@ -6,6 +6,7 @@ const {
   updateDonationTypeDetails,
   deleteDonationTypeDetails,
   getDonationTypeDetailsById,
+  getDonationTypeDetailsByType
 } = require("../../services/donations/manageDonation.service");
 
 exports.addDonationTypeController = async (req, res) => {
@@ -82,6 +83,22 @@ exports.getDonationTypeDetailsByIdController = async (req, res) => {
         success: false,
         error:
           "Something went wrong please try again (getDonationTypeDetailsById)",
+      });
+  }
+};
+
+exports.getDonationTypeDetailsByTypeController = async (req, res) => {
+  try {
+    const serviceResult = await getDonationTypeDetailsByType(req);
+    return res.status(serviceResult.status).json(serviceResult.data);
+  } catch (error) {
+    logger.error('getDonationTypeDetailsByTypeController Error:', error);
+    res
+      .status(500)
+      .json({
+        success: false,
+        error:
+          "Something went wrong please try again (getDonationTypeDetailsByTypeController)",
       });
   }
 };
