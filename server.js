@@ -12,6 +12,9 @@ const cookieSession = require("cookie-session");
 const { logger } = require("./app/middlewares");
 const dbConfig = require("./app/config/db.config");
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swaggerDef'); // Path to your generated swagger specification
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -22,6 +25,8 @@ app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 //Make image folder public
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 //Basic Auth
 app.use(authenticate);
