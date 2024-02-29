@@ -11,11 +11,6 @@ const getUserProfileByUserId = async (userId) => {
   }
 
   const profile = await UserProfile.findOne({ userId: userId });
-  // if (!profile) {
-  //   const data = { success: false, message: "User Profile not found" };
-  //   return { data, status: 404 };
-  // }
-
   const data = { success: true, profile };
 
   return { data, status: 200 };
@@ -30,37 +25,54 @@ const createUserProfile = async (req, res) => {
   }
 
   const existingProfile = await UserProfile.findOne({ userId: user._id });
+  req.body.isProfilecreated = true;
+
   if (existingProfile) {
-    const data = {
-      success: false,
-      message: "Profile already exists for this user",
+    const profileData = {
+      ...req.body,
     };
-    return { data, status: 400 };
+
+    const profile = await UserProfile.updateOne(
+      { userId: req.params.userId },
+      { $set: profileData },
+      { runValidators: true, new: true }
+    );
+    
+    const data = {
+      success: true,
+      message: "User profile updated successfully",
+      profile,
+    };
+
+    return { data, status: 200 };
+  } else {
+    const profileData = {
+      userId: user._id,
+      firstName: user.firstName,
+      email: user.email,
+      ...req.body,
+      createdAt: Date.now(),
+      modifiedAt: Date.now(),
+    };
+
+    await new UserProfile(profileData).save();
+    const data = {
+      success: true,
+      message: "User Profile Created successfully",
+    };
+    return { data, status: 200 };
   }
-
-  const profileData = {
-    userId: user._id,
-    firstName: user.firstName,
-    email: user.email,
-    ...req.body,
-    createdAt: Date.now(),
-    modifiedAt: Date.now(),
-  };
-
-  await new UserProfile(profileData).save();
-  const data = { success: true, message: "User Profile Created successfully" };
-  return { data, status: 200 };
 };
 
 const updateUserProfile = async (req, res) => {
   const user = await User.findOne({ _id: req.params.userId, activated: true });
-  
+
   if (!user) {
     const data = { success: false, message: "User not found" };
     return { data, status: 404 };
   }
 
-  const existingProfile = await UserProfile.findOne({ userId: user._id });
+  //const existingProfile = await UserProfile.findOne({ userId: user._id });
 
   // if (!existingProfile) {
   //   const data = {
@@ -71,7 +83,6 @@ const updateUserProfile = async (req, res) => {
   // }
 
   const profileData = {
-    email: user.email,
     ...req.body,
   };
 

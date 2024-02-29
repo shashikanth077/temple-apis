@@ -91,6 +91,10 @@ const UserProfileSchema = new Schema(
     billingAddress: billingAddressSchema,
     family: [familySchema],
     deceasedAncestors: [deceasedAncestorsSchema],
+    isProfilecreated:{
+      type: Boolean,
+      default : false
+    },
     createdAt: {
       type: Date,
       required: true,
