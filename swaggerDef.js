@@ -4,23 +4,9 @@ const options = {
     definition: {
       openapi: '3.0.0',
       info: {
-        title: 'Your API Title',
+        title: 'NorthGaze Apis',
         version: '1.0.0',
-        description: 'Your API Description',
-      },
-    },
-    components: {
-      schemas: {
-        UserSignup: {
-          type: 'object',
-          properties: {
-            // Define properties based on your user model
-            username: { type: 'string' },
-            email: { type: 'string' },
-            // Add other properties...
-          },
-          required: ['username', 'email'], // Specify required properties
-        },
+        description: 'NorthGaze Apis',
       },
     },
     // API specifications
