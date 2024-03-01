@@ -919,7 +919,7 @@
                         {
                             "key": "sevas",
                             "label": "Sevas",
-                            "url": "/online-booking/services",
+                            "url": "/online-booking/sevas",
                             "parentKey": "onlinebookings"
                         },
                         {
