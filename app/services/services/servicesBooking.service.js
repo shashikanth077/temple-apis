@@ -151,8 +151,13 @@ const updateServiceDetailsByGodId = async (req, res) => {
     req.body.image = imagePath;
   }
 
-  let workDays = JSON.parse(req.body.occurmonth);
-  req.body.occurmonth = workDays;
+  if(req?.body?.occurmonth) {
+    let workDays = JSON.parse(req?.body?.occurmonth);
+    req.body.occurmonth = workDays;
+  } else {
+    req.body.occurmonth = [];
+  }
+  
 
   const serviceData = {
     ...req.body,
