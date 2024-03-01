@@ -38,7 +38,6 @@ module.exports = function (app) {
 
   app.get(
     "/api/seva/booking/:id",
-    [authJwt.verifyToken, authJwt.isAdmin],
     controller.getSevaBookingDetailsByIdController
   );
 };

@@ -93,8 +93,13 @@ const addServiceDetails = async (req) => {
   const imagePath = PUBLIC_URL + "uploads/services/" + req.file.filename;
   req.body.image = imagePath;
 
-  let workDays = JSON.parse(req.body.occurmonth);
-  req.body.occurmonth = workDays;
+  if(req?.body?.occurmonth) {
+    let workDays = JSON.parse(req?.body?.occurmonth);
+    req.body.occurmonth = workDays;
+  } else {
+    req.body.occurmonth = [];
+  }
+  
   
   const serviceData = {
     godId: god._id,
