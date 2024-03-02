@@ -1,3606 +1,3198 @@
 {
-	"info": {
-		"_postman_id": "724cf968-4ef9-4e49-9c23-9764a66e7732",
-		"name": "NodeApi",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "622356"
-	},
-	"item": [
-		{
-			"name": "Events",
-			"item": [
-				{
-					"name": "update event",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Deepvali 2023",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/event/6570241e9cd6a4c29585765b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"event",
-								"6570241e9cd6a4c29585765b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete event",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/event/delete/6570241e9cd6a4c29585765b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"event",
-								"delete",
-								"6570241e9cd6a4c29585765b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "add events",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Big festival Holi",
-									"type": "text"
-								},
-								{
-									"key": "bookingPrice",
-									"value": "24",
-									"type": "text"
-								},
-								{
-									"key": "organizer",
-									"value": "SHashi",
-									"type": "text"
-								},
-								{
-									"key": "organizerPhone",
-									"value": "8123192799",
-									"type": "text"
-								},
-								{
-									"key": "organizerEmail",
-									"value": "shashi@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "startDate",
-									"value": "12/10/2023",
-									"type": "text"
-								},
-								{
-									"key": "endDate",
-									"value": "12/10/2025",
-									"type": "text"
-								},
-								{
-									"key": "venue",
-									"value": "sssss",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "postman-cloud:///1eed66b6-6edf-46a0-976a-5687dff031a2"
-								},
-								{
-									"key": "description",
-									"value": "ssssssssssssssssssssss",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/events",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"events"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAllEvents",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/events",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"events"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get eventsByFilter",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n            \"startDate\":\"01-12-2023\",\r\n            \"endDate\":\"06-12-2023\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/events/filter",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"events",
-								"filter"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getEventByid",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "signup new account",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"Shashi\",\r\n    \"lastName\": \"kanth\",\r\n    \"email\": \"shashikanth033@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"phonenumber\":\"123\",\r\n    \"roles\": [\"user\", \"admin\"]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/auth/signup",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"auth",
-								"signup"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "login an account",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"r9@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/auth/signin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"auth",
-								"signin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "activate account",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/activate/33e0eb9bdaf2112af88a14c96530089d6273e769",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"activate",
-								"33e0eb9bdaf2112af88a14c96530089d6273e769"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "request reset password",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"ravi6@tcs.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/auth/requestResetPassword",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"auth",
-								"requestResetPassword"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "resetPassword",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"65606a970b6b443278b5c1a9\",\r\n    \"token\": \"43dfff7f6c0b698f91b7d7e5f78500d0498a0c50c2c236f63906abd62c34766d\",\r\n    \"password\": \"1234\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/auth/resetPassword",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"auth",
-								"resetPassword"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "logout the account",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/auth/signout",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"auth",
-								"signout"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "access admin's content",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/test/admin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"test",
-								"admin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "access users's content",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/test/admin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"test",
-								"admin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "sendOTP",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"phoneNumber\":\"+918123192799\"}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/generateotp",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"generateotp"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "verifyOTP",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"phoneNumber\":\"+918123192799\",\"otp\":\"175244\"}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/verifyOTP",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"verifyOTP"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Products",
-			"item": [
-				{
-					"name": "getAllProducts",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"products"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getProductById",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/product/655a08baa83e926f6463fc12",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"product",
-								"655a08baa83e926f6463fc12"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update product",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "price",
-									"value": "30",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/product/655a08baa83e926f6463fc12",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"product",
-								"655a08baa83e926f6463fc12"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete product",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/product/delete/65606c690b6b443278b5c1c6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"product",
-								"delete",
-								"65606c690b6b443278b5c1c6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "add product",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "product1",
-									"type": "text"
-								},
-								{
-									"key": "price",
-									"value": "23",
-									"type": "text"
-								},
-								{
-									"key": "productimage",
-									"type": "file",
-									"src": "postman-cloud:///1eed66c9-fad7-40a0-9537-9c9504ce3321"
-								},
-								{
-									"key": "fullDescription",
-									"value": "Samplessssssssssssssss",
-									"type": "text"
-								},
-								{
-									"key": "shortDescription",
-									"value": "Samplessssssssssssssss",
-									"type": "text"
-								},
-								{
-									"key": "stock",
-									"value": "34",
-									"type": "text"
-								},
-								{
-									"key": "discount",
-									"value": "3",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/product",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"product"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "GodDetails",
-			"item": [
-				{
-					"name": "getAllGodsList",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/gods",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"gods"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getGodDetailsById",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/god/658936ee75702605bd7151de",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"god",
-								"658936ee75702605bd7151de"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update god details",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "sample4",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "postman-cloud:///1eed66b6-6edf-46a0-976a-5687dff031a2"
-								},
-								{
-									"key": "worshipDay",
-									"value": "[\"Monday\"]",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/god/658936ee75702605bd7151de",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"god",
-								"658936ee75702605bd7151de"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete god details",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/god/delete/658944a60caf12011086cb6f",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"god",
-								"delete",
-								"658944a60caf12011086cb6f"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "add god details",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "test4",
-									"type": "text"
-								},
-								{
-									"key": "worshipDay",
-									"value": "[\"Wednesday\",\"Tuesday\"]\n",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "postman-cloud:///1eed66b6-6edf-46a0-976a-5687dff031a2"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/god",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"god"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Cart",
-			"item": [
-				{
-					"name": "add cart",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjA2YTk3MGI2YjQ0MzI3OGI1YzFhOSIsImlhdCI6MTcwMDkxMTQ4MSwiZXhwIjoxNzAwOTk3ODgxfQ.ZCFHVcj1iJOwIIPN8VAWM8A_k1ri2UyzUKl-9A7wbuE",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "userId",
-								"value": "65522af643228c35b78bb101",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "session",
-								"value": "qrtyuuytr",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"productId\": \"655a08baa83e926f6463fc12\",\r\n    \"quantity\": 21\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/cart",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"cart"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete cart",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjA2YTk3MGI2YjQ0MzI3OGI1YzFhOSIsImlhdCI6MTcwMDkxMTQ4MSwiZXhwIjoxNzAwOTk3ODgxfQ.ZCFHVcj1iJOwIIPN8VAWM8A_k1ri2UyzUKl-9A7wbuE",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "userId",
-								"value": "65522af643228c35b78bb101",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "session",
-								"value": "qrtyuuytr",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"productId\": \"655a08baa83e926f6463fc12\",\r\n    \"quantity\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/cart/delete",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"cart",
-								"delete"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get cart",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjA2YTk3MGI2YjQ0MzI3OGI1YzFhOSIsImlhdCI6MTcwMDkxMTQ4MSwiZXhwIjoxNzAwOTk3ODgxfQ.ZCFHVcj1iJOwIIPN8VAWM8A_k1ri2UyzUKl-9A7wbuE",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "userId",
-								"value": "65606a970b6b443278b5c1a9",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "session",
-								"value": "qrtyuuytr",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/api/cart",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"cart"
-							],
-							"query": [
-								{
-									"key": "Authorization",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjA2YTk3MGI2YjQ0MzI3OGI1YzFhOSIsImlhdCI6MTcwMDkxMTQ4MSwiZXhwIjoxNzAwOTk3ODgxfQ.ZCFHVcj1iJOwIIPN8VAWM8A_k1ri2UyzUKl-9A7wbuE",
-									"disabled": true
-								},
-								{
-									"key": "id",
-									"value": "65606a970b6b443278b5c1a9",
-									"disabled": true
-								},
-								{
-									"key": "s",
-									"value": "qrtyuuytr",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "addStoreHistory",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"65dcc404b3d7bb9941ced834\",\r\n    \"devoteeId\": 45,\r\n    \"orderType\": \"shop-orders\",\r\n    \"amount\": \"514.00\",\r\n    \"Items\": [\r\n        {\r\n            \"productId\": \"65917f9204d42b89c4d890d8\",\r\n            \"name\": \"Ramayana book\",\r\n            \"image\": \"http://localhost:8080/uploads/products/ramayanabook.jfif\",\r\n            \"quantity\": 1,\r\n            \"price\": 46,\r\n            \"_id\": \"65df8607a9d7e7540a89bc07\"\r\n        },\r\n        {\r\n            \"productId\": \"65917f7a04d42b89c4d890d4\",\r\n            \"name\": \"Ganesh Prasdam\",\r\n            \"image\": \"http://localhost:8080/uploads/products/images.jpg\",\r\n            \"quantity\": 1,\r\n            \"price\": 1,\r\n            \"_id\": \"65df8608a9d7e7540a89bc10\"\r\n        },\r\n        {\r\n            \"productId\": \"65ae1f555d072ebdc5037998\",\r\n            \"name\": \"Copper coating kalasam \",\r\n            \"image\": \"http://localhost:8080/uploads/products/copper-coating-kalasam-12.jpg\",\r\n            \"quantity\": 1,\r\n            \"price\": 467,\r\n            \"_id\": \"65df8631a9d7e7540a89bc39\"\r\n        }\r\n    ],\r\n    \"billingAddress\": {\r\n        \"billingAddress\": \"#425,Toronto main street,India\",\r\n        \"billingCity\": \"To44ronto\",\r\n        \"billingZipcode\": \"46564\",\r\n        \"state\": \"Northwest Territories\"\r\n    },\r\n    \"devoteeName\": \"adminhr\",\r\n    \"devoteePhoneNumber\": \"+918123192799\",\r\n    \"devoteeEmail\": \"shashikanth@gmail.com\",\r\n    \"paymentMethod\": \"pm_1Oosb5BLWmwKfEOgUsvozYUm\",\r\n    \"transStatus\": \"succeeded\",\r\n    \"stripeReferenceId\": \"pi_3Oosb4BLWmwKfEOg2ryUSukT\",\r\n    \"paymentMode\": [\r\n        \"card\"\r\n    ],\r\n    \"orderNotes\": \"sssssssssssssssss\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/checkout/addhistory",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"checkout",
-								"addhistory"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "UserProfile",
-			"item": [
-				{
-					"name": "create user profile by userId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"harsha\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"0470691053\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishi\",\r\n    \"gotram\":\"abc\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/profile/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"profile",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update profile by userId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"88\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishiba\",\r\n    \"gotram\":\"qwer\",\r\n    \"classification\":\"Individual\",\r\n     \"family\":[\r\n        {\r\n                \"relationship\":\"Father\",\r\n                \"firstName\":\"Shashi1\",\r\n                \"lastName\":\"hr\",\r\n                \"email\":\"shashi@gmail.com\",\r\n                \"mobileNumber\":\"8123192799\",\r\n                \"homeNumber\":\"4545667\",\r\n                \"dateOfbirth\":\"06/06/1991\",\r\n                \"nationality\":\"Indian\",\r\n                \"star\":\"Misa\",\r\n                \"gotram\":\"xyz\",\r\n                \"language\":\"Kannada\"\r\n        },\r\n        {\r\n            \"relationship\":\"Father\",\r\n            \"firstName\":\"Shashi2\",\r\n            \"lastName\":\"hr\",\r\n            \"email\":\"shashi@gmail.com\",\r\n            \"mobileNumber\":\"8123192799\",\r\n            \"homeNumber\":\"4545667\",\r\n            \"dateOfbirth\":\"06/06/1991\",\r\n            \"nationality\":\"Indian\",\r\n            \"star\":\"Misa\",\r\n            \"gotram\":\"xyz\",\r\n            \"language\":\"Kannada\"\r\n        },\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/profile/6574f49fa7ff3c18c7d534fc",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"profile",
-								"6574f49fa7ff3c18c7d534fc"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete profile by userId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/profile/657ba53ee27c6ac5e29911bd",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"profile",
-								"657ba53ee27c6ac5e29911bd"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get profile by userId",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/profile/657479ac96712a38f60770ce",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"profile",
-								"657479ac96712a38f60770ce"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "User",
-			"item": [
-				{
-					"name": "update user role by userId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"roles\": [\"user\", \"admin\"]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/657b9ce763746a61696100ce/roles",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"657b9ce763746a61696100ce",
-								"roles"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "inactivate/activate user by userId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"activated\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/657b9ce763746a61696100ce/activate",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"657b9ce763746a61696100ce",
-								"activate"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get user by userId",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/657b9ce763746a61696100ce/user",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"657b9ce763746a61696100ce",
-								"user"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all users",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "addUser",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"Rama\",\r\n    \"lastName\":\"s\",\r\n    \"email\":\"shashi@gmail.com\",\r\n    \"countryCode\":\"+91\",\r\n    \"phonenumber\":\"8123123444\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/user",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"user"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "DonationDetails",
-			"item": [
-				{
-					"name": "add donation details by userId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"donationType\": \"Grocery\",\r\n    \"donatedItems\": [\r\n\t{\r\n        \"name\": \"LCD\",\r\n\t\t\"description\": \"Lorem ipsum dolor sit amet.\",\r\n\t\t\"quantity\": 1,\r\n\t\t\"price\": 200\r\n\t},\r\n\t{\r\n        \"name\": \"item_2\",\r\n\t\t\"description\": \"Lorem ipsum dolor sit amet.\",\r\n\t\t\"quantity\": 2,\r\n\t\t\"price\": 830\r\n\t}\r\n   ],\r\n   \"address\": {\r\n\t\t\"address1\": \"45 Burlington road\",\r\n\t\t\"address2\": \"\",\r\n\t\t\"city\": \"Toronto\",\r\n\t\t\"postalCode\": \"2040\",\r\n\t\t\"province\": \"CA\",\r\n\t\t\"phone\": \"09876456\"\r\n   },\r\n   \"isSameAsHomeAddress\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"donation",
-								"657b9ce763746a61696100ce"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get donation details by userId",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"donation",
-								"657b9ce763746a61696100ce"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get donation details by userId & donationId",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce/658ebee5bb360045a45b0085",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"donation",
-								"657b9ce763746a61696100ce",
-								"658ebee5bb360045a45b0085"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Services",
-			"item": [
-				{
-					"name": "add service by godId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"serviceType\":\"Abhishekam\",\r\n    \"serviceName\":\"Regular\",\r\n    \"image\":\"ganesha.jpg\",\r\n    \"price\":\"15\",\r\n    \"bookingType\":\"PreBooking\",\r\n    \"accountNumber\":\"4567897655\",\r\n    \"description\":\"service description\",\r\n    \"isTaxable\":false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/service/6589366a75702605bd7151d6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"service",
-								"6589366a75702605bd7151d6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update service by godId and serviceId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"serviceType\":\"Abhishekam\",\r\n    \"serviceName\":\"Regular\",\r\n    \"image\":\"ganesha.jpg\",\r\n    \"price\":\"18\",\r\n    \"bookingType\":\"PreBooking\",\r\n    \"accountNumber\":\"4567897658\",\r\n    \"description\":\"service description\",\r\n    \"isTaxable\":true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/service/658944a60caf12011086cb6f/65896836ed68709c2493b7bc",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"service",
-								"658944a60caf12011086cb6f",
-								"65896836ed68709c2493b7bc"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete service by serviceId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/service/6589730b771f1bd340030d3b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"service",
-								"6589730b771f1bd340030d3b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete service by godId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/service/6589366a75702605bd7151d6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"service",
-								"6589366a75702605bd7151d6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get services by godId",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/service/658944a60caf12011086cb6f",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"service",
-								"658944a60caf12011086cb6f"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all services",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/services",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"services"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "FamilyDetails",
-			"item": [
-				{
-					"name": "create family details by userId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "  {\r\n  \"family\":\r\n        {\r\n                \"relationship\":\"Father\",\r\n                \"firstName\":\"Shashi\",\r\n                \"lastName\":\"hr\",\r\n                \"email\":\"shashi@gmail.com\",\r\n                \"mobileNumber\":\"8123192799\",\r\n                \"homeNumber\":\"4545667\",\r\n                \"dateOfbirth\":\"06/06/1991\",\r\n                \"nationality\":\"Indian\",\r\n                \"star\":\"Misa\",\r\n                \"gotram\":\"xyz\",\r\n                \"language\":\"Kannada\"\r\n        },\r\n      \"deceasedAncestors\":\r\n        {\r\n            \"relationship\":\"GrandFather\",\r\n            \"personName\":\"Rama\",\r\n            \"deathDate\":\"06/06/1951\",\r\n            \"deathTime\":\"5.00pm\",\r\n            \"placeofDeath\":\"Mandya\",\r\n            \"star\":\"Misa\",\r\n            \"gotram\":\"xyz\",\r\n            \"Paksha\":\"fdf\",\r\n            \"Masam\":\"sss\",\r\n            \"language\":\"Hindi\",\r\n            \"Tithi\":\"ddd\",\r\n            \"TithiDetails\":\"sdd\"\r\n        }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/family/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"family",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update family details by userId and familyId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "  {\r\n  \"family\":\r\n        {\r\n                \"relationship\":\"Father\",\r\n                \"firstName\":\"Sh\",\r\n                \"lastName\":\"hr\",\r\n                \"email\":\"shashi@gmail.com\",\r\n                \"mobileNumber\":\"8123192799\",\r\n                \"homeNumber\":\"4545667\",\r\n                \"dateOfbirth\":\"06/06/1991\",\r\n                \"nationality\":\"Indian\",\r\n                \"star\":\"Misa\",\r\n                \"gotram\":\"xyz\",\r\n                \"language\":\"Kannada\"\r\n        },\r\n      \"deceasedAncestors\":\r\n        {\r\n            \"relationship\":\"GrandFather\",\r\n            \"personName\":\"Rama\",\r\n            \"deathDate\":\"06/06/1951\",\r\n            \"deathTime\":\"5.00pm\",\r\n            \"placeofDeath\":\"Mandya\",\r\n            \"star\":\"Misa\",\r\n            \"gotram\":\"xyz\",\r\n            \"Paksha\":\"fdf\",\r\n            \"Masam\":\"sss\",\r\n            \"language\":\"Hindi\",\r\n            \"Tithi\":\"ddd\",\r\n            \"TithiDetails\":\"sdd\"\r\n        }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/family/658907e000cbea17d019d135/6589084600cbea17d019d142",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"family",
-								"658907e000cbea17d019d135",
-								"6589084600cbea17d019d142"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete profile by userId",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"88\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishiba\",\r\n    \"gotram\":\"qwer\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/family/657ba53ee27c6ac5e29911bd/6588ea77bfe51a58ee0fc401",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"family",
-								"657ba53ee27c6ac5e29911bd",
-								"6588ea77bfe51a58ee0fc401"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get family by userId",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/family/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"family",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getFamiliies",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/families/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"families",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "AdminSevaBooking",
-			"item": [
-				{
-					"name": "add seva booking",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "sevaBookingType",
-									"value": "Pre-Booking",
-									"type": "text"
-								},
-								{
-									"key": "category",
-									"value": "specialevents",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Sample",
-									"type": "text"
-								},
-								{
-									"key": "amount",
-									"value": "45",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "dddddddddddddddddddddddddd",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "postman-cloud:///1eed66c9-fad7-40a0-9537-9c9504ce3321"
-								},
-								{
-									"key": "",
-									"value": "",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/seva/booking",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"seva",
-								"booking"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get seva booking by type",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n            \"sevaBookingType\":\"Pre-Booking\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/seva/booking-details",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"seva",
-								"booking-details"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update seva booking",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "amount",
-									"value": "100",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/seva/booking/65ae49d61d316e787ed5921b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"seva",
-								"booking",
-								"65ae49d61d316e787ed5921b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete seva booking",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/seva/booking/65ae49d61d316e787ed5921b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"seva",
-								"booking",
-								"65ae49d61d316e787ed5921b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get seva booking by id",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/seva/booking/65ae49ee1d316e787ed59223",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"seva",
-								"booking",
-								"65ae49ee1d316e787ed59223"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "AdminManageDonationTypes",
-			"item": [
-				{
-					"name": "add donationType",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n            \"donationType\":\"Anna-Dhanam\",\r\n            \"frequency\": \"Weekly\",\r\n            \"description\":\"3\",\r\n            \"image\":\"s.jpg\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/donation-type",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"donation-type"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get donation type by frequency",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n            \"frequency\":\"Monthly\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/donation-type/details",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"donation-type",
-								"details"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update donation type",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n            \"description\": \"444\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/donation-type/65ae6aeec99e2221cf1050b6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"donation-type",
-								"65ae6aeec99e2221cf1050b6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete donation type",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/donation-type/65ae6aebc99e2221cf1050b2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"donation-type",
-								"65ae6aebc99e2221cf1050b2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get donation type by id",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/donation-type/65ae6aebc99e2221cf1050b2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"donation-type",
-								"65ae6aebc99e2221cf1050b2"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Bookings",
-			"item": [
-				{
-					"name": "create bookings",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"657b9ce763746a61696100ce\",\r\n    \"category\": \"Pre-Booking\",\r\n    \"name\":\"house warming\",\r\n    \"amount\":500,\r\n    \"bookingDate\": \"26/01/2024\",\r\n    \"comments\": \"Reserve bookings before noon\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/booking",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"booking"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get seva list",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/bookings",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"bookings"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Volunteers",
-			"item": [
-				{
-					"name": "Add volunteers",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"description\": \"ddddddddddd\",\r\n    \"phone\": 8123192799,\r\n    \"name\": \"shashi\",\r\n    \"email\": \"shashikanth033@gmail.com\",\r\n    \"iswhatsupnumber\": \"yes\",\r\n    \"islive\": \"yes\",\r\n    \"isveg\": \"yes\",\r\n    \"beforevolunteer\": \"yes\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/volunteers",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"volunteers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get volunteers",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/volunteers",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"volunteers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateVolunteer",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"_id\":\"65b91d84ca8c77321a46131a\",\r\n    \"status\":\"approved\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/volunteerapprove",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"volunteerapprove"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "StripeTest",
-			"item": [
-				{
-					"name": "sessionCreate",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "DeceasedDetails",
-			"item": [
-				{
-					"name": "getDeceasedById",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/deceased/658907e000cbea17d019d135/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"deceased",
-								"658907e000cbea17d019d135",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "addDeasedPerson",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"gotram\": \"gotram\",\r\n    \"star\": \"Kanya - Chitra (Chithirai)\",\r\n    \"deathDate\": \"Thu Mar 14 2024 00:00:00 GMT+0530 (India Standard Time)\",\r\n    \"personName\": \"Ramegowda\",\r\n    \"relationship\": \"Father\",\r\n    \"deathTime\": \"11:53 PM\",\r\n    \"tithi\": \"Ashtami\",\r\n    \"paksha\": \"Shukla\",\r\n    \"masam\": \"Jyeshtha\",\r\n    \"deathPlace\": \"Mysuru\",\r\n    \"userid\": \"65dcc404b3d7bb9941ced834\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/deceased/658907e000cbea17d019d135/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"deceased",
-								"658907e000cbea17d019d135",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "updateDeceased",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/deceased/658907e000cbea17d019d135/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"deceased",
-								"658907e000cbea17d019d135",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getDeceasedList",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/deceasedlist/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"deceasedlist",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deleteDeceasedPerson",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/deceased/658907e000cbea17d019d135/658907e000cbea17d019d135",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"deceased",
-								"658907e000cbea17d019d135",
-								"658907e000cbea17d019d135"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "AdminTranscation",
-			"item": [
-				{
-					"name": "getTranscatons",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/getTranscation",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"getTranscation"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Reports",
-			"item": [
-				{
-					"name": "getReports",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "ClientApi",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "ClientApi",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/orders/65df7f3ab5e7b105755ec016/seva",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"orders",
-								"65df7f3ab5e7b105755ec016",
-								"seva"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "send enquiry",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "ClientApi",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "ClientApi",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"hravi\",\r\n    \"email\": \"ravi6@tcs.com\",\r\n    \"subject\": \"subject - review2\",\r\n    \"message\": \"<html><body>message</body></html>\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/sendEnquiry",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"sendEnquiry"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get content",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "ClientApi",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "ClientApi",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/content",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"content"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "724cf968-4ef9-4e49-9c23-9764a66e7732",
+    "name": "NodeApi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "622356"
+  },
+  "item": [
+    {
+      "name": "Events",
+      "item": [
+        {
+          "name": "update event",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Deepvali 2023",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/event/6570241e9cd6a4c29585765b",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "event", "6570241e9cd6a4c29585765b"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete event",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/event/delete/6570241e9cd6a4c29585765b",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "event", "delete", "6570241e9cd6a4c29585765b"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add events",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Big festival Holi",
+                  "type": "text"
+                },
+                {
+                  "key": "bookingPrice",
+                  "value": "24",
+                  "type": "text"
+                },
+                {
+                  "key": "organizer",
+                  "value": "SHashi",
+                  "type": "text"
+                },
+                {
+                  "key": "organizerPhone",
+                  "value": "8123192799",
+                  "type": "text"
+                },
+                {
+                  "key": "organizerEmail",
+                  "value": "shashi@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "startDate",
+                  "value": "12/10/2023",
+                  "type": "text"
+                },
+                {
+                  "key": "endDate",
+                  "value": "12/10/2025",
+                  "type": "text"
+                },
+                {
+                  "key": "venue",
+                  "value": "sssss",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "postman-cloud:///1eed66b6-6edf-46a0-976a-5687dff031a2"
+                },
+                {
+                  "key": "description",
+                  "value": "ssssssssssssssssssssss",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/events",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "events"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAllEvents",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/events",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "events"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get eventsByFilter",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n            \"startDate\":\"01-12-2023\",\r\n            \"endDate\":\"06-12-2023\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/events/filter",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "events", "filter"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getEventByid",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "signup new account",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Shashi\",\r\n    \"lastName\": \"kanth\",\r\n    \"email\": \"shashikanth033@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"phonenumber\":\"123\",\r\n    \"roles\": [\"user\", \"admin\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signup",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "signup"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login an account",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"r9@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "signin"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "activate account",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/activate/33e0eb9bdaf2112af88a14c96530089d6273e769",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["activate", "33e0eb9bdaf2112af88a14c96530089d6273e769"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "request reset password",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"ravi6@tcs.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/requestResetPassword",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "requestResetPassword"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "resetPassword",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"65606a970b6b443278b5c1a9\",\r\n    \"token\": \"43dfff7f6c0b698f91b7d7e5f78500d0498a0c50c2c236f63906abd62c34766d\",\r\n    \"password\": \"1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/resetPassword",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "resetPassword"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout the account",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "signout"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "access admin's content",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/test/admin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "test", "admin"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "access users's content",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/test/admin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "test", "admin"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sendOTP",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"phoneNumber\":\"+918123192799\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/generateotp",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "generateotp"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verifyOTP",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"phoneNumber\":\"+918123192799\",\"otp\":\"175244\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/verifyOTP",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "verifyOTP"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "getAllProducts",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "products"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getProductById",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/product/655a08baa83e926f6463fc12",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "product", "655a08baa83e926f6463fc12"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update product",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "price",
+                  "value": "30",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/product/655a08baa83e926f6463fc12",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "product", "655a08baa83e926f6463fc12"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete product",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/product/delete/65606c690b6b443278b5c1c6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "product", "delete", "65606c690b6b443278b5c1c6"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add product",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "product1",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "23",
+                  "type": "text"
+                },
+                {
+                  "key": "productimage",
+                  "type": "file",
+                  "src": "postman-cloud:///1eed66c9-fad7-40a0-9537-9c9504ce3321"
+                },
+                {
+                  "key": "fullDescription",
+                  "value": "Samplessssssssssssssss",
+                  "type": "text"
+                },
+                {
+                  "key": "shortDescription",
+                  "value": "Samplessssssssssssssss",
+                  "type": "text"
+                },
+                {
+                  "key": "stock",
+                  "value": "34",
+                  "type": "text"
+                },
+                {
+                  "key": "discount",
+                  "value": "3",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/product",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "product"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "GodDetails",
+      "item": [
+        {
+          "name": "getAllGodsList",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/gods",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "gods"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getGodDetailsById",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/god/658936ee75702605bd7151de",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "god", "658936ee75702605bd7151de"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update god details",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "sample4",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "postman-cloud:///1eed66b6-6edf-46a0-976a-5687dff031a2"
+                },
+                {
+                  "key": "worshipDay",
+                  "value": "[\"Monday\"]",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/god/658936ee75702605bd7151de",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "god", "658936ee75702605bd7151de"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete god details",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/god/delete/658944a60caf12011086cb6f",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "god", "delete", "658944a60caf12011086cb6f"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add god details",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "test4",
+                  "type": "text"
+                },
+                {
+                  "key": "worshipDay",
+                  "value": "[\"Wednesday\",\"Tuesday\"]\n",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "postman-cloud:///1eed66b6-6edf-46a0-976a-5687dff031a2"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/god",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "god"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "add cart",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjA2YTk3MGI2YjQ0MzI3OGI1YzFhOSIsImlhdCI6MTcwMDkxMTQ4MSwiZXhwIjoxNzAwOTk3ODgxfQ.ZCFHVcj1iJOwIIPN8VAWM8A_k1ri2UyzUKl-9A7wbuE",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "userId",
+                "value": "65522af643228c35b78bb101",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "session",
+                "value": "qrtyuuytr",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": \"655a08baa83e926f6463fc12\",\r\n    \"quantity\": 21\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/cart",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "cart"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete cart",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjA2YTk3MGI2YjQ0MzI3OGI1YzFhOSIsImlhdCI6MTcwMDkxMTQ4MSwiZXhwIjoxNzAwOTk3ODgxfQ.ZCFHVcj1iJOwIIPN8VAWM8A_k1ri2UyzUKl-9A7wbuE",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "userId",
+                "value": "65522af643228c35b78bb101",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "session",
+                "value": "qrtyuuytr",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": \"655a08baa83e926f6463fc12\",\r\n    \"quantity\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/cart/delete",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "cart", "delete"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get cart",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjA2YTk3MGI2YjQ0MzI3OGI1YzFhOSIsImlhdCI6MTcwMDkxMTQ4MSwiZXhwIjoxNzAwOTk3ODgxfQ.ZCFHVcj1iJOwIIPN8VAWM8A_k1ri2UyzUKl-9A7wbuE",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "userId",
+                "value": "65606a970b6b443278b5c1a9",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "session",
+                "value": "qrtyuuytr",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/cart",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "cart"],
+              "query": [
+                {
+                  "key": "Authorization",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjA2YTk3MGI2YjQ0MzI3OGI1YzFhOSIsImlhdCI6MTcwMDkxMTQ4MSwiZXhwIjoxNzAwOTk3ODgxfQ.ZCFHVcj1iJOwIIPN8VAWM8A_k1ri2UyzUKl-9A7wbuE",
+                  "disabled": true
+                },
+                {
+                  "key": "id",
+                  "value": "65606a970b6b443278b5c1a9",
+                  "disabled": true
+                },
+                {
+                  "key": "s",
+                  "value": "qrtyuuytr",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "addStoreHistory",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"65dcc404b3d7bb9941ced834\",\r\n    \"devoteeId\": 45,\r\n    \"orderType\": \"shop-orders\",\r\n    \"amount\": \"514.00\",\r\n    \"Items\": [\r\n        {\r\n            \"productId\": \"65917f9204d42b89c4d890d8\",\r\n            \"name\": \"Ramayana book\",\r\n            \"image\": \"http://localhost:8080/uploads/products/ramayanabook.jfif\",\r\n            \"quantity\": 1,\r\n            \"price\": 46,\r\n            \"_id\": \"65df8607a9d7e7540a89bc07\"\r\n        },\r\n        {\r\n            \"productId\": \"65917f7a04d42b89c4d890d4\",\r\n            \"name\": \"Ganesh Prasdam\",\r\n            \"image\": \"http://localhost:8080/uploads/products/images.jpg\",\r\n            \"quantity\": 1,\r\n            \"price\": 1,\r\n            \"_id\": \"65df8608a9d7e7540a89bc10\"\r\n        },\r\n        {\r\n            \"productId\": \"65ae1f555d072ebdc5037998\",\r\n            \"name\": \"Copper coating kalasam \",\r\n            \"image\": \"http://localhost:8080/uploads/products/copper-coating-kalasam-12.jpg\",\r\n            \"quantity\": 1,\r\n            \"price\": 467,\r\n            \"_id\": \"65df8631a9d7e7540a89bc39\"\r\n        }\r\n    ],\r\n    \"billingAddress\": {\r\n        \"billingAddress\": \"#425,Toronto main street,India\",\r\n        \"billingCity\": \"To44ronto\",\r\n        \"billingZipcode\": \"46564\",\r\n        \"state\": \"Northwest Territories\"\r\n    },\r\n    \"devoteeName\": \"adminhr\",\r\n    \"devoteePhoneNumber\": \"+918123192799\",\r\n    \"devoteeEmail\": \"shashikanth@gmail.com\",\r\n    \"paymentMethod\": \"pm_1Oosb5BLWmwKfEOgUsvozYUm\",\r\n    \"transStatus\": \"succeeded\",\r\n    \"stripeReferenceId\": \"pi_3Oosb4BLWmwKfEOg2ryUSukT\",\r\n    \"paymentMode\": [\r\n        \"card\"\r\n    ],\r\n    \"orderNotes\": \"sssssssssssssssss\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/checkout/addhistory",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "checkout", "addhistory"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "UserProfile",
+      "item": [
+        {
+          "name": "create user profile by userId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"harsha\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"0470691053\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishi\",\r\n    \"gotram\":\"abc\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/profile/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "profile", "658907e000cbea17d019d135"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update profile by userId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"88\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishiba\",\r\n    \"gotram\":\"qwer\",\r\n    \"classification\":\"Individual\",\r\n     \"family\":[\r\n        {\r\n                \"relationship\":\"Father\",\r\n                \"firstName\":\"Shashi1\",\r\n                \"lastName\":\"hr\",\r\n                \"email\":\"shashi@gmail.com\",\r\n                \"mobileNumber\":\"8123192799\",\r\n                \"homeNumber\":\"4545667\",\r\n                \"dateOfbirth\":\"06/06/1991\",\r\n                \"nationality\":\"Indian\",\r\n                \"star\":\"Misa\",\r\n                \"gotram\":\"xyz\",\r\n                \"language\":\"Kannada\"\r\n        },\r\n        {\r\n            \"relationship\":\"Father\",\r\n            \"firstName\":\"Shashi2\",\r\n            \"lastName\":\"hr\",\r\n            \"email\":\"shashi@gmail.com\",\r\n            \"mobileNumber\":\"8123192799\",\r\n            \"homeNumber\":\"4545667\",\r\n            \"dateOfbirth\":\"06/06/1991\",\r\n            \"nationality\":\"Indian\",\r\n            \"star\":\"Misa\",\r\n            \"gotram\":\"xyz\",\r\n            \"language\":\"Kannada\"\r\n        },\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/profile/6574f49fa7ff3c18c7d534fc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "profile", "6574f49fa7ff3c18c7d534fc"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete profile by userId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/profile/657ba53ee27c6ac5e29911bd",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "profile", "657ba53ee27c6ac5e29911bd"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get profile by userId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/profile/657479ac96712a38f60770ce",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "profile", "657479ac96712a38f60770ce"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "update user role by userId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"roles\": [\"user\", \"admin\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/657b9ce763746a61696100ce/roles",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "657b9ce763746a61696100ce", "roles"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "inactivate/activate user by userId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"activated\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/657b9ce763746a61696100ce/activate",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "657b9ce763746a61696100ce", "activate"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get user by userId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/657b9ce763746a61696100ce/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "657b9ce763746a61696100ce", "user"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "addUser",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"Rama\",\r\n    \"lastName\":\"s\",\r\n    \"email\":\"shashi@gmail.com\",\r\n    \"countryCode\":\"+91\",\r\n    \"phonenumber\":\"8123123444\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "user"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DonationDetails",
+      "item": [
+        {
+          "name": "add donation details by userId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"donationType\": \"Grocery\",\r\n    \"donatedItems\": [\r\n\t{\r\n        \"name\": \"LCD\",\r\n\t\t\"description\": \"Lorem ipsum dolor sit amet.\",\r\n\t\t\"quantity\": 1,\r\n\t\t\"price\": 200\r\n\t},\r\n\t{\r\n        \"name\": \"item_2\",\r\n\t\t\"description\": \"Lorem ipsum dolor sit amet.\",\r\n\t\t\"quantity\": 2,\r\n\t\t\"price\": 830\r\n\t}\r\n   ],\r\n   \"address\": {\r\n\t\t\"address1\": \"45 Burlington road\",\r\n\t\t\"address2\": \"\",\r\n\t\t\"city\": \"Toronto\",\r\n\t\t\"postalCode\": \"2040\",\r\n\t\t\"province\": \"CA\",\r\n\t\t\"phone\": \"09876456\"\r\n   },\r\n   \"isSameAsHomeAddress\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "donation", "657b9ce763746a61696100ce"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get donation details by userId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "donation", "657b9ce763746a61696100ce"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get donation details by userId & donationId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/donation/657b9ce763746a61696100ce/658ebee5bb360045a45b0085",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "api",
+                "donation",
+                "657b9ce763746a61696100ce",
+                "658ebee5bb360045a45b0085"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "item": [
+        {
+          "name": "add service by godId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"serviceType\":\"Abhishekam\",\r\n    \"serviceName\":\"Regular\",\r\n    \"image\":\"ganesha.jpg\",\r\n    \"price\":\"15\",\r\n    \"bookingType\":\"PreBooking\",\r\n    \"accountNumber\":\"4567897655\",\r\n    \"description\":\"service description\",\r\n    \"isTaxable\":false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/service/6589366a75702605bd7151d6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "service", "6589366a75702605bd7151d6"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update service by godId and serviceId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"serviceType\":\"Abhishekam\",\r\n    \"serviceName\":\"Regular\",\r\n    \"image\":\"ganesha.jpg\",\r\n    \"price\":\"18\",\r\n    \"bookingType\":\"PreBooking\",\r\n    \"accountNumber\":\"4567897658\",\r\n    \"description\":\"service description\",\r\n    \"isTaxable\":true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/service/658944a60caf12011086cb6f/65896836ed68709c2493b7bc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "api",
+                "service",
+                "658944a60caf12011086cb6f",
+                "65896836ed68709c2493b7bc"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete service by serviceId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/service/6589730b771f1bd340030d3b",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "service", "6589730b771f1bd340030d3b"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete service by godId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/service/6589366a75702605bd7151d6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "service", "6589366a75702605bd7151d6"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get services by godId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/service/658944a60caf12011086cb6f",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "service", "658944a60caf12011086cb6f"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all services",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/services",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "services"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FamilyDetails",
+      "item": [
+        {
+          "name": "create family details by userId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\r\n  \"family\":\r\n        {\r\n                \"relationship\":\"Father\",\r\n                \"firstName\":\"Shashi\",\r\n                \"lastName\":\"hr\",\r\n                \"email\":\"shashi@gmail.com\",\r\n                \"mobileNumber\":\"8123192799\",\r\n                \"homeNumber\":\"4545667\",\r\n                \"dateOfbirth\":\"06/06/1991\",\r\n                \"nationality\":\"Indian\",\r\n                \"star\":\"Misa\",\r\n                \"gotram\":\"xyz\",\r\n                \"language\":\"Kannada\"\r\n        },\r\n      \"deceasedAncestors\":\r\n        {\r\n            \"relationship\":\"GrandFather\",\r\n            \"personName\":\"Rama\",\r\n            \"deathDate\":\"06/06/1951\",\r\n            \"deathTime\":\"5.00pm\",\r\n            \"placeofDeath\":\"Mandya\",\r\n            \"star\":\"Misa\",\r\n            \"gotram\":\"xyz\",\r\n            \"Paksha\":\"fdf\",\r\n            \"Masam\":\"sss\",\r\n            \"language\":\"Hindi\",\r\n            \"Tithi\":\"ddd\",\r\n            \"TithiDetails\":\"sdd\"\r\n        }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/family/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "family", "658907e000cbea17d019d135"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update family details by userId and familyId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\r\n  \"family\":\r\n        {\r\n                \"relationship\":\"Father\",\r\n                \"firstName\":\"Sh\",\r\n                \"lastName\":\"hr\",\r\n                \"email\":\"shashi@gmail.com\",\r\n                \"mobileNumber\":\"8123192799\",\r\n                \"homeNumber\":\"4545667\",\r\n                \"dateOfbirth\":\"06/06/1991\",\r\n                \"nationality\":\"Indian\",\r\n                \"star\":\"Misa\",\r\n                \"gotram\":\"xyz\",\r\n                \"language\":\"Kannada\"\r\n        },\r\n      \"deceasedAncestors\":\r\n        {\r\n            \"relationship\":\"GrandFather\",\r\n            \"personName\":\"Rama\",\r\n            \"deathDate\":\"06/06/1951\",\r\n            \"deathTime\":\"5.00pm\",\r\n            \"placeofDeath\":\"Mandya\",\r\n            \"star\":\"Misa\",\r\n            \"gotram\":\"xyz\",\r\n            \"Paksha\":\"fdf\",\r\n            \"Masam\":\"sss\",\r\n            \"language\":\"Hindi\",\r\n            \"Tithi\":\"ddd\",\r\n            \"TithiDetails\":\"sdd\"\r\n        }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/family/658907e000cbea17d019d135/6589084600cbea17d019d142",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "api",
+                "family",
+                "658907e000cbea17d019d135",
+                "6589084600cbea17d019d142"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete profile by userId",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"88\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishiba\",\r\n    \"gotram\":\"qwer\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/family/657ba53ee27c6ac5e29911bd/6588ea77bfe51a58ee0fc401",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "api",
+                "family",
+                "657ba53ee27c6ac5e29911bd",
+                "6588ea77bfe51a58ee0fc401"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get family by userId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/family/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "family", "658907e000cbea17d019d135"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getFamiliies",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/families/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "families", "658907e000cbea17d019d135"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AdminSevaBooking",
+      "item": [
+        {
+          "name": "add seva booking",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "sevaBookingType",
+                  "value": "Pre-Booking",
+                  "type": "text"
+                },
+                {
+                  "key": "category",
+                  "value": "specialevents",
+                  "type": "text"
+                },
+                {
+                  "key": "name",
+                  "value": "Sample",
+                  "type": "text"
+                },
+                {
+                  "key": "amount",
+                  "value": "45",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "dddddddddddddddddddddddddd",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "postman-cloud:///1eed66c9-fad7-40a0-9537-9c9504ce3321"
+                },
+                {
+                  "key": "",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/seva/booking",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "seva", "booking"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get seva booking by type",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n            \"sevaBookingType\":\"Pre-Booking\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/seva/booking-details",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "seva", "booking-details"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update seva booking",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "amount",
+                  "value": "100",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/seva/booking/65ae49d61d316e787ed5921b",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "seva", "booking", "65ae49d61d316e787ed5921b"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete seva booking",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/seva/booking/65ae49d61d316e787ed5921b",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "seva", "booking", "65ae49d61d316e787ed5921b"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get seva booking by id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/seva/booking/65ae49ee1d316e787ed59223",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "seva", "booking", "65ae49ee1d316e787ed59223"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AdminManageDonationTypes",
+      "item": [
+        {
+          "name": "add donationType",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n            \"donationType\":\"Anna-Dhanam\",\r\n            \"frequency\": \"Weekly\",\r\n            \"description\":\"3\",\r\n            \"image\":\"s.jpg\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/donation-type",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "donation-type"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get donation type by frequency",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n            \"frequency\":\"Monthly\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/donation-type/details",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "donation-type", "details"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update donation type",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n            \"description\": \"444\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/donation-type/65ae6aeec99e2221cf1050b6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "donation-type", "65ae6aeec99e2221cf1050b6"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete donation type",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/donation-type/65ae6aebc99e2221cf1050b2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "donation-type", "65ae6aebc99e2221cf1050b2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get donation type by id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/donation-type/65ae6aebc99e2221cf1050b2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "donation-type", "65ae6aebc99e2221cf1050b2"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "create bookings",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"657b9ce763746a61696100ce\",\r\n    \"category\": \"Pre-Booking\",\r\n    \"name\":\"house warming\",\r\n    \"amount\":500,\r\n    \"bookingDate\": \"26/01/2024\",\r\n    \"comments\": \"Reserve bookings before noon\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/booking",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "booking"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get seva list",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "bookings"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Volunteers",
+      "item": [
+        {
+          "name": "Add volunteers",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"description\": \"ddddddddddd\",\r\n    \"phone\": 8123192799,\r\n    \"name\": \"shashi\",\r\n    \"email\": \"shashikanth033@gmail.com\",\r\n    \"iswhatsupnumber\": \"yes\",\r\n    \"islive\": \"yes\",\r\n    \"isveg\": \"yes\",\r\n    \"beforevolunteer\": \"yes\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/volunteers",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "volunteers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get volunteers",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/volunteers",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "volunteers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateVolunteer",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"_id\":\"65b91d84ca8c77321a46131a\",\r\n    \"status\":\"approved\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/volunteerapprove",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "volunteerapprove"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "StripeTest",
+      "item": [
+        {
+          "name": "sessionCreate",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DeceasedDetails",
+      "item": [
+        {
+          "name": "getDeceasedById",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/deceased/658907e000cbea17d019d135/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "api",
+                "deceased",
+                "658907e000cbea17d019d135",
+                "658907e000cbea17d019d135"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "addDeasedPerson",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"gotram\": \"gotram\",\r\n    \"star\": \"Kanya - Chitra (Chithirai)\",\r\n    \"deathDate\": \"Thu Mar 14 2024 00:00:00 GMT+0530 (India Standard Time)\",\r\n    \"personName\": \"Ramegowda\",\r\n    \"relationship\": \"Father\",\r\n    \"deathTime\": \"11:53 PM\",\r\n    \"tithi\": \"Ashtami\",\r\n    \"paksha\": \"Shukla\",\r\n    \"masam\": \"Jyeshtha\",\r\n    \"deathPlace\": \"Mysuru\",\r\n    \"userid\": \"65dcc404b3d7bb9941ced834\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/deceased/658907e000cbea17d019d135/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "api",
+                "deceased",
+                "658907e000cbea17d019d135",
+                "658907e000cbea17d019d135"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateDeceased",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/deceased/658907e000cbea17d019d135/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "api",
+                "deceased",
+                "658907e000cbea17d019d135",
+                "658907e000cbea17d019d135"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getDeceasedList",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/deceasedlist/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "deceasedlist", "658907e000cbea17d019d135"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteDeceasedPerson",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/deceased/658907e000cbea17d019d135/658907e000cbea17d019d135",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": [
+                "api",
+                "deceased",
+                "658907e000cbea17d019d135",
+                "658907e000cbea17d019d135"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AdminTranscation",
+      "item": [
+        {
+          "name": "getTranscatons",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/getTranscation",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "getTranscation"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "getReports",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "ClientApi",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "ClientApi",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/orders/65df7f3ab5e7b105755ec016/seva",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "orders", "65df7f3ab5e7b105755ec016", "seva"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "send enquiry",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "ClientApi",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "ClientApi",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"hravi\",\r\n    \"email\": \"ravi6@tcs.com\",\r\n    \"subject\": \"subject - review2\",\r\n    \"message\": \"<html><body>message</body></html>\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/sendEnquiry",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "sendEnquiry"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get content",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "ClientApi",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "ClientApi",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/content",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "content"]
+        }
+      },
+      "response": []
+    }
+  ]
 }

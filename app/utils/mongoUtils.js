@@ -8,6 +8,6 @@ const convertStringToObjectId = (str) => {
     console.error("Invalid ObjectId:", error.message);
     return null;
   }
-}
+};
 
 module.exports = { convertStringToObjectId };

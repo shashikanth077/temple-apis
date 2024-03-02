@@ -1,28 +1,28 @@
-const config = require("../config/auth.config.js");
+const config = require("../config/authConfig");
 
 authenticate = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const base64Credentials = authHeader.split(' ')[1];
-  const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
+  const base64Credentials = authHeader.split(" ")[1];
+  const credentials = Buffer.from(base64Credentials, "base64").toString(
+    "ascii"
+  );
 
-  const [username, password] = credentials.split(':');
+  const [username, password] = credentials.split(":");
 
   if (username === config.userName && password === config.password) {
-    // Authentication successful
     next();
   } else {
-    // Authentication failed
-    res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).json({ error: "Unauthorized" });
   }
 };
 
 const basicAuth = {
-  authenticate
+  authenticate,
 };
 
 module.exports = basicAuth;

@@ -2,14 +2,14 @@ const nodemailer = require("nodemailer");
 const handlebars = require("handlebars");
 const fs = require("fs");
 const path = require("path");
-const {getCurrentDate} = require('../utils');
+const { getCurrentDate } = require("../utils");
 
 //send grid
-const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 module.exports = class Email {
-  constructor(user, url, title,type='login') {
+  constructor(user, url, title, type = "login") {
     this.to = user?.email;
     this.url = url;
     this.subject = user?.subject;
@@ -24,10 +24,9 @@ module.exports = class Email {
   }
 
   newTransport() {
-
     //if (process.env.NODE_ENV === "production") {
-      return sgMail;
-   // }
+    return sgMail;
+    // }
 
     // return nodemailer.createTransport({
     //   host: process.env.EMAIL_HOST,
@@ -38,7 +37,6 @@ module.exports = class Email {
     //     pass: process.env.EMAIL_PASSWORD,
     //   },
     // });
-
   }
 
   registerPartials() {
@@ -114,45 +112,27 @@ module.exports = class Email {
   }
 
   async adminRegistrationConfirm() {
-    await this.send(
-      "adminRegister",
-      "Admin registration confirmation email"
-    );
+    await this.send("adminRegister", "Admin registration confirmation email");
   }
 
   async donationConfirmation() {
-    await this.send(
-      "donationSuccess",
-      "Donation confirmation email"
-    );
+    await this.send("donationSuccess", "Donation confirmation email");
   }
 
   async ShopConfirmation() {
-    await this.send(
-      "shopSuccess",
-      "Purchasing confirmation email"
-    );
+    await this.send("shopSuccess", "Purchasing confirmation email");
   }
 
   async serviceConfirmation() {
-    await this.send(
-      "serviceSuccess",
-      "Service confirmation email"
-    );
+    await this.send("serviceSuccess", "Service confirmation email");
   }
 
   async sevaConfirmation() {
-    await this.send(
-      "sevaSuccess",
-      "Seva confirmation email"
-    );
+    await this.send("sevaSuccess", "Seva confirmation email");
   }
 
   async eventConfirmation() {
-    await this.send(
-      "eventSuccess",
-      "Event booking confirmation email"
-    );
+    await this.send("eventSuccess", "Event booking confirmation email");
   }
 
   async resetPassword() {
@@ -160,6 +140,9 @@ module.exports = class Email {
   }
 
   async volunteerApprove() {
-    await this.send("volunteerapprove", "Your volunteer request submission status");
+    await this.send(
+      "volunteerapprove",
+      "Your volunteer request submission status"
+    );
   }
 };
