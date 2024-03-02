@@ -1,4 +1,5 @@
 const controller = require("../controllers/shop/cart.controller");
+const { authJwt } = require("../middlewares");
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -6,9 +7,19 @@ module.exports = function (app) {
     next();
   });
 
-  app.get("/api/cart/:id", controller.getCart);
+  app.get("/api/cart/:id", authJwt.verifyToken, controller.getCart);
 
-  app.post("/api/cart", controller.addCart);
-  app.post("/api/checkout/addhistory", controller.AddBookingHistory);
-  app.get("/api/cart/delete/:productId/:userid/:type", controller.deleteCart);
+  app.post("/api/cart", authJwt.verifyToken, controller.addCart);
+
+  app.post(
+    "/api/checkout/addhistory",
+    authJwt.verifyToken,
+    controller.AddBookingHistory
+  );
+
+  app.get(
+    "/api/cart/delete/:productId/:userid/:type",
+    authJwt.verifyToken,
+    controller.deleteCart
+  );
 };
