@@ -52,7 +52,7 @@ module.exports = function (app) {
 
   app.post(
     "/api/service-booking",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    [authJwt.verifyToken],
     controller.createServiceBookController
   );
 };

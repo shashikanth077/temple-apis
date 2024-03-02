@@ -32,6 +32,16 @@ exports.signup = async (req, res) => {
     { new: true, upsert: true }
   );
 
+   //for first user as admin registration temporary solution
+   const existingUsers = await User.find({});
+ 
+   let rolesData;
+   if (existingUsers.length === 0) {
+     rolesData = ['admin','user'];
+   } else {
+     rolesData = req.body.roles;
+   }
+
   const user = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -58,10 +68,10 @@ exports.signup = async (req, res) => {
         return;
       }
 
-      if (req.body.roles) {
+      if (rolesData) {
         Role.find(
           {
-            name: { $in: req.body.roles },
+            name: { $in:rolesData },
           },
           (err, roles) => {
             if (err) {
