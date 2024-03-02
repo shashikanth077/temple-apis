@@ -1,6 +1,6 @@
 // smsService.js
-const twilio = require('twilio');
-require('dotenv').config();
+const twilio = require("twilio");
+require("dotenv").config();
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -19,7 +19,7 @@ const sendSMS = async (to, message) => {
     console.log(`SMS sent with SID: ${result.sid}`);
     return result.sid;
   } catch (error) {
-    console.error('Error sending SMS:', error.message);
+    console.error("Error sending SMS:", error.message);
     throw error;
   }
 };

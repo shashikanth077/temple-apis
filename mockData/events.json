@@ -1,30 +1,30 @@
 {
-        "events": [
-            {
-                "name": "Tour to Krisha Temple",
-                "bookingPrice":"270",
-                "organizer":"Rama",
-                "organizerPhone":"8123192799",
-                "organizerEmail":"shashi@gmail.com",
-                "startDate":"2023-11-19T12:59-0500",
-                "endDate":"2023-04-21T12:59-0500",
-                "venue": "Manhattan Club 350 5th Ave, Toronto, NY, Canada",
-                "image": "assets/images/events/event1.jpg",
-                "deleted": false,
-                "description":"Lorem ipsum dolor sit amet, consectetur adLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ipiscing elit. Fusce laoreet, ligula condimentum tincidunt, arcu orci laoreet massa, nec sagittis elit urna in diam. Sed consectetur dolor non nulla porttitor, in…"
-            },
-            {
-                "name": "Tour to Krisha Temple",
-                "startDate":"2022-07-21",
-                "organizer":"Rama",
-                "organizerPhone":"8123192799",
-                "organizerEmail":"shashi@gmail.com",
-                "endDate":"2022-08-21",
-                "bookingPrice":"270",
-                "deleted": false,
-                "venue": "Manhattan Club 350 5th Ave, Toronto, NY, Canada",
-                "image": "assets/images/events/event1.jpg",
-                "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce reet, ligula condimentum tincidunt, arcu orci laoreet massa, nec sagittis elit urna in diam. Sed consectetur dolor non nulla porttitor, in…"
-            }
-        ]
-      }
+  "events": [
+    {
+      "name": "Tour to Krisha Temple",
+      "bookingPrice": "270",
+      "organizer": "Rama",
+      "organizerPhone": "8123192799",
+      "organizerEmail": "shashi@gmail.com",
+      "startDate": "2023-11-19T12:59-0500",
+      "endDate": "2023-04-21T12:59-0500",
+      "venue": "Manhattan Club 350 5th Ave, Toronto, NY, Canada",
+      "image": "assets/images/events/event1.jpg",
+      "deleted": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ipiscing elit. Fusce laoreet, ligula condimentum tincidunt, arcu orci laoreet massa, nec sagittis elit urna in diam. Sed consectetur dolor non nulla porttitor, in…"
+    },
+    {
+      "name": "Tour to Krisha Temple",
+      "startDate": "2022-07-21",
+      "organizer": "Rama",
+      "organizerPhone": "8123192799",
+      "organizerEmail": "shashi@gmail.com",
+      "endDate": "2022-08-21",
+      "bookingPrice": "270",
+      "deleted": false,
+      "venue": "Manhattan Club 350 5th Ave, Toronto, NY, Canada",
+      "image": "assets/images/events/event1.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce laoLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce reet, ligula condimentum tincidunt, arcu orci laoreet massa, nec sagittis elit urna in diam. Sed consectetur dolor non nulla porttitor, in…"
+    }
+  ]
+}

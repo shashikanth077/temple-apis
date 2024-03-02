@@ -7,5 +7,5 @@ module.exports = {
   authJwt,
   basicAuth,
   verifySignUp,
-  logger
+  logger,
 };

@@ -1,19 +1,23 @@
 require("express-async-errors");
 require("dotenv").config();
 const express = require("express");
-var bodyParser = require('body-parser');
+var bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 
-const mongoSanitize = require('express-mongo-sanitize');
-const compression = require('compression');
+const mongoSanitize = require("express-mongo-sanitize");
+const compression = require("compression");
 
 const cookieSession = require("cookie-session");
 const { logger } = require("./app/middlewares");
-const dbConfig = require("./app/config/db.config");
 
-const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./swaggerDef'); // Path to your generated swagger specification
+const loadAdminRoutes = require("./app/routes/admin");
+const loadMemberRoutes = require("./app/routes/member");
+const loadAuthRoutes = require("./app/routes/auth");
+
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swaggerDef");
+const connectToMongoDB = require("./dbConnections"); 
 
 const app = express();
 
@@ -21,124 +25,42 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //white listed only respective origin
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
-//Make image folder public
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-//Basic Auth
 app.use(authenticate);
 
 app.use(
   cookieSession({
     name: "client-session",
-    keys: ["COOKIE_SECRET"], // should use as secret environment variable
+    keys: ["COOKIE_SECRET"], 
     httpOnly: true,
   })
 );
 
-app.use(express.json({
-  verify: (req, res, buffer) => req['rawBody'] = buffer, 
-}));
+app.use(
+  express.json({
+    verify: (req, res, buffer) => (req["rawBody"] = buffer),
+  })
+);
 
-
-// Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
+app.use(compression()); 
 
-app.use(compression()); //payload compression
-
-const db = require("./app/models/user");
-const Role = db.role;
-
-// TODO::move to db.js
-db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Successfully connect to MongoDB.");
-    initial();
-  })
-  .catch((err) => {
-    logger.error("Failed to connect to database", err);
-    console.error("Connection error", err);
-    process.exit();
-  });
-
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to client application." });
-});
-
-
-// routes
-require("./app/routes/auth.routes")(app);
-require("./app/routes/user.routes")(app);
-
-//enquiry
-require("./app/routes/enquiry.routes")(app);
-
-//products
-require("./app/routes/products.routes")(app);
-
-//carts
-require("./app/routes/cart.routes")(app);
-
-//events
-require("./app/routes/event.routes")(app);
-
-// user profile
-require("./app/routes/userProfile.routes")(app);
-
-// family details
-require("./app/routes/familyDetails.routes")(app);
-
-//deceased persons details
-require("./app/routes/deceasedDetails.routes")(app);
-
-// god details
-require("./app/routes/god.routes")(app);
-
-// service details
-require("./app/routes/service.routes")(app);
-
-// donation details
-require("./app/routes/donation.routes")(app);
-
-// seva bookings
-require("./app/routes/booking.routes")(app);
-
-// admin: seva booking details
-require("./app/routes/sevaBooking.routes")(app);
-
-// admin: manage donation type details
-require("./app/routes/manageDonation.routes")(app);
-
-// content
-require("./app/routes/content.routes")(app);
-
-// volunteers
-require("./app/routes/volunteers.routes")(app);
-
-//payment
-require("./app/routes/payment.routes")(app);
-
-//order history
-require('./app/routes/orderhistory.routes')(app);
-
-//web hooks
-require('./app/routes/webhook.routes')(app);
+connectToMongoDB();
+loadAdminRoutes(app);
+loadAuthRoutes(app);
+loadMemberRoutes(app);
 
 //when not found any URL
 app.all("*", (req, res) => {
   res.status(404).json({
-    status:'fail',
-    success:false,
-    message:`Can't find ${req.originalUrl} on this server`
-  })
+    status: "fail",
+    success: false,
+    message: `Can't find ${req.originalUrl} on this server`,
+  });
 });
 
 // set port, listen for requests
@@ -147,28 +69,3 @@ app.listen(PORT, () => {
   logger.info(`Running Node.js version ${process.version}`);
 });
 
-function initial() {
-  Role.estimatedDocumentCount((err, count) => {
-    if (!err && count === 0) {
-      new Role({
-        name: "user",
-      }).save((err) => {
-        if (err) {
-          console.log("error", err);
-        }
-
-        console.log("added 'user' to roles collection");
-      });
-
-      new Role({
-        name: "admin",
-      }).save((err) => {
-        if (err) {
-          console.log("error", err);
-        }
-
-        console.log("added 'admin' to roles collection");
-      });
-    }
-  });
-}
