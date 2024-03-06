@@ -24,20 +24,8 @@ module.exports = class Email {
   }
 
   newTransport() {
-    //if (process.env.NODE_ENV === "production") {
     return sgMail;
-    // }
-
-    // return nodemailer.createTransport({
-    //   host: process.env.EMAIL_HOST,
-    //   port: process.env.EMAIL_PORT,
-    //   secure: false, //dev purpose
-    //   auth: {
-    //     user: process.env.EMAIL_USERNAME,
-    //     pass: process.env.EMAIL_PASSWORD,
-    //   },
-    // });
-  }
+  } 
 
   registerPartials() {
     const absoluteHeaderPath = path.resolve(
@@ -60,14 +48,14 @@ module.exports = class Email {
   }
 
   // Send the actual email
-  async send(template, subject) {
+  async send(template, subject,role) {
     this.registerPartials();
 
     const headerTemplateSource = handlebars.partials["header"];
     const footerTemplateSource = handlebars.partials["footer"];
 
     const MainContentSource = fs.readFileSync(
-      `${__dirname}/../views/email/${template}.handlebars`,
+      `${__dirname}/../views/email/${role}/${template}.handlebars`,
       "utf8"
     );
 
@@ -88,35 +76,35 @@ module.exports = class Email {
       html: emailHtml,
     };
 
-    // 3) Create a transport and send email
     await sgMail.send(mailOptions);
   }
 
   async sendEnquiry() {
-    await this.send("sendEnquiry", "Enquiry notification");
+    await this.send("sendEnquiry", "Enquiry notification",'member');
   }
 
   async sendWelcome() {
-    await this.send("welcome", "Welcome to the Sai Sathya Narayana Temple!");
+    await this.send("welcome", "Welcome to the Sai Sathya Narayana Temple!",'member');
   }
 
   async sendPasswordReset() {
-    await this.send("requestResetPassword", "Reset password link");
+    await this.send("requestResetPassword", "Reset password link",'auth');
   }
 
   async verifyEmailAddress() {
     await this.send(
       "verifyEmail",
-      "Verify your email address to activate your account"
+      "Verify your email address to activate your account",
+      "auth"
     );
   }
 
   async adminRegistrationConfirm() {
-    await this.send("adminRegister", "Admin registration confirmation email");
+    await this.send("adminRegister", "Admin registration confirmation email","auth");
   }
 
   async donationConfirmation() {
-    await this.send("donationSuccess", "Donation confirmation email");
+    await this.send("donationSuccess", "Donation confirmation email",'member');
   }
 
   async ShopConfirmation() {
@@ -124,25 +112,26 @@ module.exports = class Email {
   }
 
   async serviceConfirmation() {
-    await this.send("serviceSuccess", "Service confirmation email");
+    await this.send("serviceSuccess", "Service confirmation email",'member');
   }
 
   async sevaConfirmation() {
-    await this.send("sevaSuccess", "Seva confirmation email");
+    await this.send("sevaSuccess", "Seva confirmation email",'member');
   }
 
   async eventConfirmation() {
-    await this.send("eventSuccess", "Event booking confirmation email");
+    await this.send("eventSuccess", "Event booking confirmation email",'member');
   }
 
   async resetPassword() {
-    await this.send("resetPassword", "password has been reset succesfully");
+    await this.send("resetPassword", "password has been reset succesfully",'member');
   }
 
   async volunteerApprove() {
     await this.send(
       "volunteerapprove",
-      "Your volunteer request submission status"
+      "Your volunteer request submission status",
+      'member'
     );
   }
 };

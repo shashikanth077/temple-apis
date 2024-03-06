@@ -16,7 +16,7 @@ const allowedServiceTypes = ["Archana", "Homam", "Pooja", "Seva"];
 
 const allowedDonationTypes = ["Grocery", "Other"];
 
-const PUBLIC_URL = "http://localhost:8080/";
+const PUBLIC_URL = process.env.SERVER_URL;
 
 module.exports = {
   allowedUserRoles,
