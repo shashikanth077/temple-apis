@@ -1,5 +1,5 @@
 module.exports = {
-  HOST: "127.0.0.1",
-  PORT: 27017,
-  DB: "client_db",
+  HOST: process.env.HOST,
+  PORT: process.env.PORT,
+  DB: process.env.DATABASE_NAME,
 };
