@@ -17,7 +17,7 @@ const loadAuthRoutes = require("./app/routes/auth");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swaggerDef");
-const connectToMongoDB = require("./dbConnections"); 
+const connectToMongoDB = require("./dbConnections");
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //white listed only respective origin
-app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -35,7 +35,7 @@ app.use(authenticate);
 app.use(
   cookieSession({
     name: "client-session",
-    keys: ["COOKIE_SECRET"], 
+    keys: ["COOKIE_SECRET"],
     httpOnly: true,
   })
 );
@@ -47,7 +47,7 @@ app.use(
 );
 
 app.use(mongoSanitize());
-app.use(compression()); 
+app.use(compression());
 
 connectToMongoDB();
 loadAdminRoutes(app);
@@ -64,8 +64,7 @@ app.all("*", (req, res) => {
 });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.SERVERPORT || 8080;
 app.listen(PORT, () => {
   logger.info(`Running Node.js version ${process.version}`);
 });
-

@@ -14,4 +14,5 @@ module.exports = function (app) {
   );
 
   app.get("/api/bookings", controller.getSevaList);
+  app.get("/api/sevas", controller.getSevaListController);
 };

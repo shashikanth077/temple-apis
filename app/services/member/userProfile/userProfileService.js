@@ -2,7 +2,6 @@ const UserProfile = require("../../../models/auth/userModel");
 const FamilyDetails = require("../../../models/member/userProfile/familyDetailsModel");
 const User = require("../../../models/auth/userModel");
 
-
 const getUserProfileByUserId = async (userId) => {
   const user = await User.findOne({ _id: userId, activated: true });
   if (!user) {

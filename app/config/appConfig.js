@@ -1,4 +1,4 @@
 module.exports = {
-  contentPath: "../../uploads/staticfile/",
+  contentPath: "../../../uploads/staticfile/",
   fileName: "content.json",
 };
