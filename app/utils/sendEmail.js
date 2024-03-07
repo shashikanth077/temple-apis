@@ -25,7 +25,7 @@ module.exports = class Email {
 
   newTransport() {
     return sgMail;
-  } 
+  }
 
   registerPartials() {
     const absoluteHeaderPath = path.resolve(
@@ -48,7 +48,7 @@ module.exports = class Email {
   }
 
   // Send the actual email
-  async send(template, subject,role) {
+  async send(template, subject, role) {
     this.registerPartials();
 
     const headerTemplateSource = handlebars.partials["header"];
@@ -80,15 +80,19 @@ module.exports = class Email {
   }
 
   async sendEnquiry() {
-    await this.send("sendEnquiry", "Enquiry notification",'member');
+    await this.send("sendEnquiry", "Enquiry notification", "member");
   }
 
   async sendWelcome() {
-    await this.send("welcome", "Welcome to the Sai Sathya Narayana Temple!",'member');
+    await this.send(
+      "welcome",
+      "Welcome to the Sai Sathya Narayana Temple!",
+      "member"
+    );
   }
 
   async sendPasswordReset() {
-    await this.send("requestResetPassword", "Reset password link",'auth');
+    await this.send("requestResetPassword", "Reset password link", "auth");
   }
 
   async verifyEmailAddress() {
@@ -100,11 +104,15 @@ module.exports = class Email {
   }
 
   async adminRegistrationConfirm() {
-    await this.send("adminRegister", "Admin registration confirmation email","auth");
+    await this.send(
+      "adminRegister",
+      "Admin registration confirmation email",
+      "auth"
+    );
   }
 
   async donationConfirmation() {
-    await this.send("donationSuccess", "Donation confirmation email",'member');
+    await this.send("donationSuccess", "Donation confirmation email", "member");
   }
 
   async ShopConfirmation() {
@@ -112,26 +120,34 @@ module.exports = class Email {
   }
 
   async serviceConfirmation() {
-    await this.send("serviceSuccess", "Service confirmation email",'member');
+    await this.send("serviceSuccess", "Service confirmation email", "member");
   }
 
   async sevaConfirmation() {
-    await this.send("sevaSuccess", "Seva confirmation email",'member');
+    await this.send("sevaSuccess", "Seva confirmation email", "member");
   }
 
   async eventConfirmation() {
-    await this.send("eventSuccess", "Event booking confirmation email",'member');
+    await this.send(
+      "eventSuccess",
+      "Event booking confirmation email",
+      "member"
+    );
   }
 
   async resetPassword() {
-    await this.send("resetPassword", "password has been reset succesfully",'member');
+    await this.send(
+      "resetPassword",
+      "password has been reset succesfully",
+      "member"
+    );
   }
 
   async volunteerApprove() {
     await this.send(
       "volunteerapprove",
       "Your volunteer request submission status",
-      'member'
+      "member"
     );
   }
 };

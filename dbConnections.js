@@ -12,7 +12,18 @@ async function connectToMongoDB() {
         useUnifiedTopology: true,
       }
     );
-    // You can call other initialization functions here if needed
+
+    // Check if connected to the database
+    const dbConnection = mongoose.connection;
+    dbConnection.on("connected", () => {
+      logger.info("Connected to the database");
+    });
+
+    dbConnection.on("error", (err) => {
+      logger.error("Error connecting to the database", err);
+    });
+
+    logger.info("Database connection established");
   } catch (error) {
     logger.error("Failed to connect to the database", error);
     process.exit(1);

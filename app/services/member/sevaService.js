@@ -1,6 +1,8 @@
 const User = require("../../models/auth/userModel");
 const SevaHistory = require("../../models/member/bookingHistory/sevaHistoryModel");
 const SevaBooking = require("../../models/member/sevaModel");
+const SevaAdminModel = require("../../models/admin/sevaModel");
+
 const {
   isNullOrUndefined,
   isDateInPresentOrFuture,
@@ -146,7 +148,30 @@ const getSevaList = async () => {
   }
 };
 
+const getSevaBookingDetailsByBookingType = async (req) => {
+  let bookings;
+  if (req.body && req.body.sevaBookingType) {
+    bookings = await SevaBooking.find({
+      sevaBookingType: req.body.sevaBookingType,
+    });
+  } else {
+    bookings = await SevaAdminModel.find({});
+  }
+
+  if (!bookings) {
+    const data = {
+      success: true,
+      message: "Seva booking details doesn't exist",
+    };
+    return { data, status: 404 };
+  } else {
+    const data = { success: true, bookings };
+    return { data, status: 200 };
+  }
+};
+
 module.exports = {
   createBookings,
   getSevaList,
+  getSevaBookingDetailsByBookingType
 };
