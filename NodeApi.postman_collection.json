@@ -385,7 +385,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"ravi6@tcs.com\"\r\n}",
+              "raw": "{\r\n    \"email\": \"gaze6@tcs.com\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1277,7 +1277,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"harsha\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"0470691053\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishi\",\r\n    \"gotram\":\"abc\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"harsha\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"0470691053\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishi\",\r\n    \"gotram\":\"abc\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1316,7 +1316,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"88\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishiba\",\r\n    \"gotram\":\"qwer\",\r\n    \"classification\":\"Individual\",\r\n     \"family\":[\r\n        {\r\n                \"relationship\":\"Father\",\r\n                \"firstName\":\"Shashi1\",\r\n                \"lastName\":\"hr\",\r\n                \"email\":\"shashi@gmail.com\",\r\n                \"mobileNumber\":\"8123192799\",\r\n                \"homeNumber\":\"4545667\",\r\n                \"dateOfbirth\":\"06/06/1991\",\r\n                \"nationality\":\"Indian\",\r\n                \"star\":\"Misa\",\r\n                \"gotram\":\"xyz\",\r\n                \"language\":\"Kannada\"\r\n        },\r\n        {\r\n            \"relationship\":\"Father\",\r\n            \"firstName\":\"Shashi2\",\r\n            \"lastName\":\"hr\",\r\n            \"email\":\"shashi@gmail.com\",\r\n            \"mobileNumber\":\"8123192799\",\r\n            \"homeNumber\":\"4545667\",\r\n            \"dateOfbirth\":\"06/06/1991\",\r\n            \"nationality\":\"Indian\",\r\n            \"star\":\"Misa\",\r\n            \"gotram\":\"xyz\",\r\n            \"language\":\"Kannada\"\r\n        },\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"88\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishiba\",\r\n    \"gotram\":\"qwer\",\r\n    \"classification\":\"Individual\",\r\n     \"family\":[\r\n        {\r\n                \"relationship\":\"Father\",\r\n                \"firstName\":\"Shashi1\",\r\n                \"lastName\":\"hr\",\r\n                \"email\":\"shashi@gmail.com\",\r\n                \"mobileNumber\":\"8123192799\",\r\n                \"homeNumber\":\"4545667\",\r\n                \"dateOfbirth\":\"06/06/1991\",\r\n                \"nationality\":\"Indian\",\r\n                \"star\":\"Misa\",\r\n                \"gotram\":\"xyz\",\r\n                \"language\":\"Kannada\"\r\n        },\r\n        {\r\n            \"relationship\":\"Father\",\r\n            \"firstName\":\"Shashi2\",\r\n            \"lastName\":\"hr\",\r\n            \"email\":\"shashi@gmail.com\",\r\n            \"mobileNumber\":\"8123192799\",\r\n            \"homeNumber\":\"4545667\",\r\n            \"dateOfbirth\":\"06/06/1991\",\r\n            \"nationality\":\"Indian\",\r\n            \"star\":\"Misa\",\r\n            \"gotram\":\"xyz\",\r\n            \"language\":\"Kannada\"\r\n        },\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1397,7 +1397,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1522,7 +1522,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1564,7 +1564,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1689,7 +1689,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1731,7 +1731,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1986,7 +1986,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2113,7 +2113,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"88\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishiba\",\r\n    \"gotram\":\"qwer\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"88\",\r\n    \"mobileNumber\":\"0470691053\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"23/04/1990\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Rishiba\",\r\n    \"gotram\":\"qwer\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2160,7 +2160,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"firstName\":\"ravi\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
+              "raw": "{\r\n    \"firstName\":\"gaze\",\r\n    \"lastName\":\"h\",\r\n    \"mobileNumber\":\"8123192799\",\r\n    \"homeNumber\":\"4545667\",\r\n    \"dateOfBirth\":\"06/06/1991\",\r\n    \"nationality\":\"Indian\",\r\n    \"star\":\"Misa\",\r\n    \"gotram\":\"xyz\",\r\n    \"classification\":\"Individual\"\r\n\t}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3135,7 +3135,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"name\": \"hravi\",\r\n    \"email\": \"ravi6@tcs.com\",\r\n    \"subject\": \"subject - review2\",\r\n    \"message\": \"<html><body>message</body></html>\"\r\n}",
+          "raw": "{\r\n    \"name\": \"northgaze\",\r\n    \"email\": \"gaze6@tcs.com\",\r\n    \"subject\": \"subject - review2\",\r\n    \"message\": \"<html><body>message</body></html>\"\r\n}",
           "options": {
             "raw": {
               "language": "json"

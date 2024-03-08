@@ -3,15 +3,17 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const dotenv = require('dotenv');
 
-// Load environment variables from .env.dev file
 const envVariables = dotenv.config({ path: '.env.dev' }).parsed;
+
+const stringifiedEnv = Object.keys(envVariables).reduce((acc, key) => {
+  acc[`process.env.${key}`] = JSON.stringify(envVariables[key]);
+  return acc;
+}, {});
 
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(envVariables),
-    }),
+    new webpack.DefinePlugin(stringifiedEnv),
   ],
 });
