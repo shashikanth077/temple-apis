@@ -8,115 +8,92 @@ const {
   convertStringToObjectId,
   generateUniqueNumber,
 } = require("../../utils");
-const { PUBLIC_URL } = require("../../utils/constants");
+const { CLIENT_URL } = require("../../utils/constants");
 const { sendSMS } = require("../../utils/sendSMS");
 const Email = require("../../utils/sendEmail");
 const AdminTranscationModel = require("../../models/admin/adminTranscationModel");
 
-const getAllEvents = async () => {
-  const events = await Event.find({ deleted: false });
-  return { success: true, events, count: events.length };
-};
+function convertDateForEventFilter(type) {
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentDateString = currentDate.toDateString();
 
-const getEventById = async (req) => {
-  const event = await Event.findOne({ _id: req.params.id });
-  return { success: true, event };
-};
+  if (type === "upcoming") {
+    //if its upcoming events
+    const startDateFilter = new Date(
+      `${currentDateString.slice(4)} ${currentYear}`
+    );
 
-const addEvents = async (req) => {
-  const event = req.body;
+    const futureDateFilter = new Date(startDateFilter);
+    futureDateFilter.setFullYear(endDateFilter.getFullYear() + 1);
+    return { startDate: startDateFilter, endDate: futureDateFilter };
+  } else if (type === "recent") {
+    let todayDate = new Date();
+    todayDate.setHours(0, 0, 0, 0);
 
-  if (event.length < 1) {
-    return { success: false, message: "No event found" };
+    const startDate = new Date(todayDate);
+    startDate.setDate(todayDate.getDate() - 1);
+
+    const endDate = new Date(startDate);
+    endDate.setFullYear(startDate.getFullYear() - 1);
+
+    return { startDate: startDate, endDate: endDate };
+  } else if (type === "daily") {
+    let todayDate = new Date();
+    todayDate.setHours(0, 0, 0, 0);
+    const nextDay = new Date(todayDate);
+    nextDay.setDate(todayDate.getDate() + 1);
+    return { startDate: todayDate, endDate: nextDay };
   }
-
-  const imagePath = PUBLIC_URL + "uploads/events/" + req.file.filename;
-  req.body.image = imagePath;
-
-  await new Event({
-    name: event.name,
-    bookingPrice: event.bookingPrice,
-    organizer: event.organizer,
-    organizerPhone: event.organizerPhone,
-    orgEmail: event.organizerEmail,
-    startDate: event.startDate,
-    endDate: event.endDate,
-    venue: event.venue,
-    image: event.image,
-    description: event.description,
-    createdAt: Date.now(),
-    modifiedAt: Date.now(),
-  }).save();
-
-  return { success: true, message: "Events added successfully" };
-};
+}
 
 const getEventsByDateFilter = async (req) => {
-  if (!req || !req?.startDate || !req?.endDate) {
+  if (
+    !req ||
+    !req?.params?.type
+  ) {
     return { success: false, message: "Bad Request" };
   }
 
-  const stDate = convertToDate(req.startDate); // dd-mm-yyyy
-  const endDate = convertToDate(req.endDate); // dd-mm-yyyy
+  const type = req?.params?.type;
 
-  const events = await Event.find({
-    deleted: false,
-    $and: [
-      { startDate: { $gte: stDate.toLocaleDateString() } },
-      { endDate: { $lte: endDate.toLocaleDateString() } },
-    ],
-  });
+  const dateFilterObj = convertDateForEventFilter(type);
+  let events;
+  if (type === "recent") {
+    events = await Event.find({
+      deleted: false,
+      $and: [
+        {
+          startDate: { $gte: dateFilterObj.startDate },
+          endDate: { $lt: dateFilterObj.endDate },
+        },
+      ],
+    });
+  } else if (type === "upcoming") {
+    events = await Event.find({
+      deleted: false,
+      $and: [
+        {
+          startDate: { $gte: dateFilterObj.startDate },
+          endDate: { $lt: dateFilterObj.endDate },
+        },
+      ],
+    });
+  } else if (type === "daily") {
+    events = await Event.find({
+        deleted: false,
+        $and: [
+          {
+            startDate: { $gte: dateFilterObj.startDate },
+            endDate: { $lt: dateFilterObj.endDate },
+          },
+        ],
+      });
+  } else {
+    events = await Event.find({});
+  }
 
   return { events, count: events.length };
-};
-
-const updateEvent = async (req) => {
-  const existingEvent = await Event.findOne({
-    _id: req.params.id,
-    deleted: false,
-  });
-
-  if (!existingEvent) {
-    return { success: false, message: "Event doesn't exists" };
-  }
-
-  if (isNullOrUndefined(req.file?.filename)) {
-    req.body.image = existingEvent.image;
-  } else {
-    const imagePath = PUBLIC_URL + "uploads/events/" + req?.file?.filename;
-    req.body.image = imagePath;
-  }
-
-  const event = await Event.findByIdAndUpdate(
-    req.params.id,
-    { $set: req.body },
-    { runValidators: true, new: true }
-  );
-
-  return { success: true, message: "Event updated successfully", event };
-};
-
-const convertToDate = (dateString) => {
-  const [day, month, year] = dateString.split("-");
-  return new Date(year, month - 1, day);
-};
-
-const deleteEvent = async (req) => {
-  const existingEvent = await Event.findOne({
-    _id: req.params.id,
-    deleted: false,
-  });
-
-  if (!existingEvent) {
-    return { success: false, message: "Event doesn't exists" };
-  }
-
-  const event = await Event.findByIdAndUpdate(req.params.id, {
-    $set: { deleted: true },
-    modifiedAt: Date.now(),
-  });
-
-  return { success: true, message: "Event deleted successfully", event };
 };
 
 const createBookings = async (req) => {
@@ -154,7 +131,8 @@ const createBookings = async (req) => {
   }
 
   const serviceShortName = "EVT";
-  let serviceBookId = serviceShortName + "_" + req.body.devoteeId + "/" + generateUniqueNumber();
+  let serviceBookId =
+    serviceShortName + "_" + req.body.devoteeId + "/" + generateUniqueNumber();
   const messageText = `Hello ${req.body.devoteeName}. ${message}. Booking Id:${serviceBookId}`;
   sendSMS(toPhoneNumber, messageText);
 
@@ -163,7 +141,7 @@ const createBookings = async (req) => {
     email: req.body.devoteeEmail,
     message: message,
     bodyData: req.body,
-    url: "http://localhost:3000/mybookings/list",
+    url: `${CLIENT_URL}/mybookings/list`,
   };
 
   SendConfirmationEmail(EmailObject, "");
@@ -234,11 +212,6 @@ const SendConfirmationEmail = async (user, activationLink) => {
 };
 
 module.exports = {
-  getAllEvents,
-  getEventById,
-  addEvents,
   getEventsByDateFilter,
-  updateEvent,
-  deleteEvent,
   createBookings,
 };

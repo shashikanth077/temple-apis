@@ -17,6 +17,7 @@ const allowedServiceTypes = ["Archana", "Homam", "Pooja", "Seva"];
 const allowedDonationTypes = ["Grocery", "Other"];
 
 const PUBLIC_URL = process.env.SERVER_URL;
+const CLIENT_URL = process.env.CLIENT_URL;
 
 module.exports = {
   allowedUserRoles,
@@ -25,4 +26,5 @@ module.exports = {
   allowedBookingTypes,
   allowedServiceTypes,
   PUBLIC_URL,
+  CLIENT_URL
 };

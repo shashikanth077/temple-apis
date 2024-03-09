@@ -3,10 +3,15 @@ const mongoose = require("mongoose");
 const { logger } = require("./app/middlewares");
 const dbConfig = require("./app/config/dbConfig");
 
+//will un comment later
+//const uri = `${dbConfig.PREFIX}://${dbConfig.USERNAME}:${dbConfig.PASSWORD}@${dbConfig.HOST}:${dbConfig.PORT}/?${dbConfig.OPTIONS}`;
+
+const uri =  `${dbConfig.PREFIX}://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`;
+
 async function connectToMongoDB() {
   try {
     await mongoose.connect(
-      `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`,
+      uri,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

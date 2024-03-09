@@ -7,6 +7,7 @@ const familyDetailsRoutes = require("./familyDetailsRoutes");
 const deceasedDetailsRoutes = require("./deceasedDetailsRoutes");
 const volunteerRoutes = require("./volunteerRoutes");
 const paymentRoutes = require("./paymentRoutes");
+const eventRoutes = require("./eventRoutes");
 const orderHistoryRoutes = require("./orderHistoryRoutes");
 const webhookRoutes = require("./webhookRoutes");
 
@@ -20,6 +21,7 @@ function loadMemberRoutes(app) {
   deceasedDetailsRoutes(app);
   volunteerRoutes(app);
   paymentRoutes(app);
+  eventRoutes(app),
   orderHistoryRoutes(app);
   //webhookRoutes(app);
 }
