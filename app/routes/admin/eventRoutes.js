@@ -20,8 +20,6 @@ module.exports = function (app) {
     controller.addEventsController
   );
 
-  app.post("/api/events/filter", controller.getEventsByFilterController);
-
   app.put(
     "/api/event/:id",
     [authJwt.verifyToken, authJwt.isAdmin],
@@ -33,11 +31,5 @@ module.exports = function (app) {
     "/api/event/delete/:id",
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.deleteEventController
-  );
-
-  app.post(
-    "/api/event-booking",
-    [authJwt.verifyToken],
-    controller.bookEventController
   );
 };
