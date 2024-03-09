@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "npm run env NODE_ENV=development && npx webpack --config webpack/webpack.dev.js && node bundle.js",
-    "start:prod": "npm run env NODE_ENV=production && npx webpack --config webpack/webpack.dev.js && node bundle.js",
+    "start:prod": "npm run env NODE_ENV=production && npx webpack --config webpack/webpack.prod.js && node bundle.js",
     "format": "prettier --write ."
   },
   "keywords": [
