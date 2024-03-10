@@ -7,7 +7,7 @@ module.exports = function (app) {
     next();
   });
 
-  app.get("/api/events/filter/:type", controller.getEventsByFilterController);
+  app.get("/api/events/filter", controller.getEventsByFilterController);
 
   app.post(
     "/api/event-booking",

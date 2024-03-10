@@ -20,12 +20,16 @@ function convertDateForEventFilter(type) {
 
   if (type === "upcoming") {
     //if its upcoming events
-    const startDateFilter = new Date(
-      `${currentDateString.slice(4)} ${currentYear}`
-    );
+    let currentDate = new Date();
 
+    // Convert current date to a string in the format "Sat Mar 30 2024"
+    const currentDateString = currentDate.toDateString();
+
+    // Construct start and end dates with only day, month, and year components
+    const startDateFilter = new Date(`${currentDateString.slice(4)} ${currentYear}`);
     const futureDateFilter = new Date(startDateFilter);
-    futureDateFilter.setFullYear(endDateFilter.getFullYear() + 1);
+    futureDateFilter.setFullYear(futureDateFilter.getFullYear() + 1);
+
     return { startDate: startDateFilter, endDate: futureDateFilter };
   } else if (type === "recent") {
     let todayDate = new Date();
@@ -39,61 +43,68 @@ function convertDateForEventFilter(type) {
 
     return { startDate: startDate, endDate: endDate };
   } else if (type === "daily") {
-    let todayDate = new Date();
-    todayDate.setHours(0, 0, 0, 0);
-    const nextDay = new Date(todayDate);
-    nextDay.setDate(todayDate.getDate() + 1);
-    return { startDate: todayDate, endDate: nextDay };
+    let currentDate = new Date();
+
+    // Set the time to the beginning of today (00:00:00)
+    currentDate.setHours(0, 0, 0, 0);
+
+    // Calculate the start date (beginning of the current date)
+    let startDate = new Date(currentDate);
+
+    // Calculate the end date (end of the current date)
+    let endDate = new Date(currentDate);
+    endDate.setHours(23, 59, 59, 999); // Set time to end of the day
+    return { startDate: startDate, endDate: endDate };
   }
 }
 
 const getEventsByDateFilter = async (req) => {
-  if (
-    !req ||
-    !req?.params?.type
-  ) {
+
+  if (!req) {
     return { success: false, message: "Bad Request" };
   }
 
-  const type = req?.params?.type;
+  const dateDailyFilterObj = convertDateForEventFilter("daily");
+  const dailyEvents = await Event.find({
+    deleted: false,
+    $and: [
+      {
+        startDate: { $gte: dateDailyFilterObj.startDate },
+        endDate: { $lt: dateDailyFilterObj.endDate },
+      },
+    ],
+  });
 
-  const dateFilterObj = convertDateForEventFilter(type);
-  let events;
-  if (type === "recent") {
-    events = await Event.find({
-      deleted: false,
-      $and: [
-        {
-          startDate: { $gte: dateFilterObj.startDate },
-          endDate: { $lt: dateFilterObj.endDate },
-        },
-      ],
-    });
-  } else if (type === "upcoming") {
-    events = await Event.find({
-      deleted: false,
-      $and: [
-        {
-          startDate: { $gte: dateFilterObj.startDate },
-          endDate: { $lt: dateFilterObj.endDate },
-        },
-      ],
-    });
-  } else if (type === "daily") {
-    events = await Event.find({
-        deleted: false,
-        $and: [
-          {
-            startDate: { $gte: dateFilterObj.startDate },
-            endDate: { $lt: dateFilterObj.endDate },
-          },
-        ],
-      });
-  } else {
-    events = await Event.find({});
-  }
+  const dateRecentFilterObj = convertDateForEventFilter("recent");
+  const recentEvents = await Event.find({
+    deleted: false,
+    $and: [
+      {
+        startDate: { $gte: dateRecentFilterObj.startDate },
+        endDate: { $lt: dateRecentFilterObj.endDate },
+      },
+    ],
+  });
 
-  return { events, count: events.length };
+  const dateFutureFilterObj = convertDateForEventFilter("upcoming");
+  const futureEvents = await Event.find({
+    deleted: false,
+    $and: [
+      {
+        startDate: { $gt: dateFutureFilterObj.startDate },
+        endDate: { $lte: dateFutureFilterObj.endDate },
+      },
+    ],
+  });
+
+  return { 
+    success: true, 
+    events:{
+      futureevents:futureEvents, 
+      recentevents:recentEvents,
+      dailyevents:dailyEvents, 
+    }
+  };
 };
 
 const createBookings = async (req) => {
