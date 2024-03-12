@@ -46,7 +46,6 @@ exports.updateVolunteerStatusController = async (req, res) => {
 
     return res.status(volunteerResult.status).json(volunteerResult.data);
   } catch (error) {
-    console.log(error);
     res.status(500).json({
       success: false,
       error:

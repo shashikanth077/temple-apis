@@ -93,7 +93,6 @@ const updateUserRole = async (req, res) => {
 
   const isValidUserRoles = req.body && req.body.roles.length > 0;
 
-  console.log(isValidUserRoles);
   if (!isValidUserRoles) {
     const data = { success: false, message: "invalid user roles in request" };
     return { data, status: 400 };
