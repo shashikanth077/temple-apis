@@ -82,8 +82,7 @@ exports.addCart = async (req, res) => {
         cart.totalQuantity = cart.items.reduce((acc, curr) => {
           return acc + curr.quantity;
         }, 0);
-
-        console.log("item", cart);
+    
         cart.sessionId = sessionId;
         cart.items[itemIndex] = item;
         await cart.save();

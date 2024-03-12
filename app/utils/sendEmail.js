@@ -115,7 +115,7 @@ module.exports = class Email {
   }
 
   async ShopConfirmation() {
-    await this.send("shopSuccess", "Purchasing confirmation email");
+    await this.send("shopSuccess", "Purchasing confirmation email", "member");
   }
 
   async serviceConfirmation() {

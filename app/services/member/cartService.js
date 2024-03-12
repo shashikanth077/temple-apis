@@ -67,7 +67,7 @@ const AddBookingHistory = async (req) => {
   }
 
   //send email and sms success or failur
-  const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
+  const toPhoneNumber = "+918123192799"; 
 
   let message;
   if (req.body.transStatus === "succeeded") {

@@ -128,6 +128,7 @@ exports.addUserByAdmin = async (req, res) => {
       }
     });
   } catch (error) {
+    console.log(error);
     logger.error("getUserByUserId Error:", error);
     res.status(500).json({ error: "Internal server error (addUserByAdmin)" });
   }
