@@ -119,7 +119,7 @@ exports.createServiceBookController = async (req, res) => {
   try {
     const result = await createBookings(req);
     return res.status(result.status).json(result.data);
-  } catch (message) {
+  } catch (error) {
     logger.error("createBookingsController Error:", error);
     res.status(500).json({
       success: false,
