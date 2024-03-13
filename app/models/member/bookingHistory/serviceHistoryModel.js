@@ -43,8 +43,16 @@ const ServiceSchema = new Schema(
     ServiceName: {
       type: String,
     },
+    NoOfChild:{
+      type: String,
+      required: true,
+    },
     NoOfPerson: {
       type: Number,
+    },
+    poojaTime:{
+      type: String,
+      required: true,
     },
     orderNotes: {
       type: String,

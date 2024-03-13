@@ -258,9 +258,6 @@ const createBookings = async (req, res) => {
     return { data, status: 404 };
   }
 
-  //send email and sms success or failur
-  const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
-
   let message;
   if (req.body.transStatus === "succeeded") {
     message =
@@ -274,7 +271,7 @@ const createBookings = async (req, res) => {
   let serviceBookId =
     serviceShortName + "_" + req.body.devoteeId + "/" + generateUniqueNumber();
   const messageText = `Hello ${req.body.devoteeName}. ${message}. Booking Id:${serviceBookId}`;
-  sendSMS(toPhoneNumber, messageText);
+  sendSMS(req.body.devoteePhoneNumber, messageText);
 
   let EmailObject = {
     name: req.body.devoteeName,
@@ -304,6 +301,8 @@ const createBookings = async (req, res) => {
     paymentMethod: req.body.paymentMethod,
     ServiceName: req.body.ServiceName,
     NoOfPerson: req.body.NoOfPerson,
+    NoOfChild: req.body.NoOfChild,
+    poojaTime: req.body.poojaTime,
     bookingDate: req.body.bookingDate,
     createdAt: Date.now(),
     modifiedAt: Date.now(),

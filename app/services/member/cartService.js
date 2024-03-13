@@ -66,9 +66,6 @@ const AddBookingHistory = async (req) => {
     return { data, status: 404 };
   }
 
-  //send email and sms success or failur
-  const toPhoneNumber = "+918123192799"; 
-
   let message;
   if (req.body.transStatus === "succeeded") {
     message = "Payment was successfull. Thank you for purchasing";
@@ -79,14 +76,14 @@ const AddBookingHistory = async (req) => {
 
   let OrderId = "Prod_" + req.body.devoteeId + "/" + generateUniqueNumber();
   const messageText = `Hello ${req.body.devoteeName}. ${message}. Order Id:${OrderId}`;
-  sendSMS(toPhoneNumber, messageText);
+  sendSMS(req.body.devoteePhoneNumber, messageText);
 
   let EmailObject = {
     name: req.body.devoteeName,
     email: req.body.devoteeEmail,
     message: message,
     bodyData: req.body,
-    url: "http://localhost:3000/mybookings/list",
+    url: process.env.CLIENT_URL+"/mybookings/list",
   };
 
   SendConfirmationEmail(EmailObject, "");

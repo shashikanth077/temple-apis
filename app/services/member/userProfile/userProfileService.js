@@ -1,4 +1,4 @@
-const UserProfile = require("../../../models/auth/userModel");
+const UserProfile = require("../../../models/member/userProfile/userProfileModel");
 const FamilyDetails = require("../../../models/member/userProfile/familyDetailsModel");
 const User = require("../../../models/auth/userModel");
 
@@ -27,6 +27,7 @@ const createUserProfile = async (req, res) => {
   req.body.isProfilecreated = true;
 
   if (existingProfile) {
+
     const profileData = {
       ...req.body,
     };
