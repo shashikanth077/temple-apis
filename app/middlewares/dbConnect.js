@@ -1,17 +1,17 @@
 // dbConnection.js
 const mongoose = require("mongoose");
-const { logger } = require("./app/middlewares");
-const dbConfig = require("./app/config/dbConfig");
+const { logger } = require("../middlewares");
+const dbConfig = require("./../config/dbConfig");
+
 
 //will un comment later
-//const uri = `${dbConfig.PREFIX}://${dbConfig.USERNAME}:${dbConfig.PASSWORD}@${dbConfig.HOST}:${dbConfig.PORT}/?${dbConfig.OPTIONS}`;
+const uri = `${dbConfig.DB_PREFIX}://${dbConfig.DB_USERNAME}:${dbConfig.DB_PASSWORD}@${dbConfig.DB_HOST}:${dbConfig.DB_PORT}/${dbConfig.DB_NAME}?${dbConfig.DB_OPTIONS}`;
 
-const uri =  `${dbConfig.PREFIX}://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`;
-
-async function connectToMongoDB() {
+const connectToMongoDB = () => {
   try {
-    await mongoose.connect(
-      uri,
+
+     mongoose.connect(
+      `${uri}`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

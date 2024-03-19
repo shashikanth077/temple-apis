@@ -1,5 +1,6 @@
 const config = require("../../config/authConfig");
 const db = require("../../models/auth");
+const { logger } = require("../../middlewares");
 const User = db.user;
 const Role = db.role;
 const UserProfile = require("../../models/member/userProfile/userProfileModel");

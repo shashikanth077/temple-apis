@@ -1,9 +1,9 @@
 module.exports = {
-  HOST: process.env.HOST,
-  PORT: process.env.DBPORT,
-  DB: process.env.DATABASE_NAME,
-  PREFIX: process.env.MONGODB_PREFIX,
-  OPTIONS: process.env.MONGODB_OPTIONS,
-  USERNAME: process.env.MONGODB_USERNAME,
-  PASSWORD: process.env.MONGODB_PASSWORD,
+  DB_HOST: process.env.DB_HOST,
+  DB_PORT: process.env.DB_PORT,
+  DB_NAME: process.env.DB_NAME,
+  DB_PREFIX: process.env.DB_PREFIX,
+  DB_OPTIONS: process.env.DB_OPTIONS,
+  DB_USERNAME: process.env.DB_USERNAME,
+  DB_PASSWORD: process.env.DB_PASSWORD,
 };
