@@ -16,8 +16,8 @@ const loadMemberRoutes = require("./app/routes/member");
 const loadAuthRoutes = require("./app/routes/auth");
 
 const swaggerUi = require("swagger-ui-express");
-const swaggerSpec = require("./swaggerDef");
-const connectToMongoDB = require("./dbConnection");
+const swaggerSpec = require("./swagger");
+const connectToMongoDB = require("./app/middlewares/dbConnect");
 
 const app = express();
 
