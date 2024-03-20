@@ -5,7 +5,7 @@ const dbConfig = require("./../config/dbConfig");
 
 
 //will un comment later
-const uri = `${dbConfig.DB_PREFIX}://${dbConfig.DB_USERNAME}:${dbConfig.DB_PASSWORD}@${dbConfig.DB_HOST}:${dbConfig.DB_PORT}/${dbConfig.DB_NAME}?${dbConfig.DB_OPTIONS}`;
+const uri = `${dbConfig.DB_PREFIX}://${dbConfig.DB_USERNAME}:${dbConfig.DB_PASSWORD}@${dbConfig.DB_HOSTS}/${dbConfig.DB_NAME}?${dbConfig.DB_OPTIONS}`;
 
 const connectToMongoDB = () => {
   try {
