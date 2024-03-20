@@ -15,8 +15,6 @@ const loadAdminRoutes = require("./app/routes/admin");
 const loadMemberRoutes = require("./app/routes/member");
 const loadAuthRoutes = require("./app/routes/auth");
 
-const swaggerUi = require("swagger-ui-express");
-//const swaggerSpec = require("./swagger");
 const swagger = require("./swagger");
 const connectToMongoDB = require("./app/middlewares/dbConnect");
 
@@ -29,7 +27,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-//app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api-docs", swagger.serve, swagger.setup);
 
