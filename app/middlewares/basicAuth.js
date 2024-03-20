@@ -1,6 +1,7 @@
 const config = require("../config/authConfig");
 
 authenticate = (req, res, next) => {
+
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
