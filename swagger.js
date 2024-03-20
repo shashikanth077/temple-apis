@@ -1,22 +1,34 @@
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
-const express = require('express');
-const app = express();
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 const options = {
-  definition: {
+  swaggerDefinition: {
     openapi: "3.0.0",
     info: {
-      title: "NorthGaze Apis",
+      title: "API Documentation",
       version: "1.0.0",
-      description: "NorthGaze Apis",
+      description: "API documentation for application",
+    },
+    servers: [
+      {
+        url: "http://localhost:8080",
+        description: "Development server",
+      },
+    ],
+    securityDefinitions: {
+      JWT: {
+        type: "apiKey",
+        name: "Authorization",
+        in: "header",
+      },
     },
   },
-  // API specifications
-  apis: ["./app/routes/*.js"], // Path to your route files
+  apis: ["./app/routes/member/*.js","./app/routes/admin/*.js"], // Path to the API routes folder
 };
 
 const specs = swaggerJsdoc(options);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
-module.exports = app;
+module.exports = {
+  serve: swaggerUi.serve,
+  setup: swaggerUi.setup(specs),
+};
