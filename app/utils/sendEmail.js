@@ -138,7 +138,7 @@ module.exports = class Email {
     await this.send(
       "resetPassword",
       "password has been reset succesfully",
-      "member"
+      "auth"
     );
   }
 

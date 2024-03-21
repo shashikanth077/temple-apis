@@ -20,7 +20,6 @@ const {
 } = require("../../services/auth/authService");
 
 exports.signup = async (req, res) => {
-  
   // Generate a random activation token
   const activationToken = crypto.randomBytes(20).toString("hex");
   const activationLink = `${process.env.CLIENT_URL}/useractivation/${activationToken}`;
@@ -125,7 +124,7 @@ exports.signup = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
+    logger.error("signup Error:", error);
   }
 };
 
@@ -179,6 +178,7 @@ exports.activateEmail = async (req, res) => {
 };
 
 exports.signin = (req, res) => {
+ 
   User.findOne({
     email: req.body.email,
   })
@@ -206,6 +206,7 @@ exports.signin = (req, res) => {
           .send({ success: false, message: "Invalid Password!" });
       }
 
+      
       if (!user.activated) {
         return res
           .status(401)
