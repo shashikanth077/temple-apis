@@ -66,9 +66,9 @@ const updateGodDetails = async (req) => {
   }
 
   if (req.body?.name !== existingGod.name) {
-    req.body.name = existingGod.name;
-  } else {
     req.body.name = req.body?.name;
+  } else {
+    req.body.name = existingGod.name;
   }
 
   req.body.worshipDay = workDays;
