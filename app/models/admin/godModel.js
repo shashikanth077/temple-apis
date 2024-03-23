@@ -9,7 +9,12 @@ const GodSchema = new Schema(
       unique: true,
     },
     image: {
-      type: Array,
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
     },
     worshipDay: {
       type: Array,

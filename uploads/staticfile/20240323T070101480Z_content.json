@@ -1012,7 +1012,7 @@
                },
                 {
                     "menuId":4,
-                    "link": "/gods",
+                    "link": "/service-list",
                     "title": "Services",
                     "isDropdown": false
                },
