@@ -27,6 +27,7 @@ const addGodDetails = async (req) => {
   await new God({
     name: req.body.name,
     image: req.body.image,
+    description:req.body.description,
     worshipDay: workDays,
     createdAt: Date.now(),
     modifiedAt: Date.now(),
@@ -72,6 +73,7 @@ const updateGodDetails = async (req) => {
   }
 
   req.body.worshipDay = workDays;
+  
   const result = await God.findByIdAndUpdate(
     req.params.id,
     { $set: req.body },
