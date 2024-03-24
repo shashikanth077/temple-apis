@@ -42,7 +42,6 @@ const ServiceSchema = new Schema(
     },
     NoOfChild:{
       type: String,
-      required: true,
     },
     NoOfPerson: {
       type: Number,
