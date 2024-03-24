@@ -1,6 +1,7 @@
 const User = require("../../models/auth/userModel");
 const SevaHistory = require("../../models/member/bookingHistory/sevaHistoryModel");
 const SevaBooking = require("../../models/member/sevaModel");
+const { CLIENT_URL } = require("../../utils/constants");
 const SevaAdminModel = require("../../models/admin/sevaModel");
 
 const {
@@ -53,7 +54,7 @@ const createBookings = async (req, res) => {
       "Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days";
   }
 
-  const serviceShortName = "SEV";
+  const serviceShortName = "sev";
   let serviceBookId =
     serviceShortName + "_" + req.body.devoteeId + "/" + generateUniqueNumber();
   const messageText = `Hello ${req.body.devoteeName}. ${message}. Booking Id:${serviceBookId}`;
@@ -64,7 +65,7 @@ const createBookings = async (req, res) => {
     email: req.body.devoteeEmail,
     message: message,
     bodyData: req.body,
-    url: "http://localhost:3000/mybookings/list",
+    url: `${CLIENT_URL}/mybookings/list`,
   };
   SendConfirmationEmail(EmailObject, "");
 
@@ -78,7 +79,6 @@ const createBookings = async (req, res) => {
     devoteeEmail: req.body.devoteeEmail,
     devoteePhoneNumber: req.body.devoteePhoneNumber,
     orderNotes: req.body.orderNotes,
-    NoOfChild: req.body.NoOfChild,
     NoOfPerson: req.body.NoOfPerson,
     poojaTime: req.body.poojaTime,
     billingAddress: req.body.billingAddress,

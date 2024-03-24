@@ -38,7 +38,7 @@ const addEvents = async (req) => {
     bookingPrice: event.bookingPrice,
     organizer: event.organizer,
     organizerPhone: event.organizerPhone,
-    orgEmail: event.organizerEmail,
+    organizerEmail: event.organizerEmail,
     startDate: event.startDate,
     endDate: event.endDate,
     venue: event.venue,
@@ -56,8 +56,8 @@ const getEventsByDateFilter = async (req) => {
     return { success: false, message: "Bad Request" };
   }
 
-  const stDate = convertToDate(req.startDate); // dd-mm-yyyy
-  const endDate = convertToDate(req.endDate); // dd-mm-yyyy
+  const stDate = convertToDate(req.startDate); 
+  const endDate = convertToDate(req.endDate); 
 
   const events = await Event.find({
     deleted: false,
