@@ -1,5 +1,4 @@
 const Product = require("../../models/member/cartModel");
-const { logger } = require("../../middlewares");
 const BookingHistoryModel = require("../../models/member/bookingHistory/bookingHistoryModel");
 const User = require("../../models/auth/userModel");
 const {
@@ -9,6 +8,7 @@ const {
 const { sendSMS } = require("../../utils/sendSMS");
 const Email = require("../../utils/sendEmail");
 const AdminTranscationModel = require("../../models/admin/adminTranscationModel");
+const { CLIENT_URL } = require("../../utils/constants");
 
 const addCart = async (req) => {
   const owner = req.user._id;
@@ -74,7 +74,7 @@ const AddBookingHistory = async (req) => {
       "Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days";
   }
 
-  let OrderId = "Prod_" + req.body.devoteeId + "/" + generateUniqueNumber();
+  let OrderId = "prod" + req.body.devoteeId + "/" + generateUniqueNumber();
   const messageText = `Hello ${req.body.devoteeName}. ${message}. Order Id:${OrderId}`;
   sendSMS(req.body.devoteePhoneNumber, messageText);
 
@@ -83,7 +83,7 @@ const AddBookingHistory = async (req) => {
     email: req.body.devoteeEmail,
     message: message,
     bodyData: req.body,
-    url: process.env.CLIENT_URL+"/mybookings/list",
+    url: `${CLIENT_URL}/mybookings/list`,
   };
 
   SendConfirmationEmail(EmailObject, "");

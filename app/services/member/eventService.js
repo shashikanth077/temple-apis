@@ -13,6 +13,7 @@ const { sendSMS } = require("../../utils/sendSMS");
 const Email = require("../../utils/sendEmail");
 const AdminTranscationModel = require("../../models/admin/adminTranscationModel");
 
+
 function convertDateForEventFilter(type) {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
@@ -130,7 +131,7 @@ const createBookings = async (req) => {
   }
 
   //send email and sms success or failur
-  const toPhoneNumber = "+918123192799"; // Replace with the recipient's phone number
+  const toPhoneNumber = req.body.devoteePhoneNumber;
 
   let message;
   if (req.body.transStatus === "succeeded") {
@@ -141,7 +142,7 @@ const createBookings = async (req) => {
       "Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days";
   }
 
-  const serviceShortName = "EVT";
+  const serviceShortName = "evt";
   let serviceBookId =
     serviceShortName + "_" + req.body.devoteeId + "/" + generateUniqueNumber();
   const messageText = `Hello ${req.body.devoteeName}. ${message}. Booking Id:${serviceBookId}`;
