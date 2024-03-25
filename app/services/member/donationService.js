@@ -2,6 +2,7 @@ const User = require("../../models/auth/userModel");
 const MasterDonation = require("../../models/admin/donationModel");
 const Donation = require("../../models/member/donationModel");
 const AdminTranscationModel = require("../../models/admin/adminTranscationModel");
+const { CLIENT_URL } = require("../../utils/constants");
 
 const {
   isNullOrUndefined,
@@ -56,7 +57,7 @@ const addDonationDetails = async (req, res) => {
   }
 
   //send email and sms success or failur
-  const toPhoneNumber = req.body.donorPhoneNumber; // Replace with the recipient's phone number
+  const toPhoneNumber = req.body.donorPhoneNumber; 
 
   let message;
   if (req.body.transStatus === "succeeded") {
@@ -68,7 +69,7 @@ const addDonationDetails = async (req, res) => {
       "Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days";
   }
 
-  let taxReceipt = "Dont_" + generateUniqueNumber();
+  let taxReceipt = "dnt_" + generateUniqueNumber();
   const messageText = `Hello ${req.body.donorName}. ${message}. Receipt no:${taxReceipt}`;
   sendSMS(toPhoneNumber, messageText);
 
@@ -77,7 +78,7 @@ const addDonationDetails = async (req, res) => {
     email: req.body.donorEmail,
     message: message,
     bodyData: req.body,
-    url: "http://localhost:3000/mydonations/list",
+    url: `${CLIENT_URL}/mydonations/list`
   };
 
   SendConfirmationEmail(EmailObject, "");

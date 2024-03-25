@@ -8,6 +8,7 @@ const {
   getDeceasedListByUserId,
 } = require("../../services/member/userProfile/deceasedDetailsService");
 
+
 exports.getDeceasedDetailsByUserId = async (req, res) => {
   try {
     const Deceased = await getDeceasedDetailsByUserId(req);
