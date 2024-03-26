@@ -8,5 +8,26 @@ module.exports = function (app) {
   });
 
   app.get("/api/orders/:id/:type", controller.getOrdersByUserIdType);
-  app.get("/api/getTranscation", controller.getTranscationDetails);
+
+
+  /**
+   * @swagger
+   * /api/getTranscation:
+   *   get:
+   *     summary: Get transaction details
+   *     description: Retrieve transaction details
+   *     tags:
+   *       - Transaction
+   *     security:
+   *       - basicAuth: []
+   *         description: Transaction type
+   *     responses:
+   *       200:
+   *         description: Successful operation
+   *       401:
+   *         description: Unauthorized
+   *       404:
+   *         description: Not found
+   */
+  app.get("/api/getTranscation", [authJwt.verifyToken, authJwt.isAdmin], controller.getTranscationDetails);
 };

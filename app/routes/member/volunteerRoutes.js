@@ -9,6 +9,22 @@ module.exports = function (app) {
 
   app.post("/api/volunteers", controller.createVolunteersController);
 
+  /**
+   * @swagger
+   * /api/volunteers:
+   *   get:
+   *     summary: Get all volunteers
+   *     description: Retrieve a list of all volunteers
+   *     security:
+   *       - basicAuth: []
+   *     responses:
+   *       200:
+   *         description: Successful operation
+   *       401:
+   *         description: Unauthorized
+   *       403:
+   *         description: Forbidden
+   */
   app.get(
     "/api/volunteers",
     [authJwt.verifyToken, authJwt.isAdmin],

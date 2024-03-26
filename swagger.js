@@ -11,20 +11,22 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:8080",
+        url: process.env.SERVER_URL,
         description: "Development server",
       },
     ],
-    securityDefinitions: {
-      JWT: {
-        type: "apiKey",
-        name: "Authorization",
-        in: "header",
-      },
-    },
+    components: {
+      securitySchemes: {
+        basicAuth: {
+          type: 'http',
+          scheme: 'basic'
+        }
+      }
+    }
   },
-  apis: ["./app/routes/member/*.js","./app/routes/admin/*.js"], // Path to the API routes folder
+  apis: ["./app/routes/member/*.js", "./app/routes/admin/*.js", "./app/routes/auth/*.js"],
 };
+
 
 const specs = swaggerJsdoc(options);
 
