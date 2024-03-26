@@ -7,8 +7,38 @@ module.exports = function (app) {
     next();
   });
 
+  /**
+   * @swagger
+   * /api/orders/{id}/{type}:
+   *   get:
+   *     tags: [Order Controller]
+   *     summary: Get orders by user ID and type
+   *     security:
+   *       - basicAuth: []
+   *     parameters:
+   *       - in: path
+   *         name: id
+   *         required: true
+   *         schema:
+   *           type: string
+   *         description: User ID
+   *       - in: path
+   *         name: type
+   *         required: true
+   *         schema:
+   *           type: string
+   *         description: Type of orders
+   *     responses:
+   *       200:
+   *         description: OK
+   *       401:
+   *         description: Unauthorized
+   *       404:
+   *         description: Not Found
+   *       500:
+   *         description: Server Error
+   */
   app.get("/api/orders/:id/:type", controller.getOrdersByUserIdType);
-
 
   /**
    * @swagger
@@ -29,5 +59,9 @@ module.exports = function (app) {
    *       404:
    *         description: Not found
    */
-  app.get("/api/getTranscation", [authJwt.verifyToken, authJwt.isAdmin], controller.getTranscationDetails);
+  app.get(
+    "/api/getTranscation",
+    [authJwt.verifyToken, authJwt.isAdmin],
+    controller.getTranscationDetails
+  );
 };
