@@ -13,7 +13,6 @@ const {
 } = require("../../utils/index");
 const { sendSMS } = require("../../utils/sendSMS");
 const Email = require("../../utils/sendEmail");
-const { logger } = require("../../middlewares");
 const AdminTranscationModel = require("../../models/admin/adminTranscationModel");
 
 const createBookings = async (req, res) => {

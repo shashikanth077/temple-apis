@@ -276,8 +276,7 @@ exports.resetPasswordController = async (req, res, next) => {
 exports.getOTP = async (req, res) => {
   try {
     const result = await generateandSaveOTP(req.body.phoneNumber);
-
-    const toPhoneNumber = "+918123192799";
+    const toPhoneNumber = "+918123192799"; //need to replace added for testing purpose.
     let message = "Please enter the below otp:";
 
     const messageText = `Hello ${message}. OTP:${result.data.otp}`;
