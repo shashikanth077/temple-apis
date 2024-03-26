@@ -56,9 +56,6 @@ const addDonationDetails = async (req, res) => {
     });
   }
 
-  //send email and sms success or failur
-  console.log(req.body.donorPhoneNumber);
-
   let message;
   if (req.body.transStatus === "succeeded") {
     message =
