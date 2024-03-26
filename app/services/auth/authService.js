@@ -110,7 +110,6 @@ const VerifyOTP = async (phoneNumber, userOTP) => {
       return { data, status: 404 };
     }
   } catch (error) {
-    console.log(error);
     const data = { success: false, message: error };
     return { data, status: 500 };
   }
