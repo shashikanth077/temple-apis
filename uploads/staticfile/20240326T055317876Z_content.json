@@ -913,7 +913,7 @@
                         {
                             "key": "services",
                             "label": "Services",
-                            "url": "/online-booking/gods",
+                            "url": "/online-booking/services",
                             "parentKey": "onlinebookings"
                         },
                         {

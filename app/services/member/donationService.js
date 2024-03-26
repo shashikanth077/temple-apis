@@ -57,7 +57,7 @@ const addDonationDetails = async (req, res) => {
   }
 
   //send email and sms success or failur
-  const toPhoneNumber = req.body.donorPhoneNumber; 
+  console.log(req.body.donorPhoneNumber);
 
   let message;
   if (req.body.transStatus === "succeeded") {
@@ -71,7 +71,7 @@ const addDonationDetails = async (req, res) => {
 
   let taxReceipt = "dnt_" + generateUniqueNumber();
   const messageText = `Hello ${req.body.donorName}. ${message}. Receipt no:${taxReceipt}`;
-  sendSMS(toPhoneNumber, messageText);
+  sendSMS(req.body.donorPhoneNumber, messageText);
 
   let EmailObject = {
     name: req.body.donorName,
