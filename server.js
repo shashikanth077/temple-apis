@@ -17,6 +17,7 @@ const loadAuthRoutes = require("./app/routes/auth");
 
 const swagger = require("./swagger");
 const connectToMongoDB = require("./app/middlewares/dbConnect");
+const seedDefaultRoles = require('./app/middlewares/roleSeed');
 
 const app = express();
 
@@ -25,6 +26,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //white listed only respective origin
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
+
+//role seed
+app.use(seedDefaultRoles);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
