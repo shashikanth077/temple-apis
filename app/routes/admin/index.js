@@ -6,7 +6,6 @@ const productsRoutes = require("./productsRoutes");
 const serviceRoutes = require("./serviceRoutes");
 const sevaRoutes = require("./sevaRoutes");
 const userRoutes = require("./userRoutes");
-const roleRoutes = require("./roleRoutes");
 
 function loadAdminRoutes(app) {
   contentRoutes(app);
@@ -17,7 +16,6 @@ function loadAdminRoutes(app) {
   serviceRoutes(app);
   sevaRoutes(app);
   userRoutes(app);
-  roleRoutes(app);
 }
 
 module.exports = loadAdminRoutes;
