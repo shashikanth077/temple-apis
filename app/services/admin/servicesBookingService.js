@@ -267,7 +267,7 @@ const createBookings = async (req, res) => {
       "Payment was unsuccessfull. If amount debited it will refund to same account withing 3 to 4 days";
   }
 
-  const serviceShortName = "SER";
+  const serviceShortName = "ser";
   let serviceBookId =
     serviceShortName + "_" + req.body.devoteeId + "/" + generateUniqueNumber();
   const messageText = `Hello ${req.body.devoteeName}. ${message}. Booking Id:${serviceBookId}`;
