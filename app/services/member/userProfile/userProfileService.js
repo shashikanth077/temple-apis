@@ -10,9 +10,13 @@ const getUserProfileByUserId = async (userId) => {
   }
 
   const profile = await UserProfile.findOne({ userId: userId });
-  const data = { success: true, profile };
-
-  return { data, status: 200 };
+  if (!profile?.isProfilecreated) {
+    const data = { success: false, message: "Please update the profile" };
+    return { data, status: 500 };
+  } else {
+    const data = { success: true, profile };
+    return { data, status: 200 };
+  }
 };
 
 const createUserProfile = async (req, res) => {
@@ -27,7 +31,6 @@ const createUserProfile = async (req, res) => {
   req.body.isProfilecreated = true;
 
   if (existingProfile) {
-
     const profileData = {
       ...req.body,
     };
