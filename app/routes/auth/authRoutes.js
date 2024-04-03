@@ -122,4 +122,6 @@ module.exports = function (app) {
   app.post("/api/verifyotp", controller.verifyOTP);
 
   app.post("/api/auth/resetPassword", controller.resetPasswordController);
+
+  app.get("/api/activate/:token", controller.activateEmail);
 };
