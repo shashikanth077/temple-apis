@@ -8,32 +8,8 @@ module.exports = function (app) {
   });
 
   app.post(
-    "/api/create-checkout-session",
-    [authJwt.verifyToken],
-    PaymentController.createCheckoutSession
-  );
-
-  app.post(
     "/api/create-payment-intent",
     [authJwt.verifyToken],
     PaymentController.paymentIntent
-  );
-
-  app.post(
-    "/api/save-payment-method",
-    [authJwt.verifyToken],
-    PaymentController.PaymentSetupIntent
-  );
-
-  app.get(
-    "/api/get-payment-methods",
-    [authJwt.verifyToken],
-    PaymentController.getCards
-  );
-
-  app.put(
-    "/api/update-payment-intent",
-    [authJwt.verifyToken],
-    PaymentController.PaymentUpdateIntent
   );
 };

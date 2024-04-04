@@ -16,7 +16,6 @@ module.exports = function (app) {
 
   app.get(
     "/api/services/:_id",
-    [authJwt.verifyToken],
     controller.getServiceByServiceIdController
   );
 
