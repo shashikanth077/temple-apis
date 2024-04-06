@@ -8,7 +8,6 @@ const {
   isNullOrUndefined,
   generateUniqueNumber,
 } = require("../../utils/index");
-const { logger } = require("../../middlewares");
 const { sendSMS } = require("../../utils/sendSMS");
 const Email = require("../../utils/sendEmail");
 
