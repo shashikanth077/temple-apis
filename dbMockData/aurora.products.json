@@ -1,0 +1,162 @@
+[{
+  "_id": {
+    "$oid": "65fb00a171382f119cdb2059"
+  },
+  "name": "Agarabatti for Ganesh",
+  "price": 43,
+  "shortDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  "image": "http://localhost:8080/uploads/products/msg-1959532196-32-2-300x300.jpg",
+  "categories": [],
+  "stock": 23,
+  "createdAt": {
+    "$date": "2024-03-20T15:28:33.253Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-20T15:28:33.253Z"
+  },
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-26T04:51:39.350Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65fb00c171382f119cdb205f"
+  },
+  "name": "Silver items for pooja",
+  "price": 1234,
+  "shortDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+  "image": "http://localhost:8080/uploads/products/images (2).jpeg",
+  "categories": [],
+  "stock": 14,
+  "createdAt": {
+    "$date": "2024-03-20T15:29:05.950Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-20T15:29:05.950Z"
+  },
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-26T04:51:43.189Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65fb00ec71382f119cdb2065"
+  },
+  "name": "Cocunut for Pooja",
+  "price": 134,
+  "shortDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  "fullDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  "image": "http://localhost:8080/uploads/products/51QH5eDXPkL._AC_UF1000,1000_QL80_.jpg",
+  "categories": [],
+  "stock": 13,
+  "createdAt": {
+    "$date": "2024-03-20T15:29:48.189Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-20T15:29:48.189Z"
+  },
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-20T15:29:48.189Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66010cd7c68f037519071493"
+  },
+  "name": "Pooja items",
+  "price": 90,
+  "shortDescription": "Shop for all your puja and spiritual needs at Puja Samagri Online. From puja floating oil wicks and photo frames to jyot holder, we have everything you need to enhance your spiritual practices. Shop now and bring the blessings of the divine into your home.",
+  "fullDescription": "Shop for all your puja and spiritual needs at Puja Samagri Online. From puja floating oil wicks and photo frames to jyot holder, we have everything you need to enhance your spiritual practices. Shop now and bring the blessings of the divine into your home.",
+  "image": "http://localhost:8080/uploads/products/hh.jpeg",
+  "categories": [],
+  "stock": 67,
+  "createdAt": {
+    "$date": "2024-03-25T05:34:15.262Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:34:15.262Z"
+  },
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-25T05:34:15.262Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66010d3ac68f037519071499"
+  },
+  "name": "Ganesh Pooja items",
+  "price": 78,
+  "shortDescription": "Shop for all your puja and spiritual needs at Puja Samagri Online. From puja floating oil wicks and photo frames to jyot holder, we have everything you need to enhance your spiritual practices. Shop now and bring the blessings of the divine into your home.",
+  "fullDescription": "Shop for all your puja and spiritual needs at Puja Samagri Online. From puja floating oil wicks and photo frames to jyot holder, we have everything you need to enhance your spiritual practices. Shop now and bring the blessings of the divine into your home.",
+  "image": "http://localhost:8080/uploads/products/images (3).jpeg",
+  "categories": [],
+  "stock": 100,
+  "createdAt": {
+    "$date": "2024-03-25T05:35:54.698Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:35:54.698Z"
+  },
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-26T04:51:47.591Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66010ddfc68f0375190714a7"
+  },
+  "name": "Bell ",
+  "price": 89,
+  "shortDescription": "Shop for all your puja and spiritual needs at Puja Samagri Online. From puja floating oil wicks and photo frames to jyot holder, we have everything you need to enhance your spiritual practices. Shop now and bring the blessings of the divine into your home.",
+  "fullDescription": "Shop for all your puja and spiritual needs at Puja Samagri Online. From puja floating oil wicks and photo frames to jyot holder, we have everything you need to enhance your spiritual practices. Shop now and bring the blessings of the divine into your home.",
+  "image": "http://localhost:8080/uploads/products/images (4).jpeg",
+  "categories": [],
+  "stock": 78,
+  "createdAt": {
+    "$date": "2024-03-25T05:38:39.058Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:40:43.880Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T05:40:43.880Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6602dbd3db8aba4d2dfa933a"
+  },
+  "name": "product1",
+  "price": 23,
+  "discount": 3,
+  "shortDescription": "Samplessssssssssssssss",
+  "fullDescription": "Samplessssssssssssssss",
+  "image": "http://localhost:8080/uploads/products/71NoXOnY7jL._AC_UF1000,1000_QL80_.jpg",
+  "categories": [],
+  "stock": 34,
+  "createdAt": {
+    "$date": "2024-03-26T14:29:39.913Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-26T14:30:05.050Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-26T14:30:05.051Z"
+  },
+  "__v": 0
+}]

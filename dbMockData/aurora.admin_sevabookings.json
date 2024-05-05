@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "65ffc3a66e0ded8789e773ad"
+  },
+  "sevaBookingType": "Pre-Booking",
+  "category": "personalevent",
+  "name": "Car Pooja",
+  "amount": 23,
+  "description": "Light a Diya and an incense stick and move them in circles inside the car. Put the Ganesha or other divine sign on the dashboard while sitting in the driver's seat. We do this so that God's blessings are always with us",
+  "image": "http://localhost:8080/uploads/seva/car.jpeg",
+  "createdAt": {
+    "$date": "2024-03-24T06:09:42.602Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T06:09:42.602Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-26T04:56:22.363Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffc3e16e0ded8789e773b1"
+  },
+  "sevaBookingType": "Pre-Booking",
+  "category": "personalevent",
+  "name": "Birthday Pooja",
+  "amount": 234,
+  "description": "Janamdin Puja or Birthday Puja is celebrated to mark the day of birth and get blessings from parents, Ishta dev and kula dev. It is the day people are born, the timing of which decides the future based on the Rashi and Nakshatra.",
+  "image": "http://localhost:8080/uploads/seva/bx.jpeg",
+  "createdAt": {
+    "$date": "2024-03-24T06:10:41.015Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T06:10:41.015Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-03T07:55:43.095Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffc4156e0ded8789e773b5"
+  },
+  "sevaBookingType": "Pre-Booking",
+  "category": "specialevent",
+  "name": "Anniversary Pooja",
+  "amount": 234,
+  "description": "Janamdin Puja or Birthday Puja is celebrated to mark the day of birth and get blessings from parents, Ishta dev and kula dev. It is the day people are born, the timing of which decides the future based on the Rashi and Nakshatra.",
+  "image": "http://localhost:8080/uploads/seva/ann.jpeg",
+  "createdAt": {
+    "$date": "2024-03-24T06:11:33.545Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T06:11:33.545Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T06:11:33.545Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffc44e6e0ded8789e773b9"
+  },
+  "sevaBookingType": "Pre-Booking",
+  "category": "personalevent",
+  "name": "Ganpathi Homam",
+  "amount": 234,
+  "description": "Ganapathi homam is a ritual performed before starting any kind of business or venture in seeking victory and to remove all the obstacles ahead in that journey of life.. Ganapathi pooja is also done before getting into a new home for prosperity and wellness in life",
+  "image": "http://localhost:8080/uploads/seva/gan.jpg",
+  "createdAt": {
+    "$date": "2024-03-24T06:12:30.676Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T06:12:30.676Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T06:12:30.676Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffc4896e0ded8789e773bd"
+  },
+  "sevaBookingType": "Pre-Booking",
+  "category": "personalevent",
+  "name": "Satha narayana vrutam",
+  "amount": 23,
+  "description": "The Satyanarayana Puja is a puja dedicated to the Hindu god Vishnu, who is also known as Satyanarayana. The puja is described in the Skanda Purana, a medieval era Sanskrit text. ",
+  "image": "http://localhost:8080/uploads/seva/sat.jpeg",
+  "createdAt": {
+    "$date": "2024-03-24T06:13:29.468Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T06:13:29.468Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T06:13:29.468Z"
+  },
+  "__v": 0
+}]

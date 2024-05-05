@@ -1,0 +1,532 @@
+[{
+  "_id": {
+    "$oid": "65fbdf0c6393a8556a200410"
+  },
+  "name": "Sri.Ganesh",
+  "image": "http://localhost:8080/uploads/gods/sri.ganesh.jpg",
+  "worshipDay": [
+    "Wednesday",
+    "Tuesday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:17:32.331Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:17:32.331Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-04T08:40:37.345Z"
+  },
+  "__v": 0,
+  "description": "Sri Kalahastheeswara Swami Vari Temple is one of the most ancient and historical Saivet temple in India. Vayu is incarnated as Lord Siva and worshipped as Kalahastheeswara.s\r\n\r\n\r\nGoddess Parvathi Devi is worshiped here as Gnanaprasunambika. The temple is located at Sri kalahasti, Chittoor District Andhra Pradesh. The vast west facing Kalahastheeswara temple is built adjoining a hill, and on the banks of the river Swarnamukhi. At some points, the hill serves as the wall of the temple. The temple prakarams follow the contour of the adjoining hill and hence the temple plan is rather irregular. North of the temple is the Durgambika hill, south is the Kannappar hill and east is the Kumaraswamy hill.\r\n\r\n\r\nRahu-ketu Pooja is very much famous in Sri kalahasti. Rahu ketu Pooja will be performed during Rahu kalam timings. Devotees should be plan accordingly, so that they will available during Rahu kalam time at the temple. Sri Kalahasti Temple is always crowded with Rahu ketu Pooja, with Devotees coming from different parts of the Country.\r\n\r\n\r\nAccording to ancient Tamil sources Sri Kalahasti has been known as the ‘Kailas of the South’ for slightly more than two thousand years and the small river on whose banks it sits, the ‘Ganges of the South.’ Kailas is perhaps India’s most revered spiritual symbol. It is the abode of Shiva, from whose head, according to legend, the Ganges is said to flow. Shiva, ‘that which is auspicious at all places, times and in all circumstances’ is a symbol of the Self and the Ganges flowing from his head represents the spiritualized or awakened mind. A mind sourced in Spirit is a river of immeasurable power and life-giving goodness. The claim that Kalahasti is the ‘Kailas of the South’ simply means that the small hill near the temple is to be taken as the spiritual equivalent of the Himalayan Kailas.\r\n\r\n"
+},
+{
+  "_id": {
+    "$oid": "65fbdf266393a8556a200414"
+  },
+  "name": "Sri.Karthikeya",
+  "image": "http://localhost:8080/uploads/gods/sri.karthikeya.jpeg",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:17:58.129Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:17:58.129Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:21:37.082Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbdf3a6393a8556a200418"
+  },
+  "name": "Sri.Siva",
+  "image": "http://localhost:8080/uploads/gods/sri.siva.jpeg",
+  "worshipDay": [
+    "Monday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:18:18.032Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:18:18.032Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:19:46.239Z"
+  },
+  "__v": 0,
+  "description": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+},
+{
+  "_id": {
+    "$oid": "65fbdf506393a8556a20041c"
+  },
+  "name": "Smt.Parvathi",
+  "image": "http://localhost:8080/uploads/gods/smt.parvathi.jpeg",
+  "worshipDay": [
+    "Friday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:18:40.559Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:18:40.559Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-23T07:24:00.448Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbdf716393a8556a200420"
+  },
+  "name": "Smt.Durga Devi",
+  "image": "http://localhost:8080/uploads/gods/smt.durgadevi.jpg",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:19:13.095Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:19:13.095Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:25:49.866Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbdf9d6393a8556a200424"
+  },
+  "name": "Sri. Dakshina Murthy",
+  "image": "http://localhost:8080/uploads/gods/sri.dakshinamurthy.jpg",
+  "worshipDay": [
+    "Thursday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:19:57.314Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:19:57.314Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:22:29.100Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbdfb86393a8556a200428"
+  },
+  "name": "Sri.Satyanarayana",
+  "image": "http://localhost:8080/uploads/gods/sri.satyanarayana.jpg",
+  "worshipDay": [
+    "Saturday",
+    "Wednesday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:20:24.311Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:20:24.311Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-23T17:01:27.897Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbdfd96393a8556a20042c"
+  },
+  "name": "Smt.Mahalaxmi",
+  "image": "http://localhost:8080/uploads/gods/smt.mahalaxmi.jpg",
+  "worshipDay": [
+    "Friday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:20:57.434Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:20:57.434Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-23T07:25:13.093Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbdff56393a8556a200430"
+  },
+  "name": "Sri.Guruvarurappan",
+  "image": "http://localhost:8080/uploads/gods/sri.guruvarurappan.jpg",
+  "worshipDay": [
+    "Sunday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:21:25.923Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:21:25.923Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-25T05:19:49.345Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbe0186393a8556a200434"
+  },
+  "name": "Sri.Ayyapan",
+  "image": "http://localhost:8080/uploads/gods/sri.ayyapan.jpg",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:22:00.139Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:22:00.139Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:22:25.988Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbe02b6393a8556a200438"
+  },
+  "name": "Sri.Hanuman",
+  "image": "http://localhost:8080/uploads/gods/sri.hanuman.jpg",
+  "worshipDay": [
+    "Sunday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:22:19.498Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:22:19.498Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-23T07:25:24.396Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbe0496393a8556a20043c"
+  },
+  "name": "Lord Navagrahamas",
+  "image": "http://localhost:8080/uploads/gods/lordnavagrahamas.jpeg",
+  "worshipDay": [
+    "Saturday"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-21T07:22:49.941Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-21T07:22:49.941Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-23T07:25:38.230Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fbe0616393a8556a200440"
+  },
+  "name": "Kalabhirava",
+  "image": "http://localhost:8080/uploads/gods/kalabhirava.jpg",
+  "worshipDay": [
+    "Friday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-21T07:23:13.563Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T06:10:12.330Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-25T06:10:12.330Z"
+  },
+  "__v": 0,
+  "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+},
+{
+  "_id": {
+    "$oid": "65fe827b7e5c1f6749b9f9a2"
+  },
+  "name": "ss",
+  "image": "http://localhost:8080/uploads/gods/ss.jpg",
+  "description": "sssssssssssssss",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-23T07:19:23.120Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-23T07:19:56.583Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-23T07:19:56.585Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffd89e2a7905ff78500742"
+  },
+  "name": "ddd",
+  "image": "http://localhost:8080/uploads/gods/ddd.jpeg",
+  "description": "dddddddddd",
+  "worshipDay": [
+    "Tuesday",
+    "Wednesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-24T07:39:10.774Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T07:42:57.688Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:42:57.688Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffd8a82a7905ff78500748"
+  },
+  "name": "dd",
+  "image": "http://localhost:8080/uploads/gods/dd.jpeg",
+  "description": "dd",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-24T07:39:20.418Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T07:42:55.503Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:42:55.503Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffd98d2a7905ff78500759"
+  },
+  "name": "xss",
+  "image": "http://localhost:8080/uploads/gods/xss.jpeg",
+  "description": "sssssssssss",
+  "worshipDay": [
+    "Friday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-24T07:43:09.144Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T07:43:16.435Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:43:16.435Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffda622a7905ff7850076f"
+  },
+  "name": "ssssssssss",
+  "image": "http://localhost:8080/uploads/gods/ssssssssss.jpeg",
+  "description": "sssssssssssssssss",
+  "worshipDay": [
+    "Tuesday",
+    "Sunday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-24T07:46:42.442Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T07:46:50.414Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:46:50.414Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffda932a7905ff7850077e"
+  },
+  "name": "ssddd",
+  "image": "http://localhost:8080/uploads/gods/ssddd.jpeg",
+  "description": "ssss",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-24T07:47:31.508Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T07:47:44.889Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:47:44.890Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffdafb2a7905ff7850078f"
+  },
+  "name": "sss",
+  "image": "http://localhost:8080/uploads/gods/sss.jpeg",
+  "description": "sssssssss",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-24T07:49:15.893Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T07:50:30.054Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:50:30.054Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffdb502a7905ff7850079c"
+  },
+  "name": "33",
+  "image": "http://localhost:8080/uploads/gods/33.jpeg",
+  "description": "ssssssss",
+  "worshipDay": [
+    "Wednesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-24T07:50:40.053Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-24T07:51:01.956Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-24T07:51:01.956Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ffdb702a7905ff785007a9"
+  },
+  "name": "ssss",
+  "image": "http://localhost:8080/uploads/gods/ssss.jpeg",
+  "description": "ssssssssss",
+  "worshipDay": [
+    "Wednesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-24T07:51:12.237Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T06:04:43.780Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-25T06:04:43.780Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6601144cc68f0375190715b3"
+  },
+  "name": "eeeeee",
+  "image": "http://localhost:8080/uploads/gods/eeeeee.jpeg",
+  "description": "ddddd",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-25T06:06:04.170Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T06:06:09.739Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-25T06:06:09.739Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6601152dc68f0375190715cf"
+  },
+  "name": "eeeeeessssss",
+  "image": "http://localhost:8080/uploads/gods/eeeeeessssss.jpeg",
+  "description": "dddddddddddddddddddddddddddddd",
+  "worshipDay": [
+    "Tuesday"
+  ],
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-25T06:09:49.262Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T06:09:55.498Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-25T06:09:55.499Z"
+  },
+  "__v": 0
+}]

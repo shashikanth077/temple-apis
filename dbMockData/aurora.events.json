@@ -1,0 +1,286 @@
+[{
+  "_id": {
+    "$oid": "65f93627baaa9339e51a39df"
+  },
+  "name": "Maha shiva ratri 2024",
+  "bookingPrice": "345",
+  "organizer": "Ramesh",
+  "organizerPhone": "08123192799",
+  "startDate": "Wed Mar 20 2024 10:21:52 GMT+0530 (India Standard Time)",
+  "endDate": "Wed Mar 20 2024 10:21:52 GMT+0530 (India Standard Time)",
+  "venue": "Msan Club 350 5th Ave, New York, NY, United States",
+  "description": "Maha Shivaratri is a Hindu festival celebrated annually in honour of the deity Shiva, between February and March. According to the Hindu calendar, the festival is observed on the fourteenth day of the first half of the lunar month of Phalguna",
+  "image": "http://localhost:8080/uploads/events/Happy-Maha-Shivaratri-2024-Wishes-4.jpg",
+  "createdAt": {
+    "$date": "2024-03-19T06:52:23.876Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:56:39.097Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T05:56:39.097Z"
+  },
+  "__v": 0,
+  "organizerEmail": "shash@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "65ffbfbf7e5c1f6749b9fe9e"
+  },
+  "name": "Deepvali 2024",
+  "bookingPrice": "345",
+  "organizer": "Shashikanth",
+  "organizerPhone": "08123192799",
+  "startDate": "Sun Mar 24 2024 22:21:39 GMT+0530 (India Standard Time)",
+  "endDate": "Sun Mar 24 2024 22:21:39 GMT+0530 (India Standard Time)",
+  "venue": "Manhattan Club 350 5th Ave, New York, NY, United States",
+  "description": "Diwali is the Hindu festival of lights, with variations celebrated in other Indian religions. It symbolises the spiritual \"victory of light over darkness, good over evil, and knowledge over ignorance\". Diwali is the Hindu festival of lights, with variations celebrated in other Indian religions. It symbolises the spiritual \"victory of light over darkness, good over evil, and knowledge over ignorance\". Diwali is the Hindu festival of lights, with variations celebrated in other Indian religions. It symbolises the spiritual \"victory of light over darkness, good over evil, and knowledge over ignorance\". ",
+  "image": "http://localhost:8080/uploads/events/eve1.jpeg",
+  "createdAt": {
+    "$date": "2024-03-24T05:53:03.700Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:52:04.766Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T05:52:04.766Z"
+  },
+  "__v": 0,
+  "organizerEmail": "r9@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "65ffc0357e5c1f6749b9fea4"
+  },
+  "name": "Sankranthi 2024",
+  "bookingPrice": "23",
+  "organizer": "Shashikanth",
+  "organizerPhone": "08123192799",
+  "startDate": "Mon Mar 25 2024 09:24:14 GMT+0530 (India Standard Time)",
+  "endDate": "Mon Mar 25 2024 09:24:14 GMT+0530 (India Standard Time)",
+  "venue": "Manhattan Club 350 5th Ave, New York, NY, United States",
+  "description": "Makar Sankranti, also referred to as Uttarayana, Makar, or simply Sankranti, is a Hindu observance and a festival. Usually falling on the date of 14 January annually, this occasion marks the transition of the sun from the zodiac of Sagittarius to Capricorn.Makar Sankranti, also referred to as Uttarayana, Makar, or simply Sankranti, is a Hindu observance and a festival. Usually falling on the date of 14 January annually, this occasion marks the transition of the sun from the zodiac of Sagittarius to Capricorn.",
+  "image": "http://localhost:8080/uploads/events/evn2.jpg",
+  "createdAt": {
+    "$date": "2024-03-24T05:55:01.236Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:50:47.136Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T05:50:47.136Z"
+  },
+  "__v": 0,
+  "organizerEmail": "r9@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "65ffc15c5d40923ef1c9b16d"
+  },
+  "name": "Dussera 2024",
+  "bookingPrice": "234",
+  "organizer": "Shashikanth",
+  "organizerPhone": "8123192799",
+  "organizerEmail": "ramesh@gmail.com",
+  "startDate": "Sun Mar 24 2024 11:29:01 GMT+0530 (India Standard Time)",
+  "endDate": "Sun Mar 24 2024 11:29:01 GMT+0530 (India Standard Time)",
+  "venue": "Manhattan Club 350 5th Ave, New York, NY, United States",
+  "description": "Vijayadashami, more commonly known as Dussehra, and also known as Dasara or Dashain, is a major Hindu festival celebrated every year at the end of Durga Puja and Navaratri. It is observed on the tenth day of the month of Ashvin, the seventh in the Hindu lunisolar calendar.Vijayadashami, more commonly known as Dussehra, and also known as Dasara or Dashain, is a major Hindu festival celebrated every year at the end of Durga Puja and Navaratri. It is observed on the tenth day of the month of Ashvin, the seventh in the Hindu lunisolar calendar.Vijayadashami, more commonly known as Dussehra, and also known as Dasara or Dashain, is a major Hindu festival celebrated every year at the end of Durga Puja and Navaratri. It is observed on the tenth day of the month of Ashvin, the seventh in the Hindu lunisolar calendar.",
+  "image": "http://localhost:8080/uploads/events/ev3.jpg",
+  "createdAt": {
+    "$date": "2024-03-24T05:59:56.581Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:41:12.120Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T05:41:12.120Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660111d6c68f037519071540"
+  },
+  "name": "dd",
+  "bookingPrice": "23",
+  "organizer": "ddddddd",
+  "organizerPhone": "08123192799",
+  "organizerEmail": "r9@gmail.com",
+  "startDate": "Mon Mar 25 2024 11:25:11 GMT+0530 (India Standard Time)",
+  "endDate": "Mon Mar 25 2024 11:25:11 GMT+0530 (India Standard Time)",
+  "venue": "Manhattan Club 350 5th Ave, New York, NY, United States",
+  "description": "dddddd3wweeeeeeeeeddddddddddd",
+  "image": "http://localhost:8080/uploads/events/images (5).jpeg",
+  "createdAt": {
+    "$date": "2024-03-25T05:55:34.755Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:55:45.419Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T05:55:45.420Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66011244c68f037519071552"
+  },
+  "name": "dd",
+  "bookingPrice": "23",
+  "organizer": "Shashikanth",
+  "organizerPhone": "08123192799",
+  "organizerEmail": "r9@gmail.com",
+  "startDate": "Mon Mar 25 2024 11:27:08 GMT+0530 (India Standard Time)",
+  "endDate": "Mon Mar 25 2024 11:27:08 GMT+0530 (India Standard Time)",
+  "venue": "Manhattan Club 350 5th Ave, New York, NY, United States",
+  "description": "33333333333333333333333333333333",
+  "image": "http://localhost:8080/uploads/events/images (4).jpeg",
+  "createdAt": {
+    "$date": "2024-03-25T05:57:24.330Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:57:33.799Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T05:57:33.799Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66011279c68f03751907155e"
+  },
+  "name": "sssssssssss",
+  "bookingPrice": "3",
+  "organizer": "eVENT",
+  "organizerPhone": "08123192799",
+  "organizerEmail": "r9@gmail.com",
+  "startDate": "Mon Mar 25 2024 11:27:50 GMT+0530 (India Standard Time)",
+  "endDate": "Mon Mar 25 2024 11:27:50 GMT+0530 (India Standard Time)",
+  "venue": "33333",
+  "description": "dddddddddddddddxxxxxxxxxxx",
+  "image": "http://localhost:8080/uploads/events/images (4).jpeg",
+  "createdAt": {
+    "$date": "2024-03-25T05:58:17.227Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T05:58:36.881Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T05:58:36.881Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660112e8c68f037519071570"
+  },
+  "name": "sss",
+  "bookingPrice": "43",
+  "organizer": "eVENT",
+  "organizerPhone": "08123192799",
+  "organizerEmail": "r9@gmail.com",
+  "startDate": "Mon Mar 25 2024 11:29:52 GMT+0530 (India Standard Time)",
+  "endDate": "Mon Mar 25 2024 11:29:52 GMT+0530 (India Standard Time)",
+  "venue": "Manhattan Club 350 5th Ave, New York, NY, United States",
+  "description": "3333333333333333333333333333333333",
+  "image": "http://localhost:8080/uploads/events/images (5).jpeg",
+  "createdAt": {
+    "$date": "2024-03-25T06:00:08.154Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-25T06:00:11.633Z"
+  },
+  "deleted": true,
+  "updatedAt": {
+    "$date": "2024-03-25T06:00:11.633Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6602548dd2852726a28db98b"
+  },
+  "name": "Maha shiva ratri 2024",
+  "bookingPrice": "34",
+  "organizer": "Shashikanth",
+  "organizerPhone": "8123192799",
+  "organizerEmail": "r9@gmail.com",
+  "startDate": "Wed Mar 27 2024 08:21:53 GMT+0530 (India Standard Time)",
+  "endDate": "Wed Mar 27 2024 08:21:53 GMT+0530 (India Standard Time)",
+  "venue": "Manhattan Club 350 5th Ave, NY, United States",
+  "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+  "image": "http://localhost:8080/uploads/events/images (5).jpeg",
+  "createdAt": {
+    "$date": "2024-03-26T04:52:29.795Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-26T04:52:29.795Z"
+  },
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-04-04T07:39:18.420Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6602d96adb8aba4d2dfa9327"
+  },
+  "name": "Deepavali 2024",
+  "bookingPrice": "234",
+  "organizer": "Shashikanth",
+  "organizerPhone": "8123192799",
+  "organizerEmail": "r9@gmail.com",
+  "startDate": "Tue Mar 26 2024 19:48:07 GMT+0530 (India Standard Time)",
+  "endDate": "Tue Mar 26 2024 19:48:07 GMT+0530 (India Standard Time)",
+  "venue": "Toronto",
+  "description": "Something description................",
+  "image": "http://localhost:8080/uploads/events/Annadanam_Campaign_HeroImage_v1_304.jpg",
+  "createdAt": {
+    "$date": "2024-03-26T14:19:22.196Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-26T14:19:22.196Z"
+  },
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-26T14:19:22.196Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6602da29db8aba4d2dfa9330"
+  },
+  "name": "Big festival Holi",
+  "bookingPrice": "24",
+  "organizer": "SHashi",
+  "organizerPhone": "8123192799",
+  "organizerEmail": "shashi@gmail.com",
+  "startDate": "12/10/2023",
+  "endDate": "12/10/2025",
+  "venue": "sssss",
+  "description": "ssssssssssssssssssssss",
+  "image": "http://localhost:8080/uploads/events/sri.laxmi.jfif",
+  "createdAt": {
+    "$date": "2024-03-26T14:22:33.003Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-26T14:22:33.003Z"
+  },
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-26T14:22:33.003Z"
+  },
+  "__v": 0
+}]
