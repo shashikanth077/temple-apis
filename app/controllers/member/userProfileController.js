@@ -5,6 +5,7 @@ const {
   createUserProfile,
   updateUserProfile,
   deleteUserAndProfile,
+  updatePassword
 } = require("../../services/member/userProfile/userProfileService");
 
 exports.getUserProfileByUserId = async (req, res) => {
@@ -16,6 +17,18 @@ exports.getUserProfileByUserId = async (req, res) => {
     res
       .status(500)
       .json({ error: "Internal server error (getUserProfilesService)" });
+  }
+};
+
+exports.changeUserPassword = async (req, res) => {
+  try {
+    const profile = await updatePassword(req);
+    return res.status(profile.status).json(profile.data);
+  } catch (error) {
+    logger.error("changeUserPassword Error:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error (changeUserPassword)" });
   }
 };
 

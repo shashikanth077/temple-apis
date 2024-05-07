@@ -1735,6 +1735,51 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "ClientApi",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ClientApi",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"oldPassword\":\"123456\",\r\n\"newPassword\":\"456797\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/profile/660d2c178e9f9880962ef6a3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"profile",
+								"660d2c178e9f9880962ef6a3"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

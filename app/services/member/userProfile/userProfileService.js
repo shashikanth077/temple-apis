@@ -1,6 +1,7 @@
 const UserProfile = require("../../../models/member/userProfile/userProfileModel");
 const FamilyDetails = require("../../../models/member/userProfile/familyDetailsModel");
 const User = require("../../../models/auth/userModel");
+const bcrypt = require("bcryptjs");
 
 const getUserProfileByUserId = async (userId) => {
   const user = await User.findOne({ _id: userId, activated: true });
@@ -17,6 +18,38 @@ const getUserProfileByUserId = async (userId) => {
     const data = { success: true, profile };
     return { data, status: 200 };
   }
+};
+
+const updatePassword = async (req) => {
+  const { oldPassword, newPassword } = req.body;
+
+  const user = await User.findOne({ _id: req.params.userId, activated: true });
+  if (!user) {
+    const data = { success: false, message: "User not found" };
+    return { data, status: 404 };
+  }
+
+  const passwordIsValid = bcrypt.compareSync(
+    oldPassword,
+    user.password
+  );
+
+  if (!passwordIsValid) {
+    const data = {
+      success: false,
+      message: "Invalid password",
+    };
+    return { data, status: 401 };
+  }
+
+  user.password = bcrypt.hashSync(newPassword, 8);
+  await user.save();
+
+  const data = {
+    success: true,
+    message: "Password changed successfully!",
+  };
+  return { data, status: 200 };
 };
 
 const createUserProfile = async (req, res) => {
@@ -126,4 +159,5 @@ module.exports = {
   createUserProfile,
   updateUserProfile,
   deleteUserAndProfile,
+  updatePassword,
 };
