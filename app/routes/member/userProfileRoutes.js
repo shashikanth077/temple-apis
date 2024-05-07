@@ -30,4 +30,10 @@ module.exports = function (app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.deleteUserProfileController
   );
+
+  app.put(
+    "/api/profile/changePassword/:userId",
+    [authJwt.verifyToken],
+    controller.changeUserPassword
+  );
 };

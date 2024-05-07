@@ -18,7 +18,7 @@ const sendSMS = async (to, message) => {
     });
     return result.sid;
   } catch (error) {
-    logger.error("Error sending SMS:", error.message);
+    //logger.error("Error sending SMS:", error.message);
   }
 };
 

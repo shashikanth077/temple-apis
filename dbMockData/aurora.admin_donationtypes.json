@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "66025697d2852726a28db9b4"
+  },
+  "donationType": "Anna Danam",
+  "frequency": "monthly",
+  "denominations": [
+    "1000",
+    "2000",
+    "4000"
+  ],
+  "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+  "image": "http://localhost:8080/uploads/donations/Annadanam_Campaign_HeroImage_v1_304.jpg",
+  "createdAt": {
+    "$date": "2024-03-26T05:01:11.125Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-26T05:01:11.125Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-26T05:01:11.125Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660256f5d2852726a28db9d6"
+  },
+  "donationType": "Vastradanam",
+  "frequency": "monthly",
+  "denominations": [
+    "1000",
+    "3000",
+    "4000"
+  ],
+  "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+  "image": "http://localhost:8080/uploads/donations/Annadanam_Campaign_HeroImage_v1_304.jpg",
+  "createdAt": {
+    "$date": "2024-03-26T05:02:45.383Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-03-26T05:02:45.383Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-26T05:02:45.383Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66214175fbed8356be2ff46b"
+  },
+  "donationType": "Grocery Danam",
+  "frequency": "monthly",
+  "denominations": [
+    "1000",
+    "3000"
+  ],
+  "description": "Grocery Danammmmmmmmmmmmmmmmmm",
+  "image": "http://localhost:8080/uploads/donations/s.jpg",
+  "createdAt": {
+    "$date": "2024-04-18T15:51:17.407Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-04-18T15:51:17.407Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-18T15:51:17.407Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6621f1c9fbed8356be2ffb15"
+  },
+  "donationType": "Souvineer",
+  "frequency": "monthly",
+  "denominations": [
+    "500"
+  ],
+  "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+  "image": "http://localhost:8080/uploads/donations/s.jpg",
+  "createdAt": {
+    "$date": "2024-04-19T04:23:37.357Z"
+  },
+  "modifiedAt": {
+    "$date": "2024-04-19T04:23:37.357Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-19T04:23:37.357Z"
+  },
+  "__v": 0
+}]
